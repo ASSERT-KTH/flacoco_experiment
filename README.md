@@ -1,0 +1,20 @@
+| Project                                                                                                 | Source |
+|---------------------------------------------------------------------------------------------------------|--------|
+| [apache/dubbo](https://github.com/apache/dubbo)                                                         | Bears  |
+| [debezium/debezium](https://github.com/debezium/debezium)                                               | Bears  |
+| [apache/pinot](https://github.com/apache/pinot)                                                         | Bears  |
+| [openzipkin/zipkin](https://github.com/openzipkin/zipkin)                                               | Bears  |
+| [societe-generale/ci-droid-tasks-consumer](https://github.com/societe-generale/ci-droid-tasks-consumer) | Bears  |
+| [SonarOpenCommunity/sonar-cxx](https://github.com/SonarOpenCommunity/sonar-cxx)                         | Bears  |
+| [vert-x3/vertx-jdbc-client](https://github.com/vert-x3/vertx-jdbc-client)                               | Bears  |
+| [vert-x3/vertx-web](https://github.com/vert-x3/vertx-web)                                               | Bears  |
+| [INRIA/spoon](https://github.com/INRIA/spoon)                                                           | Bears  |
+| [apache/rocketmq](https://github.com/apache/rocketmq)                                                   | GitHub |
+| [confluentinc/kafka-connect-jdbc](https://github.com/confluentinc/kafka-connect-jdbc)                   | GitHub |
+| [liquibase/liquibase](https://github.com/liquibase/liquibase)                                           | GitHub |
+| [apache/systemds](https://github.com/apache/systemds)                                                   | GitHub |
+| [jenkinsci/kubernetes-plugin](https://github.com/jenkinsci/kubernetes-plugin)                           | GitHub |
+| [apache/shardingsphere](https://github.com/apache/shardingsphere)                                       | GitHub |
+| [TheAlgorithms/Java](https://github.com/TheAlgorithms/Java)                                             | GitHub |
+| [mybatis/mybatis-3](https://github.com/mybatis/mybatis-3)                                               | GitHub |
+| [lennartkoopmann/nzyme](https://github.com/lennartkoopmann/nzyme)                                       | GitHub |
