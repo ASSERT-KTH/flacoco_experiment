@@ -21,6 +21,168 @@
 | [mybatis/mybatis-3](https://github.com/mybatis/mybatis-3)                                               | GitHub |
 | [lennartkoopmann/nzyme](https://github.com/lennartkoopmann/nzyme)                                       | GitHub |
 
+# PRs Analysis
+
+## Apache Dubbo
+
+PR [9893](https://github.com/apache/dubbo/pull/9893) updated at: Sun Apr 03 16:30:08 CEST 2022
+
+- **Commit change**: Replace `Invoker<T>` with `AtomicReference<Invoker<T>>`
+- **Developer action**: Developer closed the pull request
+- **Flacoco result**: Flacoco has found 102 suspicious lines, but none were matched to the diff
+- **More details**: The top 5 lines found by Flacoco are not in the same file changed by the commit
+
+## Apache Shardingsphere
+
+PR [16609](https://github.com/apache/shardingsphere/pull/16609) updated at: Tue Apr 05 16:53:48 CEST 2022
+
+- **Commit change**: Add a new method and change an if-statement (then branch)
+- **Developer action**: Developer reverted the change, updated the doc and merged the pull request
+- **Flacoco result**: Flacoco has found 133 suspicious lines, but none were matched to the diff
+- **More details**: The top 5 lines found by Flacoco are not in the same file changed by the commit
+
+PR [16609](https://github.com/apache/shardingsphere/pull/16609) updated at: Tue Apr 05 18:12:03 CEST 2022
+
+- **Commit change**: No changes, just addition of label to the PR
+- **Developer action**: Developer reverted the change, updated the doc and merged the pull request
+- **Flacoco result**: Flacoco has found 133 suspicious lines, but none were matched to the diff
+- **More details**: The top 5 lines found by Flacoco are not in the same file changed by the commit
+
+## Debezium
+
+PR [3383](https://github.com/debezium/debezium/pull/3382) updated at: Thu Apr 07 20:13:21 CEST 2022
+
+- **Commit change**: Updated test cases and other updates classified as "breaking API change"
+- **Developer action**: Pull Request is still work in progress
+- **Flacoco result**: Flacoco has found 3 suspicious lines, but none were matched to the diff
+- **More details**: The top 5 lines found by Flacoco are not in the same file changed by the commit
+
+## Vert-X3 JDBC Client
+
+PR [273](https://github.com/vert-x3/vertx-jdbc-client/pull/273) updated at: Wed Mar 23 14:11:51 CET 2022
+
+- **Commit change**: Changes to .sql file, test cases and many changes to Java files
+- **Developer action**: Pull Request is still work in progress
+- **Flacoco result**: Flacoco has found 222 suspicious lines, but none were matched to the diff
+- **More details**: The top 5 lines found by Flacoco are not in the same file changed by the commit
+
+## Vert-X3 Web
+
+PR [2157](https://github.com/vert-x3/vertx-web/pull/2157) updated at: Tue Mar 29 14:12:43 CEST 2022
+
+- **Commit change**: Changed method signature (add a new parameter) and updated a test case
+- **Developer action**: 1 workflow awaiting approval
+- **Flacoco result**: Flacoco has found 6 suspicious lines, but none were matched to the diff
+- **More details**:
+    - Developer comment: "The exceptions in the CI has nothing to do with the PR I submitted :("
+    - The top 5 lines found by Flacoco are not in the same file changed by the commit, but the suspicious class     identified by Flacoco is used in the files changed by the developer
+
+# Liquidbase
+
+PR [2679](https://github.com/liquibase/liquibase/pull/2679) updated at: Wed Mar 30 19:27:57 CEST 2022
+
+- **Commit change**: Changes to class `Location` removing some methods and changing the logic of two of them
+- **Developer action**: Pull request has been merged
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: The lines changed by the developer to fix the failure are not the ones identified by Flacoco
+    
+PR [2709](https://github.com/liquibase/liquibase/pull/2709) updated at: Mon Apr 11 23:18:26 CEST 2022
+
+- **Commit change**: Add new if-statement and new assignment ([Link to the changes](https://github.com/liquibase/liquibase/pull/2709/commits/b067b9c98b4369e1b9ced8e8bec6ae7fed500a48))
+- **Developer action**: The next commit is still failing and changed tets cases
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2709](https://github.com/liquibase/liquibase/pull/2709) updated at: Wed Apr 13 03:06:45 CEST 2022
+
+- **Commit change**: Changes to a Java file and to test cases [Link to the changes](https://github.com/liquibase/liquibase/pull/2709/commits/8ede6d9c6a6ad6b63a0958964cb67ddd0d15e9c3)
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: 
+    - There is not a next commit that passes all the tests
+    - The commit applies changes to the file identified by Flacoco with the previous failed commit, but in different points
+
+PR [2709](https://github.com/liquibase/liquibase/pull/2709) updated at: Wed Apr 13 04:55:36 CEST 2022
+
+- **Commit changes**: [Link to the changes](https://github.com/liquibase/liquibase/pull/2709/commits/0c2bf23250e3eead5aa1c19976b2660e2a5a9b42)
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2709](https://github.com/liquibase/liquibase/pull/2709) updated at: Thu Apr 14 15:49:07 CEST 2022
+
+- **Commit changes**: [Link to the changes](https://github.com/liquibase/liquibase/pull/2709/commits/75790466b649a43965a91aa358b7e67160dcbb08)
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: 
+    - There is not a next commit that passes all the tests
+    - The commit applies changes to the file identified by Flacoco with the previous failed commit, but in different points
+
+PR [2709](https://github.com/liquibase/liquibase/pull/2709) updated at: Thu Apr 14 17:02:15 CEST 2022
+
+- **Commit changes**: [Link to changes](https://github.com/liquibase/liquibase/pull/2709/commits/59806687eff18335a55a19ba0f28f0d44981d2d3)
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2709](https://github.com/liquibase/liquibase/pull/2709) updated at: Thu Apr 14 17:26:59 CEST 2022
+
+- **Commit changes**: Not found in commit history
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2715](https://github.com/liquibase/liquibase/pull/2715) updated at: Mon Apr 04 17:14:23 CEST 2022
+
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2715](https://github.com/liquibase/liquibase/pull/2715) updated at: Thu Apr 07 21:12:26 CEST 2022
+
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2715](https://github.com/liquibase/liquibase/pull/2715) updated at: Fri Apr 08 16:10:02 CEST 2022
+
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2715](https://github.com/liquibase/liquibase/pull/2715) updated at: Fri Apr 15 15:28:57 CEST 2022
+
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2715](https://github.com/liquibase/liquibase/pull/2715) updated at: Mon Apr 18 17:05:46 CEST 2022
+
+- **More details**: There is not a next commit that passes all the tests
+
+PR [2747](https://github.com/liquibase/liquibase/pull/2747) updated at: Wed Apr 13 19:49:07 CEST 2022
+
+- **Commit change**: Switch to use forked GitHub Action in build and add a variable assignment in a Java file
+- **Developer action**: Developer closed the pull request
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: Developer comment: "making a pointless change"
+
+PR [2748](https://github.com/liquibase/liquibase/pull/2748) updated at: Wed Apr 13 20:59:50 CEST 2022
+
+- **Commit change**: 
+- **Developer action**:
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: 
+
+PR [2749](https://github.com/liquibase/liquibase/pull/2749) updated at: Wed Apr 13 20:28:27 CEST 2022
+
+- **Commit change**: 
+- **Developer action**: 
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: 
+
+PR [2763](https://github.com/liquibase/liquibase/pull/2763) updated at: Fri Apr 15 21:13:58 CEST 2022
+
+- **Commit change**: 
+- **Developer action**:
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: 
+
+PR [2763](https://github.com/liquibase/liquibase/pull/2763) updated at: Mon Apr 18 15:05:43 CEST 2022
+
+- **Commit change**: 
+- **Developer action**:
+- **Flacoco result**: Flacoco found suspicious lines matching the diff
+- **More details**: 
+
+
 # Experiment Data
 
 |Project                                                                                                |PR                                                                       |PR Date   |Failure Reason                                                                                                                           |Flacocobot result                                                         |Note                                                                                                    |
