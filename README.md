@@ -95,7 +95,7 @@ PR [2709](https://github.com/liquibase/liquibase/pull/2709) updated at: Mon Apr 
 
 PR [2709](https://github.com/liquibase/liquibase/pull/2709) updated at: Wed Apr 13 03:06:45 CEST 2022
 
-- **Commit change**: Changes to a Java file and to test cases [Link to the changes](https://github.com/liquibase/liquibase/pull/2709/commits/8ede6d9c6a6ad6b63a0958964cb67ddd0d15e9c3)
+- **Commit change**: Changes to a Java file and to test cases ([Link to the changes](https://github.com/liquibase/liquibase/pull/2709/commits/8ede6d9c6a6ad6b63a0958964cb67ddd0d15e9c3))
 - **Flacoco result**: Flacoco found suspicious lines matching the diff
 - **More details**: 
     - There is not a next commit that passes all the tests
