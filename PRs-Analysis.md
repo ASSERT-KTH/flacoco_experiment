@@ -184,6 +184,7 @@ The lines found by flacocobot are not contained in the diff.
 
 ## Protocol to select Pull Requests to analyze
 
-- Consider pull requests which failure is related to test cases and not to other other aspects (e.g., checkstyle errors);
+- Consider pull requests which failure is related to test cases and not to other aspects (e.g., checkstyle errors);
+- Discard pull request which changes are not related to Java files;
 - Consider pull requests for which flacocobot found suspicious lines;
 - Discard pull requests that introduce changes in the test cases to fix the failure?
