@@ -20,7 +20,7 @@ Failed tests:
 
 Details about the lines found by Flacocobot:
 - Flacocobot found 4 suspicious lines matching the diff and it left [a comment to the PR](https://github.com/INRIA/spoon/pull/4709#pullrequestreview-951192304);
-- The lines are associated with failed tests that are not the same of the ones detected on GitHub CI;
+- The lines associated with failed tests are not the same of the ones detected on GitHub CI;
 - Two developers reacted to the comment with the "confused" emoji :confused:;
 - The lines matching the diff have lower suspiciousness score (5.75% and 0.92%) than the lines that are not contained in the diff (92.53% and 92.48%).
 
