@@ -15,12 +15,18 @@ The lines found by flacocobot are not contained in the diff and they are associa
 - Status: Open
 - Details: [Link](https://github.com/INRIA/spoon/pull/4709)
 
-Failed tests
+Failed tests:
 - JavaReflectionTreeBuilderTest.testInnerClass:657 expected: `<true>` but was: `<false>`
 
-Flacocobot found suspicious 4 lines matching the diff and it left [a comment to the PR](https://github.com/INRIA/spoon/pull/4709#pullrequestreview-951192304).
-The lines are associated with failed tests that are not the same of the ones detected on GitHub CI.
-Two developers reacted to the comment with the "confused" emoji `:confused:`
+Details about the lines found by Flacocobot:
+- Flacocobot found suspicious 4 lines matching the diff and it left [a comment to the PR](https://github.com/INRIA/spoon/pull/4709#pullrequestreview-951192304);
+- The lines are associated with failed tests that are not the same of the ones detected on GitHub CI;
+- Two developers reacted to the comment with the "confused" emoji `:confused:`;
+- The lines matching the diff have lower suspiciousness score (5.75% and 0.92%) than the lines that are not contained in the diff (92.53% and 92.48%).
+
+### Other details
+
+For both the pull requests, Flacocobot found the same suspicious lines.
 
 ## Apache Dubbo
 
@@ -119,6 +125,11 @@ Failed tests:
 - AlterSQLParserRuleHandlerTest.assertExecuteWithoutCurrentRuleConfiguration:51 » ClassCast
 
 The lines found by flacocobot are not contained in the diff and they are associated with failed tests that are not the same of the ones detected on GitHub CI.
+
+### Other details
+
+- For three pull requests ([17047](https://github.com/flacocobot/2022-flacocobot-experiment/blob/main/apache/shardingsphere/17047/2022-04-24T07:13:31.850737Z.md), [17122](https://github.com/flacocobot/2022-flacocobot-experiment/blob/main/apache/shardingsphere/17122/2022-04-26T11:41:54.593381Z.md) and [17174](https://github.com/flacocobot/2022-flacocobot-experiment/blob/main/apache/shardingsphere/17174/2022-04-28T10:44:53.282168Z.md)), Flacocobot found the same suspicious lines.
+- For two pull requests ([16952](https://github.com/flacocobot/2022-flacocobot-experiment/blob/main/apache/shardingsphere/16952/2022-04-20T09:34:45.803840Z.md) and [17110](https://github.com/flacocobot/2022-flacocobot-experiment/blob/main/apache/shardingsphere/17110/2022-04-26T03:52:18.943167Z.md), Flacocobot found the same suspicious lines.
 
 ## Debezium
 
