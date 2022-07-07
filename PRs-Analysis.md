@@ -240,6 +240,19 @@ Build: error in 'sh' step
 
 - Flacocobot did not find suspicious lines matching the diff because the failure is related to a CI Error.
 
+## Kubernetes-plugin
+
+- Date: Jun 10 2022
+- Status: Merged
+- Details: [Link](https://github.com/jenkinsci/kubernetes-plugin/pull/1190)
+
+2 tests failed
+- org.csanchez.jenkins.plugins.kubernetes.pod.retention.ReaperTest.testActivateOnNewComputer (java.lang.AssertionError: should be watching cloud)
+- org.csanchez.jenkins.plugins.kubernetes.pod.retention.ReaperTest.testReconnectOnNewComputer (java.lang.AssertionError: watcher is restarted)
+
+One more test failed with Flacocobot (org.csanchez.jenkins.plugins.kubernetes.KubernetesFactoryAdapterTest#autoConfig).
+
+- Flacocobot did not find suspicious lines matching the diff. Indeed, developer [changed the two failed tests](https://github.com/jenkinsci/kubernetes-plugin/pull/1190/commits/e6f9e42d64de1e8efe1c513e9ca195e178b19eef) to fix the bug.
 
 ## Protocol to select Pull Requests to analyze
 
