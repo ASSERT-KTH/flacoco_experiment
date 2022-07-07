@@ -24,7 +24,7 @@ Details about the lines found by Flacocobot:
 - Two developers reacted to the comment with the "confused" emoji :confused:;
 - The lines matching the diff have lower suspiciousness score (5.75% and 0.92%) than the lines that are not contained in the diff (92.53% and 92.48%).
 
-### Other details
+#### Other details
 
 For both the pull requests, Flacocobot found the same suspicious lines.
 
@@ -229,6 +229,17 @@ Failed tests:
 - Tests run: 183, Failures: 0, Errors: 20, Skipped: 0
 
 The lines found by flacocobot are not contained in the diff.
+
+## Confluentinc - kafka-connect-jdbc
+
+- Date: Jun 21 2022
+- Status: Open
+- Details: [Link](https://github.com/confluentinc/kafka-connect-jdbc/pull/1206)
+
+Build: error in 'sh' step
+
+- Flacocobot did not find suspicious lines matching the diff because the failure is related to a CI Error.
+
 
 ## Protocol to select Pull Requests to analyze
 
