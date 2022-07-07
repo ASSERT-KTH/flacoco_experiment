@@ -62,7 +62,7 @@ The lines found by flacocobot are not contained in the diff. Differences in fail
 - Tests run: 1720, Failures: 15, Errors: 23, Skipped: 13 (Tests with Java 11 on windows-latest)
 - Tests run: 1720, Failures: 16, Errors: 23, Skipped: 11 (Tests with Java 17 on ubuntu-latest)
 
-Other failures related extra checks (checkstyle errrors) and code quality qodana.
+Other failures related to extra checks (checkstyle errrors) and code quality qodana.
 
 Flacocobot found 5 suspicious lines matching the diff. Not all the failed tests on CI are failed with Flacocobot. Moreover, there are more failed tests detected by Flacocobot. Flacocobot comment has been ignored by developers. Flacocobot reports also lines related to test cases.
 
