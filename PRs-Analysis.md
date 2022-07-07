@@ -54,6 +54,18 @@ Other failures related extra checks (Javadoc quality has deteriorated!) and code
 
 The lines found by flacocobot are not contained in the diff. Differences in failed tests between flacocobot and CI. The failed test in CI is not failed with flacocobot.
 
+### PR 4751
+- Date: 20 June 2022
+- Status: Open
+- Details: [Link](https://github.com/INRIA/spoon/pull/4751)
+
+Tests run: 1720, Failures: 15, Errors: 23, Skipped: 13 (Tests with Java 11 on windows-latest)
+Tests run: 1720, Failures: 16, Errors: 23, Skipped: 11 (Tests with Java 17 on ubuntu-latest)
+
+Other failures related extra checks (checkstyle errrors) and code quality qodana.
+
+Flacocobot found 5 suspicious lines matching the diff. Not all the failed tests on CI are failed with Flacocobot. Moreover, there are more failed tests detected by Flacocobot. Flacocobot comment has been ignored by developers. Flacocobot reports also lines related to test cases.
+
 ## Apache Dubbo
 
 ### PR 9893
