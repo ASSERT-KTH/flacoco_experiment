@@ -59,12 +59,22 @@ The lines found by flacocobot are not contained in the diff. Differences in fail
 - Status: Open
 - Details: [Link](https://github.com/INRIA/spoon/pull/4751)
 
-Tests run: 1720, Failures: 15, Errors: 23, Skipped: 13 (Tests with Java 11 on windows-latest)
-Tests run: 1720, Failures: 16, Errors: 23, Skipped: 11 (Tests with Java 17 on ubuntu-latest)
+- Tests run: 1720, Failures: 15, Errors: 23, Skipped: 13 (Tests with Java 11 on windows-latest)
+- Tests run: 1720, Failures: 16, Errors: 23, Skipped: 11 (Tests with Java 17 on ubuntu-latest)
 
 Other failures related extra checks (checkstyle errrors) and code quality qodana.
 
 Flacocobot found 5 suspicious lines matching the diff. Not all the failed tests on CI are failed with Flacocobot. Moreover, there are more failed tests detected by Flacocobot. Flacocobot comment has been ignored by developers. Flacocobot reports also lines related to test cases.
+
+### PR 4755
+- Date: 22 June 2022
+- Status: Merged
+- Details: [Link](https://github.com/INRIA/spoon/pull/4755)
+
+Failed tests (Tests with Java 11 on ubuntu-lates)
+- Error: TypePatternTest.testTypePatternSourcePosition(Factory) » ParameterResolution Failed to resolve parameter [spoon.reflect.factory.Factory arg0] in method [void spoon.test.pattern.TypePatternTest.testTypePatternSourcePosition(spoon.reflect.factory.Factory)]: java.io.FileNotFoundException: The following file does not exist: /home/runner/work/spoon/spoon/src/test/resources/patternmatching/InstanceofPatternmatch.java
+
+Flacocobot found 2 suspicious lines matching the diff. Differences in failed tests between CI and flacocobot. Flacocobot was not able to push the comment on the pull request.
 
 ## Apache Dubbo
 
