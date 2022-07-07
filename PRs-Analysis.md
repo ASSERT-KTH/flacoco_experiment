@@ -28,6 +28,32 @@ Details about the lines found by Flacocobot:
 
 For both the pull requests, Flacocobot found the same suspicious lines.
 
+### PR 4748
+- Date: 13 June 2022
+- Status: Open
+- Details: [Link](https://github.com/INRIA/spoon/pull/4748)
+
+## 16:47 CEST
+
+Failed tests (Tests with Java 17 on ubuntu-latest)
+- Error: spoon.test.architecture.SpoonArchitectureEnforcerTest.testSpecPackage  Time elapsed: 4.309 s  <<< FAILURE!202
+java.lang.AssertionError: you have created a new package or removed an existing one, please declare it explicitly in SpoonArchitectureEnforcerTest#testSpecPackage
+- SpoonArchitectureEnforcerTest.testSpecPackage:448->assertSetEquals:457 you have created a new package or removed an existing one, please declare it explicitly in SpoonArchitectureEnforcerTest#testSpecPackage
+
+Other failures related to extra checks (missing licence header) and code quality qodana.
+
+The lines found by flacocobot are not contained in the diff. Differences in failed tests between flacocobot and CI.
+
+## 16:49 CEST
+
+Failed tests (Tests with Java 11 on ubuntu-latest)
+- Error: SpoonArchitectureEnforcerTest.testSrcMainJava:201 2 public methods should be documented with proper API documentation: spoon.javadoc.external.parsing.StringReader#readBalancedBraced()
+spoon.javadoc.external.parsing.StringReader#readPotentiallyQuoted()
+
+Other failures related extra checks (Javadoc quality has deteriorated!) and code quality qodana.
+
+The lines found by flacocobot are not contained in the diff. Differences in failed tests between flacocobot and CI.
+
 ## Apache Dubbo
 
 ### PR 9893
