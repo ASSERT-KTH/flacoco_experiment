@@ -33,7 +33,7 @@ For both the pull requests, Flacocobot found the same suspicious lines.
 - Status: Open
 - Details: [Link](https://github.com/INRIA/spoon/pull/4748)
 
-## 16:47 CEST
+#### 16:47 CEST
 
 Failed tests (Tests with Java 17 on ubuntu-latest)
 - Error: spoon.test.architecture.SpoonArchitectureEnforcerTest.testSpecPackage  Time elapsed: 4.309 s  <<< FAILURE!202
@@ -44,7 +44,7 @@ Other failures related to extra checks (missing licence header) and code quality
 
 The lines found by flacocobot are not contained in the diff. Differences in failed tests between flacocobot and CI.
 
-## 16:49 CEST
+#### 16:49 CEST
 
 Failed tests (Tests with Java 11 on ubuntu-latest)
 - Error: SpoonArchitectureEnforcerTest.testSrcMainJava:201 2 public methods should be documented with proper API documentation: spoon.javadoc.external.parsing.StringReader#readBalancedBraced()
