@@ -42,7 +42,7 @@ java.lang.AssertionError: you have created a new package or removed an existing 
 
 Other failures related to extra checks (missing licence header) and code quality qodana.
 
-The lines found by flacocobot are not contained in the diff. Differences in failed tests between flacocobot and CI.
+The lines found by flacocobot are not contained in the diff. Differences in failed tests between flacocobot and CI. There are more failed tests according flacocobot.
 
 #### 16:49 CEST
 
@@ -52,7 +52,7 @@ spoon.javadoc.external.parsing.StringReader#readPotentiallyQuoted()
 
 Other failures related extra checks (Javadoc quality has deteriorated!) and code quality qodana.
 
-The lines found by flacocobot are not contained in the diff. Differences in failed tests between flacocobot and CI.
+The lines found by flacocobot are not contained in the diff. Differences in failed tests between flacocobot and CI. The failed test in CI is not failed with flacocobot.
 
 ## Apache Dubbo
 
