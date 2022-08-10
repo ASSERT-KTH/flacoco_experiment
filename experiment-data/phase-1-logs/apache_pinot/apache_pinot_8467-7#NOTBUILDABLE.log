@@ -1,0 +1,73 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8467
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8467
+
+12:04:46.266 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+12:04:46.268 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+12:04:46.268 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+12:04:46.281 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+12:04:46.282 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+12:04:46.282 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+12:04:46.282 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+12:04:46.282 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8467_repo
+12:05:43.352 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+12:06:44.880 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] COMPILATION ERROR : 
+12:06:44.881 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/util/AutoAddInvertedIndex.java:[49,41] error: cannot find symbol
+12:06:44.881 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/helix/ControllerRequestClient.java:[33,41] error: cannot find symbol
+12:06:44.882 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/helix/ControllerRequestClient.java:[44,16] error: cannot find symbol
+12:06:44.883 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/helix/ControllerRequestClient.java:[46,33] error: cannot find symbol
+12:06:44.884 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/helix/ControllerRequestClient.java:[51,9] error: cannot find symbol
+12:06:44.884 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/util/AutoAddInvertedIndex.java:[343,8] error: cannot find symbol
+12:06:44.910 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile (default-compile) on project pinot-controller: Compilation failure: Compilation failure: 
+12:06:44.911 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/util/AutoAddInvertedIndex.java:[49,41] error: cannot find symbol
+12:06:44.911 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   class ControllerRequestURLBuilder
+12:06:44.911 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: package org.apache.pinot.spi.utils.builder
+12:06:44.911 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/helix/ControllerRequestClient.java:[33,41] error: cannot find symbol
+12:06:44.912 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   class ControllerRequestURLBuilder
+12:06:44.912 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: package org.apache.pinot.spi.utils.builder
+12:06:44.912 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/helix/ControllerRequestClient.java:[44,16] error: cannot find symbol
+12:06:44.913 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   class ControllerRequestURLBuilder
+12:06:44.913 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: class ControllerRequestClient
+12:06:44.913 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/helix/ControllerRequestClient.java:[46,33] error: cannot find symbol
+12:06:44.914 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   class ControllerRequestURLBuilder
+12:06:44.915 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: class ControllerRequestClient
+12:06:44.915 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/helix/ControllerRequestClient.java:[51,9] error: cannot find symbol
+12:06:44.915 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   class ControllerRequestURLBuilder
+12:06:44.915 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: class ControllerRequestClient
+12:06:44.916 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8467_repo/pinot-controller/src/main/java/org/apache/pinot/controller/util/AutoAddInvertedIndex.java:[343,8] error: cannot find symbol
+12:06:44.916 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   variable ControllerRequestURLBuilder
+12:06:44.916 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: class AutoAddInvertedIndex
+12:06:44.916 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+12:06:44.919 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+12:06:44.919 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+12:06:44.920 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+12:06:44.920 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+12:06:44.920 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+12:06:44.920 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+12:06:44.920 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+12:06:44.920 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-controller
+12:06:45.495 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/pinot cannot be built.
+12:06:45.497 [main] INFO  f.i.s.r.process.step.BuildProject - 
+12:06:46.556 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 30 s ]
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 89 s ]
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+12:06:46.557 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+12:06:46.558 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+12:06:46.558 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+12:06:46.558 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+12:06:46.558 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

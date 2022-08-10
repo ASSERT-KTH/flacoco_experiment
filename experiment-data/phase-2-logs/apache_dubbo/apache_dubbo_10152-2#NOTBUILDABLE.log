@@ -1,0 +1,71 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 10152
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 10152
+
+18:42:06.978 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+18:42:06.980 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+18:42:06.980 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+18:42:06.998 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:42:06.998 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+18:42:06.998 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:42:06.998 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+18:42:06.998 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+18:42:06.998 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+18:42:06.998 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+18:42:06.998 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+18:42:06.999 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+18:42:06.999 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+18:42:06.999 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+18:42:06.999 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+18:42:06.999 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/dubbo.git in the following directory: ./workspace/apache-dubbo-master-10152_repo
+18:43:05.899 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.xolstice.maven.plugins:protobuf-maven-plugin:0.6.1:compile (default) on project dubbo-rpc-triple: Unable to resolve plugin artifact: Missing:
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ----------
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 1) org.apache.dubbo:dubbo-compiler:jar:0.0.4.1-SNAPSHOT
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   Try downloading the file manually from the project website.
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   Then, install it using the command: 
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]       mvn install:install-file -DgroupId=org.apache.dubbo -DartifactId=dubbo-compiler -Dversion=0.0.4.1-SNAPSHOT -Dpackaging=jar -Dfile=/path/to/file
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   Alternatively, if you host your own repository you can deploy the file there: 
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]       mvn deploy:deploy-file -DgroupId=org.apache.dubbo -DartifactId=dubbo-compiler -Dversion=0.0.4.1-SNAPSHOT -Dpackaging=jar -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   Path to dependency: 
+18:43:05.900 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   	1) org.apache.dubbo:dubbo-rpc-triple:jar:3.0.9-SNAPSHOT
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   	2) org.apache.dubbo:dubbo-compiler:jar:0.0.4.1-SNAPSHOT
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ----------
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 1 required artifact is missing.
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] for artifact: 
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   org.apache.dubbo:dubbo-rpc-triple:jar:3.0.9-SNAPSHOT
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] from the specified remote repositories:
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   apache.snapshots (https://repository.apache.org/snapshots, releases=false, snapshots=true),
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   central (https://repo.maven.apache.org/maven2, releases=true, snapshots=false)
+18:43:05.901 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+18:43:05.909 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.909 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+18:43:05.909 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.909 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+18:43:05.909 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+18:43:05.909 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:43:05.909 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+18:43:05.909 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :dubbo-rpc-triple
+18:43:06.227 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/dubbo cannot be built.
+18:43:06.229 [main] INFO  f.i.s.r.process.step.BuildProject - 
+18:43:06.619 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 10 s ]
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 49 s ]
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions......................NOT RUN         
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:43:06.620 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+18:43:06.621 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:43:06.621 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

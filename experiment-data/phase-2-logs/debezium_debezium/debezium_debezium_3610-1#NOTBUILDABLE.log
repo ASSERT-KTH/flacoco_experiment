@@ -1,0 +1,48 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/debezium/debezium --gitrepopullrequest 3610
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/debezium/debezium --gitrepopullrequest 3610
+
+22:25:28.339 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+22:25:28.341 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+22:25:28.341 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+22:25:28.356 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+22:25:28.356 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/debezium/debezium.git in the following directory: ./workspace/debezium-debezium-master-3610_repo
+22:28:29.296 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [ERROR] Some problems were encountered while processing the POMs:
+22:28:29.297 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] The build could not read 1 project -> [Help 1]
+22:28:29.298 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   
+22:28:29.298 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   The project io.debezium:debezium-storage:2.0.0-SNAPSHOT (/root/workspace/debezium-debezium-master-3610_repo/debezium-storage/pom.xml) has 1 error
+22:28:29.298 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     Non-resolvable parent POM for io.debezium:debezium-storage:2.0.0-SNAPSHOT: Could not find artifact io.debezium:debezium-parent:pom:2.0.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 3, column 13 -> [Help 2]
+22:28:29.303 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+22:28:29.304 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+22:28:29.304 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+22:28:29.304 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+22:28:29.304 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+22:28:29.304 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException
+22:28:29.848 [main] ERROR f.i.s.r.process.step.BuildProject - Repository debezium/debezium cannot be built.
+22:28:29.850 [main] INFO  f.i.s.r.process.step.BuildProject - 
+22:28:29.972 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+22:28:29.972 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+22:28:29.972 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+22:28:29.972 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  10 s ]
+22:28:29.972 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................FAILURE [ 171 s ]
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................NOT RUN          
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................NOT RUN          
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................NOT RUN          
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................NOT RUN          
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................NOT RUN          
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository...NOT RUN          
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+22:28:29.973 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+22:28:29.973 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

@@ -1,0 +1,216 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/INRIA/spoon --gitrepopullrequest 4699
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/INRIA/spoon --gitrepopullrequest 4699
+
+14:32:18.611 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+14:32:18.612 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+14:32:18.612 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+14:32:18.625 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+14:32:18.625 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/INRIA/spoon.git in the following directory: ./workspace/INRIA-spoon-master-4699_repo
+14:33:22.399 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 30, 2022 2:33:22 PM org.junit.jupiter.engine.discovery.MethodSelectorResolver resolve
+14:33:22.399 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - WARNING: Possible configuration error: method [public void spoon.test.prettyprinter.TestSniperPrinter.testNoChangeDiff(java.io.File) throws java.io.IOException] resulted in multiple TestDescriptors [org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor, org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor]. This is typically the result of annotating a method with multiple competing annotations such as @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, etc.
+14:33:22.597 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 30, 2022 2:33:22 PM org.junit.jupiter.engine.discovery.MethodSelectorResolver resolve
+14:33:22.597 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - WARNING: Possible configuration error: method [public void spoon.test.prettyprinter.TestSniperPrinter.testNoChangeDiff(java.io.File) throws java.io.IOException] resulted in multiple TestDescriptors [org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor, org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor]. This is typically the result of annotating a method with multiple competing annotations such as @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, etc.
+14:35:59.682 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 30, 2022 2:35:59 PM org.junit.jupiter.engine.descriptor.MethodBasedTestDescriptor lambda$invokeTestWatchers$3
+14:35:59.682 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - WARNING: Failed to invoke TestWatcher [spoon.test.GitHubIssue$UnresolvedBugExtension] for method [spoon.test.prettyprinter.TestSniperPrinter#testNoChangeDiff(java.io.File)] with display name [[2] src/test/java/spoon/test/prettyprinter/testclasses/difftest/ExceptionTest.java]
+14:35:59.682 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - org.opentest4j.AssertionFailedError: Method testNoChangeDiff must fail
+14:35:59.682 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+14:35:59.682 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+14:35:59.682 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at spoon.test.GitHubIssue$UnresolvedBugExtension.testSuccessful(GitHubIssue.java:63)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$nodeFinished$15(TestMethodTestDescriptor.java:297)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.MethodBasedTestDescriptor.lambda$invokeTestWatchers$3(MethodBasedTestDescriptor.java:134)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.MethodBasedTestDescriptor.invokeTestWatchers(MethodBasedTestDescriptor.java:132)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.nodeFinished(TestMethodTestDescriptor.java:294)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.nodeFinished(TestMethodTestDescriptor.java:66)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.reportCompletion(NodeTestTask.java:188)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:226)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask$DefaultDynamicTestExecutor.execute(NodeTestTask.java:204)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:139)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.lambda$execute$2(TestTemplateTestDescriptor.java:107)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177)
+14:35:59.683 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1654)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:274)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:274)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1654)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+14:35:59.684 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:274)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1654)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:107)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor.execute(TestTemplateTestDescriptor.java:42)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.685 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+14:35:59.686 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+14:35:59.687 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 
+14:35:59.884 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 30, 2022 2:35:59 PM org.junit.jupiter.engine.descriptor.MethodBasedTestDescriptor lambda$invokeTestWatchers$3
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - WARNING: Failed to invoke TestWatcher [spoon.test.GitHubIssue$UnresolvedBugExtension] for method [spoon.test.prettyprinter.TestSniperPrinter#testSniperDoesNotPrintTheDeletedAnnotation()] with display name [testSniperDoesNotPrintTheDeletedAnnotation()]
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - org.opentest4j.AssertionFailedError: Method testSniperDoesNotPrintTheDeletedAnnotation must fail
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at spoon.test.GitHubIssue$UnresolvedBugExtension.testSuccessful(GitHubIssue.java:63)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$nodeFinished$15(TestMethodTestDescriptor.java:297)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.MethodBasedTestDescriptor.lambda$invokeTestWatchers$3(MethodBasedTestDescriptor.java:134)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.MethodBasedTestDescriptor.invokeTestWatchers(MethodBasedTestDescriptor.java:132)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.nodeFinished(TestMethodTestDescriptor.java:294)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.nodeFinished(TestMethodTestDescriptor.java:66)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.reportCompletion(NodeTestTask.java:188)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+14:35:59.885 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+14:35:59.886 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+14:35:59.887 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 
+14:36:38.242 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 1 source dir was found:
+14:36:38.242 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/INRIA-spoon-master-4699_repo/src/main/java
+14:36:38.285 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - It seems the step is entering in a loop while searching the test dir. The following file has already been visited: /root/workspace/INRIA-spoon-master-4699_repo/pom.xml
+14:36:38.285 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 1 test dir was found:
+14:36:38.285 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/INRIA-spoon-master-4699_repo/src/test/java
+14:36:38.539 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+14:36:38.539 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 2171
+14:36:38.539 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 2158
+14:36:38.539 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 2158
+14:36:38.540 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 0
+14:36:38.540 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+14:36:38.540 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 13
+14:36:38.540 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - 
+14:36:39.331 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [   7 s ]
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................SUCCESS [  51 s ]
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................SUCCESS [ 197 s ]
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................SUCCESS [   4 s ]
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................SUCCESS [   0 s ]
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................SUCCESS [   0 s ]
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................FAILURE [   0 s ]
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions.....................NOT RUN          
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTFAILING
+14:36:39.332 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:36:39.332 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

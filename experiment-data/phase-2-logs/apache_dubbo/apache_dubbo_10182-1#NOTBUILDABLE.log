@@ -1,0 +1,53 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 10182
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 10182
+
+15:46:06.434 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+15:46:06.436 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+15:46:06.436 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+15:46:06.467 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:46:06.468 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+15:46:06.469 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+15:46:06.470 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/dubbo.git in the following directory: ./workspace/apache-dubbo-master-10182_repo
+15:50:45.771 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] An exception has occurred in the compiler (11.0.4). Please file a bug against the Java compiler via the Java bug reporting page (http://bugreport.java.com) after checking the Bug Database (http://bugs.java.com) for duplicates. Include your program and the following diagnostic in your report. Thank you.
+15:50:46.281 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] COMPILATION ERROR : 
+15:50:46.282 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] error: error reading /root/workspace/apache-dubbo-master-10182_repo/dubbo-registry/dubbo-registry-sofa/src/test/java/org/apache/dubbo/registry/sofa/HelloService.java; /root/workspace/apache-dubbo-master-10182_repo/dubbo-registry/dubbo-registry-sofa/src/test/java/org/apache/dubbo/registry/sofa/HelloService.java
+15:50:46.282 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] error: error reading /root/workspace/apache-dubbo-master-10182_repo/dubbo-registry/dubbo-registry-sofa/src/test/java/org/apache/dubbo/registry/sofa/HelloServiceImpl.java; /root/workspace/apache-dubbo-master-10182_repo/dubbo-registry/dubbo-registry-sofa/src/test/java/org/apache/dubbo/registry/sofa/HelloServiceImpl.java
+15:50:46.297 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project dubbo-registry-sofa: Compilation failure: Compilation failure: 
+15:50:46.298 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] error: error reading /root/workspace/apache-dubbo-master-10182_repo/dubbo-registry/dubbo-registry-sofa/src/test/java/org/apache/dubbo/registry/sofa/HelloService.java; /root/workspace/apache-dubbo-master-10182_repo/dubbo-registry/dubbo-registry-sofa/src/test/java/org/apache/dubbo/registry/sofa/HelloService.java
+15:50:46.298 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] error: error reading /root/workspace/apache-dubbo-master-10182_repo/dubbo-registry/dubbo-registry-sofa/src/test/java/org/apache/dubbo/registry/sofa/HelloServiceImpl.java; /root/workspace/apache-dubbo-master-10182_repo/dubbo-registry/dubbo-registry-sofa/src/test/java/org/apache/dubbo/registry/sofa/HelloServiceImpl.java
+15:50:46.298 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+15:50:46.302 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+15:50:46.302 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+15:50:46.302 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+15:50:46.302 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+15:50:46.303 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+15:50:46.303 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+15:50:46.303 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+15:50:46.303 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :dubbo-registry-sofa
+15:50:47.179 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/dubbo cannot be built.
+15:50:47.180 [main] INFO  f.i.s.r.process.step.BuildProject - 
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  13 s ]
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................FAILURE [ 267 s ]
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................NOT RUN          
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................NOT RUN          
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................NOT RUN          
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................NOT RUN          
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................NOT RUN          
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+15:50:47.183 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions.....................NOT RUN          
+15:50:47.185 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:50:47.186 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+15:50:47.186 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:50:47.186 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

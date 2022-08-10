@@ -1,0 +1,60 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8524
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8524
+
+03:20:41.495 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+03:20:41.496 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+03:20:41.496 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+03:20:41.511 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+03:20:41.512 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+03:20:41.512 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8524_repo
+03:22:12.123 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] COMPILATION ERROR : 
+03:22:12.124 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8524_repo/pinot-core/src/main/java/org/apache/pinot/core/data/manager/BaseTableDataManager.java:[77,33] error: cannot find symbol
+03:22:12.124 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8524_repo/pinot-core/src/main/java/org/apache/pinot/core/data/manager/BaseTableDataManager.java:[93,27] error: cannot find symbol
+03:22:12.124 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8524_repo/pinot-core/src/main/java/org/apache/pinot/core/data/manager/offline/DimensionTableDataManager.java:[145,27] error: cannot find symbol
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile (default-compile) on project pinot-core: Compilation failure: Compilation failure: 
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8524_repo/pinot-core/src/main/java/org/apache/pinot/core/data/manager/BaseTableDataManager.java:[77,33] error: cannot find symbol
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   class ZNRecord
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: class BaseTableDataManager
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8524_repo/pinot-core/src/main/java/org/apache/pinot/core/data/manager/BaseTableDataManager.java:[93,27] error: cannot find symbol
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   class ZNRecord
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: class BaseTableDataManager
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8524_repo/pinot-core/src/main/java/org/apache/pinot/core/data/manager/offline/DimensionTableDataManager.java:[145,27] error: cannot find symbol
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   class ZNRecord
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: class DimensionTableDataManager
+03:22:12.129 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+03:22:12.132 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+03:22:12.133 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+03:22:12.133 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+03:22:12.133 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+03:22:12.133 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+03:22:12.133 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+03:22:12.133 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+03:22:12.133 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-core
+03:22:12.494 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/pinot cannot be built.
+03:22:12.495 [main] INFO  f.i.s.r.process.step.BuildProject - 
+03:22:13.328 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+03:22:13.328 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+03:22:13.328 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+03:22:13.328 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 20 s ]
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 70 s ]
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+03:22:13.329 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+03:22:13.329 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

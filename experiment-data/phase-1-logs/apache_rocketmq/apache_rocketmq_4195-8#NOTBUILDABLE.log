@@ -1,0 +1,46 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/rocketmq --gitrepopullrequest 4195
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/rocketmq --gitrepopullrequest 4195
+
+05:10:14.001 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+05:10:14.002 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+05:10:14.003 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+05:10:14.015 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:10:14.015 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+05:10:14.015 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+05:10:14.016 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+05:10:14.016 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/rocketmq.git in the following directory: ./workspace/apache-rocketmq-master-4195_repo
+05:10:33.843 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal on project rocketmq-namesrv: Could not resolve dependencies for project org.apache.rocketmq:rocketmq-namesrv:jar:5.0.0-BETA-SNAPSHOT: Could not find artifact io.openmessaging.storage:dledger:jar:0.2.5-statemachine in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+05:10:33.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+05:10:33.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+05:10:33.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+05:10:33.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+05:10:33.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+05:10:33.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+05:10:33.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+05:10:33.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :rocketmq-namesrv
+05:10:34.778 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/rocketmq cannot be built.
+05:10:34.780 [main] INFO  f.i.s.r.process.step.BuildProject - 
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [  6 s ]
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 14 s ]
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+05:10:34.983 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+05:10:34.984 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:10:34.984 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+05:10:34.984 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:10:34.984 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

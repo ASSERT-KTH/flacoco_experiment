@@ -1,0 +1,47 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8867
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8867
+
+00:08:03.750 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+00:08:03.751 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+00:08:03.751 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+00:08:03.777 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+00:08:03.778 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8867_repo
+00:09:48.580 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+00:16:14.229 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal on project pinot-batch-ingestion-spark-3.2: Could not resolve dependencies for project org.apache.pinot:pinot-batch-ingestion-spark-3.2:jar:0.11.0-SNAPSHOT: The following artifacts could not be resolved: com.fasterxml.jackson.core:jackson-core:jar:2.12.6.1, com.fasterxml.jackson.core:jackson-annotations:jar:2.12.6.1: Could not find artifact com.fasterxml.jackson.core:jackson-core:jar:2.12.6.1 in central (https://repo.maven.apache.org/maven2) -> [Help 1]
+00:16:14.250 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:16:14.250 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+00:16:14.250 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:16:14.251 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+00:16:14.252 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+00:16:14.252 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:16:14.253 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+00:16:14.253 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-batch-ingestion-spark-3.2
+00:16:14.692 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/pinot cannot be built.
+00:16:14.693 [main] INFO  f.i.s.r.process.step.BuildProject - 
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  24 s ]
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................FAILURE [ 466 s ]
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................NOT RUN          
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................NOT RUN          
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................NOT RUN          
+00:16:17.369 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................NOT RUN          
+00:16:17.370 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................NOT RUN          
+00:16:17.370 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+00:16:17.370 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository...NOT RUN          
+00:16:17.370 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:16:17.370 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+00:16:17.370 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:16:17.370 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

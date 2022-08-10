@@ -1,0 +1,52 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/shardingsphere --gitrepopullrequest 18462
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/shardingsphere --gitrepopullrequest 18462
+
+15:31:11.793 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+15:31:11.795 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+15:31:11.795 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+15:31:11.811 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+15:31:11.811 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/shardingsphere.git in the following directory: ./workspace/apache-shardingsphere-master-18462_repo
+15:39:13.493 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] COMPILATION ERROR : 
+15:39:13.494 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-shardingsphere-master-18462_repo/shardingsphere-features/shardingsphere-db-discovery/shardingsphere-db-discovery-core/src/main/java/org/apache/shardingsphere/dbdiscovery/algorithm/DatabaseDiscoveryEngine.java:[110,38] cannot find symbol
+15:39:13.517 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile (default-compile) on project shardingsphere-db-discovery-core: Compilation failure
+15:39:13.518 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-shardingsphere-master-18462_repo/shardingsphere-features/shardingsphere-db-discovery/shardingsphere-db-discovery-core/src/main/java/org/apache/shardingsphere/dbdiscovery/algorithm/DatabaseDiscoveryEngine.java:[110,38] cannot find symbol
+15:39:13.518 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   method isEnable(java.lang.String)
+15:39:13.518 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: class org.apache.shardingsphere.mode.metadata.storage.StorageNodeStatus
+15:39:13.518 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+15:39:13.524 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+15:39:13.524 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+15:39:13.524 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+15:39:13.524 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+15:39:13.524 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+15:39:13.524 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+15:39:13.524 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+15:39:13.525 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :shardingsphere-db-discovery-core
+15:39:14.012 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/shardingsphere cannot be built.
+15:39:14.014 [main] INFO  f.i.s.r.process.step.BuildProject - 
+15:39:17.499 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:39:17.500 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+15:39:17.500 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:39:17.500 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  46 s ]
+15:39:17.500 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................FAILURE [ 436 s ]
+15:39:17.500 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................NOT RUN          
+15:39:17.500 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................NOT RUN          
+15:39:17.500 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................NOT RUN          
+15:39:17.501 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................NOT RUN          
+15:39:17.501 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................NOT RUN          
+15:39:17.501 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+15:39:17.501 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository...NOT RUN          
+15:39:17.502 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:39:17.503 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+15:39:17.503 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:39:17.503 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

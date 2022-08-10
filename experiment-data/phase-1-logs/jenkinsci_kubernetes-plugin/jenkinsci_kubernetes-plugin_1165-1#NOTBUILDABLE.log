@@ -1,0 +1,43 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/jenkinsci/kubernetes-plugin --gitrepopullrequest 1165
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/jenkinsci/kubernetes-plugin --gitrepopullrequest 1165
+
+21:30:25.511 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+21:30:25.512 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+21:30:25.512 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+21:30:25.526 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+21:30:25.527 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+21:30:25.527 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/jenkinsci/kubernetes-plugin.git in the following directory: ./workspace/jenkinsci-kubernetes-plugin-master-1165_repo
+21:35:48.633 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.jenkins-ci.tools:maven-hpi-plugin:3.26:validate-hpi (default-validate-hpi) on project kubernetes: Dependency org.jenkins-ci.plugins:metrics:jar:4.1.6.2 requires Jenkins 2.332.1 or higher. -> [Help 1]
+21:35:48.637 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+21:35:48.637 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+21:35:48.637 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+21:35:48.637 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+21:35:48.637 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+21:35:49.671 [main] ERROR f.i.s.r.process.step.BuildProject - Repository jenkinsci/kubernetes-plugin cannot be built.
+21:35:49.673 [main] INFO  f.i.s.r.process.step.BuildProject - 
+21:35:49.888 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:35:49.888 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+21:35:49.888 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [   9 s ]
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................FAILURE [ 315 s ]
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................NOT RUN          
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................NOT RUN          
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................NOT RUN          
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................NOT RUN          
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................NOT RUN          
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions.....................NOT RUN          
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+21:35:49.889 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:35:49.889 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

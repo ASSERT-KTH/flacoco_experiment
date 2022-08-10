@@ -1,0 +1,60 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 9950
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 9950
+
+16:59:38.428 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+16:59:38.429 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+16:59:38.429 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+16:59:38.442 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+16:59:38.442 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/dubbo.git in the following directory: ./workspace/apache-dubbo-master-9950_repo
+17:00:11.460 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] COMPILATION ERROR : 
+17:00:11.462 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-dubbo-master-9950_repo/dubbo-remoting/dubbo-remoting-api/src/test/java/org/apache/dubbo/remoting/api/MultiplexProtocolConnectionManagerTest.java:[69,25] error: cannot find symbol
+17:00:11.462 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-dubbo-master-9950_repo/dubbo-remoting/dubbo-remoting-api/src/test/java/org/apache/dubbo/remoting/api/SingleProtocolConnectionManagerTest.java:[66,29] error: cannot find symbol
+17:00:11.463 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-dubbo-master-9950_repo/dubbo-remoting/dubbo-remoting-api/src/test/java/org/apache/dubbo/remoting/api/SingleProtocolConnectionManagerTest.java:[77,29] error: cannot find symbol
+17:00:11.483 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project dubbo-remoting-api: Compilation failure: Compilation failure: 
+17:00:11.483 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-dubbo-master-9950_repo/dubbo-remoting/dubbo-remoting-api/src/test/java/org/apache/dubbo/remoting/api/MultiplexProtocolConnectionManagerTest.java:[69,25] error: cannot find symbol
+17:00:11.483 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   method forEachConnection(Consumer<Connection>)
+17:00:11.483 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: variable connectionManager of type ConnectionManager
+17:00:11.483 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-dubbo-master-9950_repo/dubbo-remoting/dubbo-remoting-api/src/test/java/org/apache/dubbo/remoting/api/SingleProtocolConnectionManagerTest.java:[66,29] error: cannot find symbol
+17:00:11.484 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   method forEachConnection(Consumer<Connection>)
+17:00:11.484 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: variable connectionManager of type ConnectionManager
+17:00:11.484 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-dubbo-master-9950_repo/dubbo-remoting/dubbo-remoting-api/src/test/java/org/apache/dubbo/remoting/api/SingleProtocolConnectionManagerTest.java:[77,29] error: cannot find symbol
+17:00:11.484 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   symbol:   method forEachConnection(Consumer<Connection>)
+17:00:11.484 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   location: variable connectionManager of type ConnectionManager
+17:00:11.484 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+17:00:11.491 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:00:11.492 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+17:00:11.492 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:00:11.492 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+17:00:11.492 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+17:00:11.492 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:00:11.492 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+17:00:11.492 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :dubbo-remoting-api
+17:00:12.135 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/dubbo cannot be built.
+17:00:12.137 [main] INFO  f.i.s.r.process.step.BuildProject - 
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 11 s ]
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 22 s ]
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+17:00:12.451 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions......................NOT RUN         
+17:00:12.452 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:00:12.452 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+17:00:12.452 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:00:12.452 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

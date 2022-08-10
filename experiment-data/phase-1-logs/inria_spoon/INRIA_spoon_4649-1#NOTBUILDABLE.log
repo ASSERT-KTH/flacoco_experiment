@@ -1,0 +1,43 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/INRIA/spoon --gitrepopullrequest 4649
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/INRIA/spoon --gitrepopullrequest 4649
+
+15:52:38.236 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+15:52:38.237 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+15:52:38.237 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+15:52:38.251 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:52:38.251 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+15:52:38.252 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+15:52:38.252 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/INRIA/spoon.git in the following directory: ./workspace/INRIA-spoon-master-4649_repo
+15:53:52.415 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal se.kth.castor:depclean-maven-plugin:2.0.1:depclean (default) on project spoon-core: Build failed due to unused direct dependencies in the dependency tree of the project. -> [Help 1]
+15:53:52.419 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+15:53:52.419 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+15:53:52.419 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+15:53:52.419 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+15:53:52.419 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+15:53:53.545 [main] ERROR f.i.s.r.process.step.BuildProject - Repository INRIA/spoon cannot be built.
+15:53:53.545 [main] INFO  f.i.s.r.process.step.BuildProject - 
+15:53:54.177 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:53:54.177 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+15:53:54.177 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [  8 s ]
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 67 s ]
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:53:54.178 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+15:53:54.179 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+15:53:54.179 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

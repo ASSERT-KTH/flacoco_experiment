@@ -1,0 +1,551 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8960
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8960
+
+02:15:03.503 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+02:15:03.505 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+02:15:03.505 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+02:15:03.532 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+02:15:03.532 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+02:15:03.532 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+02:15:03.533 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+02:15:03.533 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8960_repo
+02:17:26.469 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+02:41:15.154 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+02:41:15.158 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8960_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+02:41:15.158 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+02:41:15.158 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+02:41:15.158 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+02:41:55.324 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+02:41:55.327 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.buffer.UnsafeUtil (file:/root/workspace/apache-pinot-master-8960_repo/.m2/org/xerial/larray/larray-buffer/0.4.1/larray-buffer-0.4.1.jar) to constructor java.nio.DirectByteBuffer(long,int,java.lang.Object)
+02:41:55.328 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.buffer.UnsafeUtil
+02:41:55.329 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+02:41:55.331 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.generateReport(JUnitXMLReporter.java:152)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.onFinish(JUnitXMLReporter.java:112)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.fireEvent(TestRunner.java:1187)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.afterRun(TestRunner.java:976)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.run(TestRunner.java:606)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+02:43:28.930 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuites(TestNG.java:1144)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1115)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - [TestNG] Reporter org.testng.reporters.JUnitReportReporter@695a69a1 failed
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitReportReporter.generateReport(JUnitReportReporter.java:146)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.generateReports(TestNG.java:1192)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1120)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+02:43:28.931 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+02:43:28.932 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+02:44:14.590 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 11, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.458 s <<< FAILURE! - in org.apache.pinot.common.data.DateTimeGranularitySpecTest
+02:44:14.590 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testConstructGranularity[1, HOURS, org.apache.pinot.spi.data.DateTimeGranularitySpec@4229bf1f](1)  Time elapsed: 0.043 s
+02:44:14.590 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testConstructGranularity[5, MINUTES, org.apache.pinot.spi.data.DateTimeGranularitySpec@7c24bc6f](2)  Time elapsed: 0 s
+02:44:14.590 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testConstructGranularity[0, HOURS, null](3)  Time elapsed: 0.003 s  <<< FAILURE!
+02:44:14.594 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testConstructGranularity[-1, HOURS, null](4)  Time elapsed: 0 s  <<< FAILURE!
+02:44:14.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testConstructGranularity[1, null, null](5)  Time elapsed: 0.006 s  <<< FAILURE!
+02:44:14.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testGranularityToMillis[1:HOURS, 3600000](1)  Time elapsed: 0 s
+02:44:14.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testGranularityToMillis[1:MILLISECONDS, 1](2)  Time elapsed: 0 s
+02:44:14.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testGranularityToMillis[15:MINUTES, 900000](3)  Time elapsed: 0 s
+02:44:14.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testGranularityToMillis[0:HOURS, null](4)  Time elapsed: 0.002 s  <<< FAILURE!
+02:44:14.614 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testGranularityToMillis[null, null](5)  Time elapsed: 0 s
+02:44:14.618 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeGranularitySpecTest.testGranularityToMillis[1:DUMMY, null](6)  Time elapsed: 0 s
+02:44:18.641 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.208 s <<< FAILURE! - in org.apache.pinot.common.data.SchemaTest
+02:44:18.641 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testByteType  Time elapsed: 0.378 s
+02:44:18.641 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testFetchFieldSpecForTime  Time elapsed: 0.036 s
+02:44:18.641 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testSchemaBackwardCompatibility  Time elapsed: 0.001 s
+02:44:18.641 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testSchemaBuilder  Time elapsed: 0.001 s
+02:44:18.641 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testSchemaBuilderAddTime  Time elapsed: 0.001 s
+02:44:18.641 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testSerializeDeserialize  Time elapsed: 0.025 s  <<< FAILURE!
+02:44:18.642 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testSimpleDateFormat  Time elapsed: 0.001 s
+02:44:18.642 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testStringToBooleanSchemaBackwardCompatibility  Time elapsed: 0.002 s
+02:44:18.642 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.SchemaTest.testValidation  Time elapsed: 0.006 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 75, Failures: 22, Errors: 0, Skipped: 0, Time elapsed: 0.856 s <<< FAILURE! - in org.apache.pinot.common.data.DateTimeFormatSpecTest
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:HOURS:EPOCH, 416359, 1498892400000](1)  Time elapsed: 0.083 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:MILLISECONDS:EPOCH, 1498892400000, 1498892400000](2)  Time elapsed: 0.001 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:HOURS:EPOCH, 0, 0](3)  Time elapsed: 0 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[5:MINUTES:EPOCH, 4996308, 1498892400000](4)  Time elapsed: 0 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:MILLISECONDS:TIMESTAMP, 2017-07-01 00:00:00, 1498860000000](5)  Time elapsed: 0.001 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:MILLISECONDS:TIMESTAMP, 1498892400000, 1498892400000](6)  Time elapsed: 0 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd, 20170701, 1498867200000](7)  Time elapsed: 0 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd tz(America/Chicago), 20170701, 1498885200000](8)  Time elapsed: 0.001 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH, 20170701 00, 1498867200000](9)  Time elapsed: 0 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH tz(GMT+0600), 20170701 00, 1498845600000](10)  Time elapsed: 0.001 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH Z, 20170701 00 -07:00, 1498892400000](11)  Time elapsed: 0 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[1:HOURS:SIMPLE_DATE_FORMAT:M/d/yyyy h:mm:ss a, 8/7/2017 12:45:50 AM, 1502066750000](12)  Time elapsed: 0.011 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[EPOCH|HOURS|1, 416359, 1498892400000](13)  Time elapsed: 0 s
+02:44:21.954 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[EPOCH|HOURS, 416359, 1498892400000](14)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[EPOCH|MILLISECONDS|1, 1498892400000, 1498892400000](15)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[EPOCH|MILLISECONDS, 1498892400000, 1498892400000](16)  Time elapsed: 0.002 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[EPOCH|HOURS|1, 0, 0](17)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[EPOCH|HOURS, 0, 0](18)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[EPOCH|MINUTES|5, 4996308, 1498892400000](19)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[TIMESTAMP, 2017-07-01 00:00:00, 1498860000000](20)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[TIMESTAMP, 1498892400000, 1498892400000](21)  Time elapsed: 0.001 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[SIMPLE_DATE_FORMAT|yyyyMMdd, 20170701, 1498867200000](22)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[SIMPLE_DATE_FORMAT|yyyyMMdd|America/Chicago, 20170701, 1498885200000](23)  Time elapsed: 0.001 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[SIMPLE_DATE_FORMAT|yyyyMMdd HH, 20170701 00, 1498867200000](24)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[SIMPLE_DATE_FORMAT|yyyyMMdd HH|GMT+0600, 20170701 00, 1498845600000](25)  Time elapsed: 0.001 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[SIMPLE_DATE_FORMAT|yyyyMMdd HH Z, 20170701 00 -07:00, 1498892400000](26)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromFormatToMillis[SIMPLE_DATE_FORMAT|M/d/yyyy h:mm:ss a, 8/7/2017 12:45:50 AM, 1502066750000](27)  Time elapsed: 0.001 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:HOURS:EPOCH, 1498892400000, 416359](1)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:MILLISECONDS:EPOCH, 1498892400000, 1498892400000](2)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:HOURS:EPOCH, 0, 0](3)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[5:MINUTES:EPOCH, 1498892400000, 4996308](4)  Time elapsed: 0 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:MILLISECONDS:TIMESTAMP, 1498860000000, 2017-07-01 00:00:00.0](5)  Time elapsed: 0.001 s
+02:44:21.955 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd, 1498892400000, 20170701](6)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd tz(America/New_York), 1498892400000, 20170701](7)  Time elapsed: 0.001 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH, 1498892400000, 20170701 07](8)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH tz(IST), 1498892400000, 20170701 12](9)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH Z, 1498892400000, 20170701 07 +0000](10)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH Z tz(GMT+0500), 1498892400000, 20170701 12 +0500](11)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:HOURS:SIMPLE_DATE_FORMAT:M/d/yyyy h:mm:ss a, 1498892400000, 7/1/2017 7:00:00 AM](12)  Time elapsed: 0.001 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[1:HOURS:SIMPLE_DATE_FORMAT:M/d/yyyy h a, 1502066750000, 8/7/2017 12 AM](13)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[EPOCH|HOURS|1, 1498892400000, 416359](14)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[EPOCH|MILLISECONDS|1, 1498892400000, 1498892400000](15)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[EPOCH|HOURS|1, 0, 0](16)  Time elapsed: 0.001 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[EPOCH|MINUTES|5, 1498892400000, 4996308](17)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[TIMESTAMP, 1498860000000, 2017-07-01 00:00:00.0](18)  Time elapsed: 0.001 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[SIMPLE_DATE_FORMAT|yyyyMMdd, 1498892400000, 20170701](19)  Time elapsed: 0 s
+02:44:21.956 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[SIMPLE_DATE_FORMAT|yyyyMMdd|America/New_York, 1498892400000, 20170701](20)  Time elapsed: 0.001 s
+02:44:21.957 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[SIMPLE_DATE_FORMAT|yyyyMMdd HH, 1498892400000, 20170701 07](21)  Time elapsed: 0 s
+02:44:21.957 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[SIMPLE_DATE_FORMAT|yyyyMMdd HH|IST, 1498892400000, 20170701 12](22)  Time elapsed: 0 s
+02:44:21.957 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[SIMPLE_DATE_FORMAT|yyyyMMdd HH Z, 1498892400000, 20170701 07 +0000](23)  Time elapsed: 0 s
+02:44:21.957 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[SIMPLE_DATE_FORMAT|yyyyMMdd HH Z|GMT+0500, 1498892400000, 20170701 12 +0500](24)  Time elapsed: 0 s
+02:44:21.957 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[SIMPLE_DATE_FORMAT|M/d/yyyy h:mm:ss a, 1498892400000, 7/1/2017 7:00:00 AM](25)  Time elapsed: 0.001 s
+02:44:21.957 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testFromMillisToFormat[SIMPLE_DATE_FORMAT|M/d/yyyy h a, 1502066750000, 8/7/2017 12 AM](26)  Time elapsed: 0 s
+02:44:21.958 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:MILLISECONDS:TIMESTAMP, 1, MILLISECONDS, TIMESTAMP, null, UTC](1)  Time elapsed: 0.011 s  <<< FAILURE!
+02:44:21.963 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:HOURS:EPOCH, 1, HOURS, EPOCH, null, UTC](2)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:21.964 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[5:MINUTES:EPOCH, 5, MINUTES, EPOCH, null, UTC](3)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:21.969 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd, 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd, UTC](4)  Time elapsed: 0 s  <<< FAILURE!
+02:44:21.970 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd tz(IST), 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd, Asia/Kolkata](5)  Time elapsed: 0 s  <<< FAILURE!
+02:44:21.978 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd          tz(IST), 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd, Asia/Kolkata](6)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:21.979 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd tz  (   IST   )  , 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd, Asia/Kolkata](7)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:21.981 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH, 1, HOURS, SIMPLE_DATE_FORMAT, yyyyMMdd HH, UTC](8)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:21.983 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:HOURS:SIMPLE_DATE_FORMAT:yyyyMMdd HH tz(dummy), 1, HOURS, SIMPLE_DATE_FORMAT, yyyyMMdd HH, UTC](9)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:21.985 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:HOURS:SIMPLE_DATE_FORMAT:M/d/yyyy h:mm:ss a, 1, HOURS, SIMPLE_DATE_FORMAT, M/d/yyyy h:mm:ss a, UTC](10)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:21.988 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[1:HOURS:SIMPLE_DATE_FORMAT:M/d/yyyy h:mm:ss a tz(Asia/Tokyo), 1, HOURS, SIMPLE_DATE_FORMAT, M/d/yyyy h:mm:ss a, Asia/Tokyo](11)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:21.989 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[TIMESTAMP, 1, MILLISECONDS, TIMESTAMP, null, UTC](12)  Time elapsed: 0 s  <<< FAILURE!
+02:44:21.998 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[EPOCH|HOURS|1, 1, HOURS, EPOCH, null, UTC](13)  Time elapsed: 0 s  <<< FAILURE!
+02:44:21.999 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[EPOCH|MINUTES|5, 5, MINUTES, EPOCH, null, UTC](14)  Time elapsed: 0 s  <<< FAILURE!
+02:44:22.001 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[SIMPLE_DATE_FORMAT|yyyyMMdd, 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd, UTC](15)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:22.004 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[SIMPLE_DATE_FORMAT|yyyyMMdd|IST, 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd, Asia/Kolkata](16)  Time elapsed: 0.002 s  <<< FAILURE!
+02:44:22.010 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[SIMPLE_DATE_FORMAT|yyyyMMdd|IST, 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd, Asia/Kolkata](17)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:22.010 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[SIMPLE_DATE_FORMAT|yyyyMMdd|IST, 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd, Asia/Kolkata](18)  Time elapsed: 0.005 s  <<< FAILURE!
+02:44:22.010 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[SIMPLE_DATE_FORMAT|yyyyMMdd HH, 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd HH, UTC](19)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:22.017 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[SIMPLE_DATE_FORMAT|yyyyMMdd HH|dummy, 1, DAYS, SIMPLE_DATE_FORMAT, yyyyMMdd HH, UTC](20)  Time elapsed: 0.007 s  <<< FAILURE!
+02:44:22.019 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[SIMPLE_DATE_FORMAT|M/d/yyyy h:mm:ss a, 1, DAYS, SIMPLE_DATE_FORMAT, M/d/yyyy h:mm:ss a, UTC](21)  Time elapsed: 0.016 s  <<< FAILURE!
+02:44:22.020 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.DateTimeFormatSpecTest.testGetFromFormat[SIMPLE_DATE_FORMAT|M/d/yyyy h:mm:ss a|Asia/Tokyo, 1, DAYS, SIMPLE_DATE_FORMAT, M/d/yyyy h:mm:ss a, Asia/Tokyo](22)  Time elapsed: 0 s  <<< FAILURE!
+02:44:25.857 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 16, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 2.047 s <<< FAILURE! - in org.apache.pinot.common.data.FieldSpecTest
+02:44:25.859 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDataType  Time elapsed: 0.005 s
+02:44:25.859 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFieldSpecConstructor  Time elapsed: 0.162 s
+02:44:25.859 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, 1:hours, 1:HOURS, true, null](1)  Time elapsed: 0.005 s  <<< FAILURE!
+02:44:25.860 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, one_hours, 1:HOURS, true, null](2)  Time elapsed: 0.002 s  <<< FAILURE!
+02:44:25.863 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, 1:HOURS:SIMPLE_DATE_FORMAT, 1:HOURS, true, null](3)  Time elapsed: 0.002 s  <<< FAILURE!
+02:44:25.867 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, 1:hour:EPOCH, 1:HOURS, true, null](4)  Time elapsed: 0.002 s  <<< FAILURE!
+02:44:25.867 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, 1:HOUR:EPOCH:yyyyMMdd, 1:HOURS, true, null](5)  Time elapsed: 0.002 s  <<< FAILURE!
+02:44:25.869 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, 0:HOURS:EPOCH, 1:HOURS, true, null](6)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:25.870 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, -1:HOURS:EPOCH, 1:HOURS, true, null](7)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:25.874 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, 0.1:HOURS:EPOCH, 1:HOURS, true, null](8)  Time elapsed: 0.001 s  <<< FAILURE!
+02:44:25.875 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, 1:HOURS:EPOCH, 1:HOURS, false, < field type: DATE_TIME, field name: Date, datatype: LONG, time column format: 1:HOURS:EPOCH, time field granularity: 1:HOURS >](9)  Time elapsed: 0.001 s
+02:44:25.876 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testDateTimeFormat[Date, LONG, 1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd, 1:HOURS, false, < field type: DATE_TIME, field name: Date, datatype: LONG, time column format: 1:DAYS:SIMPLE_DATE_FORMAT:yyyyMMdd, time field granularity: 1:HOURS >](10)  Time elapsed: 0 s
+02:44:25.876 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testFieldSpec  Time elapsed: 1.215 s
+02:44:25.876 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testOrderOfFields  Time elapsed: 0.107 s
+02:44:25.876 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testSerializeDeserialize  Time elapsed: 0.012 s
+02:44:25.876 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.data.FieldSpecTest.testTimeFieldSpecConstructor  Time elapsed: 0.064 s
+02:45:40.496 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.015 s <<< FAILURE! - in org.apache.pinot.common.metadata.MetadataEqualsHashCodeTest
+02:45:40.502 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.metadata.MetadataEqualsHashCodeTest.testEqualsAndHashCode  Time elapsed: 3.564 s  <<< FAILURE!
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failures: 
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:232 expected [UTC] but found [null]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [HOURS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [HOURS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [HOURS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [HOURS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:232 expected [UTC] but found [null]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:232 expected [UTC] but found [null]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:232 expected [UTC] but found [null]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:232 expected [UTC] but found [null]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.478 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.479 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.479 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.479 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.479 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.479 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:218 expected [DAYS] but found [MILLISECONDS]
+02:46:24.479 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeFormatSpecTest.testGetFromFormat:232 expected [UTC] but found [null]
+02:46:24.481 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeGranularitySpecTest.testConstructGranularity:41 expected [null] but found [org.apache.pinot.spi.data.DateTimeGranularitySpec@4229bee1]
+02:46:24.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeGranularitySpecTest.testConstructGranularity:41 expected [null] but found [org.apache.pinot.spi.data.DateTimeGranularitySpec@4229bf00]
+02:46:24.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeGranularitySpecTest.testConstructGranularity:41 expected [null] but found [org.apache.pinot.spi.data.DateTimeGranularitySpec@3e0]
+02:46:24.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   DateTimeGranularitySpecTest.testGranularityToMillis:69 expected [null] but found [0]
+02:46:24.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   FieldSpecTest.testDateTimeFormat:247 » IllegalArgument Invalid time format: -1...
+02:46:24.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   FieldSpecTest.testDateTimeFormat:247 » IllegalArgument Invalid size: 0.1 in fo...
+02:46:24.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   FieldSpecTest.testDateTimeFormat:251 expected [true] but found [false]
+02:46:24.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   FieldSpecTest.testDateTimeFormat:247 » IllegalArgument Invalid time unit: HOUR...
+02:46:24.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   FieldSpecTest.testDateTimeFormat:247 » ArrayIndexOutOfBounds Index 3 out of bo...
+02:46:24.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   FieldSpecTest.testDateTimeFormat:247 » IllegalArgument Invalid time unit: hour...
+02:46:24.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   FieldSpecTest.testDateTimeFormat:247 » IllegalArgument Invalid format: 1:hours...
+02:46:24.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   FieldSpecTest.testDateTimeFormat:247 » IllegalArgument Invalid time format: on...
+02:46:24.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   SchemaTest.testSerializeDeserialize:302 » JsonMapping Invalid time unit: SECON...
+02:46:24.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   MetadataEqualsHashCodeTest.testEqualsAndHashCode:51 EqualsVerifier found a problem in class org.apache.pinot.spi.data.DateTimeFieldSpec.
+02:46:24.484 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 349, Failures: 36, Errors: 0, Skipped: 0
+02:46:24.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project pinot-common: There are test failures.
+02:46:24.609 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+02:46:24.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to /root/workspace/apache-pinot-master-8960_repo/pinot-common/target/surefire-reports for the individual test results.
+02:46:24.612 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+02:46:24.612 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+02:46:24.654 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+02:46:24.655 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+02:46:24.655 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+02:46:24.655 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+02:46:24.655 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+02:46:24.655 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+02:46:24.655 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+02:46:24.656 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-common
+02:46:47.730 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath file is empty.
+02:46:47.730 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath seems not to contain JUnit, maybe this project does not use JUnit for testing.
+02:46:47.730 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8960_repo/target/classes.
+02:46:47.730 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8960_repo/target/test-classes.
+02:46:48.137 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.151 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.176 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 52 source dirs were found:
+02:46:48.176 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/contrib/pinot-fmpp-maven-plugin/src/main/java
+02:46:48.176 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-broker/src/main/java
+02:46:48.177 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-clients/pinot-java-client/src/main/java
+02:46:48.177 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-clients/pinot-jdbc-client/src/main/java
+02:46:48.177 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-common/src/main/java
+02:46:48.177 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-compatibility-verifier/src/main/java
+02:46:48.177 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-connectors/pinot-flink-connector/src/main/java
+02:46:48.177 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-connectors/pinot-spark-connector/src/main/scala
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-controller/src/main/java
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-core/src/main/java
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-integration-tests/src/main/java
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-minion/src/main/java
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-perf/src/main/java
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/main/java
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/main/java
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark-2.4/src/main/java
+02:46:48.178 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark-3.2/src/main/java
+02:46:48.224 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-ingestion-common/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-environment/pinot-azure/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-adls/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-s3/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-avro/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-confluent-avro/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-csv/src/main/java
+02:46:48.225 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-json/src/main/java
+02:46:48.226 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-orc/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-metrics/pinot-dropwizard/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-metrics/pinot-yammer/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-segment-uploader/pinot-segment-uploader-default/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/main/java
+02:46:48.227 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-query-planner/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-query-runtime/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-segment-local/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-segment-spi/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-server/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-spi/src/main/java
+02:46:48.228 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-tools/src/main/java
+02:46:48.473 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.504 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.661 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-s3:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+02:46:48.786 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.870 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-kinesis:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+02:46:48.925 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.934 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.934 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.961 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.966 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:48.992 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:49.015 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:49.052 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:49.057 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+02:46:49.066 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 44 test dirs were found:
+02:46:49.070 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-broker/src/test/java
+02:46:49.070 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-clients/pinot-java-client/src/test/java
+02:46:49.070 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-clients/pinot-jdbc-client/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-common/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-connectors/pinot-flink-connector/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-connectors/pinot-spark-connector/src/test/scala
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-controller/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-core/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-integration-test-base/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-integration-tests/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-minion/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark-2.4/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark-3.2/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-environment/pinot-azure/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-adls/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-s3/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-csv/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-json/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-orc/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-query-planner/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-query-runtime/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-segment-local/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-segment-spi/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-server/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-spi/src/test/java
+02:46:49.074 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-tools/src/test/java
+02:46:50.359 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8960_repo/pinot-common
+02:46:50.363 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8960_repo/pinot-common
+02:46:50.363 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8960_repo/pinot-common
+02:46:50.363 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8960_repo/pinot-common
+02:46:50.363 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8960_repo/pinot-common
+02:46:50.379 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+02:46:50.379 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 513
+02:46:50.380 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 513
+02:46:50.380 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 477
+02:46:50.380 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 36
+02:46:50.380 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+02:46:50.380 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 0
+[0] INFO Flacoco - Running Flacoco...
+[152] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.auth.AuthProviderUtils
+[200] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.config.NettyConfig
+[200] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.config.provider.AccessControlUserCache
+[204] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.exception.QueryException
+[206] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.lineage.SegmentLineageAccessHelper
+[206] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.lineage.SegmentLineage
+[214] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TagNameUtils
+[214] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.AccessControlUserConfigUtils
+[215] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TierConfigUtils
+[216] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TableConfigUtils
+[216] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.InstanceUtils
+[218] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.HttpsSegmentFetcher
+[218] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.PinotFSSegmentFetcher
+[218] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.HttpSegmentFetcher
+[219] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.SegmentFetcherFactory
+[219] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SchemaUtils
+[220] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SegmentUtils
+[220] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.webhdfs.WebHdfsV1Client
+[221] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SqlResultComparator
+[230] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.request.RequestUtils
+[231] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.FileUploadDownloadClient
+[288] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.PinotDataType
+[289] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.ServiceStartableUtils
+[290] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.http.HttpClient
+[290] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.PinotHelixPropertyStoreZnRecordProvider
+[291] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.HelixHelper
+[291] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.LeadControllerUtils
+[293] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.grpc.GrpcQueryClient
+[293] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.grpc.GrpcRequestBuilder
+[294] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.TlsUtils
+[297] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.RealtimeToOfflineSegmentsTaskMetadata
+[297] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionTaskMetadataUtils
+[298] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionClient
+[298] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MergeRollupTaskMetadata
+[303] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.scalar.JsonFunctions
+[318] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.scalar.ArrayFunctions
+[320] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.FunctionUtils
+[388] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.request.context.predicate.NotInPredicate
+[390] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.request.context.predicate.InPredicate
+[392] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.request.context.RequestContextUtils
+[397] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.tier.TierFactory
+[397] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.http.MultiGetRequest
+[398] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstancePartitionsUtils
+[398] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstancePartitions
+[398] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstanceAssignmentConfigUtils
+[399] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.PinotQueryWorkerGrpc
+[399] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.PinotQueryServerGrpc
+[399] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Mailbox
+[400] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Server
+[400] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Plan
+[400] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.PinotMailboxGrpc
+[401] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Worker
+[401] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.segment.generation.SegmentGenerationUtils
+[406] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.ZKMetadataProvider
+[406] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.instance.InstanceZKMetadata
+[407] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.segment.SegmentZKMetadata
+[426] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.BrokerMetrics
+[428] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.ControllerMetrics
+[429] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.ServerMetrics
+[430] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.MinionMetrics
+[431] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.serde.SerDe
+[436] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlParser
+[436] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlCompiler
+[437] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.OrdinalsUpdater
+[438] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.AliasApplier
+[438] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.CompileTimeFunctionsInvoker
+[439] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.SelectionsRewriter
+[439] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.PredicateComparisonRewriter
+[440] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.NonAggregationGroupByToDistinctQueryRewriter
+[441] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.dml.InsertIntoFile
+[500] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.SqlNodeAndOptions
+[501] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.exception.QueryExceptionTest
+[511] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TagNameUtilsTest
+[524] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.DateTimeGranularitySpecTest
+[525] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.SchemaTest
+[526] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.DateTimeFormatSpecTest
+[526] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.FieldSpecTest
+[527] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionTaskMetadataUtilsTest
+[532] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.http.MultiGetRequestTest
+[533] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.MetadataUtils
+[534] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.SegmentZKMetadataTest
+[550] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.auth.AuthProviderUtils
+[552] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.config.NettyConfig
+[553] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.config.provider.AccessControlUserCache
+[553] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.exception.QueryException
+[554] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.lineage.SegmentLineageAccessHelper
+[554] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.lineage.SegmentLineage
+[555] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TagNameUtils
+[555] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.AccessControlUserConfigUtils
+[555] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TierConfigUtils
+[555] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TableConfigUtils
+[556] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.InstanceUtils
+[556] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.HttpsSegmentFetcher
+[556] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.HttpSegmentFetcher
+[556] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.SegmentFetcherFactory
+[556] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SchemaUtils
+[556] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SegmentUtils
+[556] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.webhdfs.WebHdfsV1Client
+[557] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SqlResultComparator
+[557] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.request.RequestUtils
+[558] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.FileUploadDownloadClient
+[558] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.PinotDataType
+[558] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.ServiceStartableUtils
+[558] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.http.HttpClient
+[558] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.PinotHelixPropertyStoreZnRecordProvider
+[558] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.HelixHelper
+[559] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.LeadControllerUtils
+[559] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.grpc.GrpcQueryClient
+[559] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.grpc.GrpcRequestBuilder
+[559] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.TlsUtils
+[560] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.RealtimeToOfflineSegmentsTaskMetadata
+[560] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionTaskMetadataUtils
+[560] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionClient
+[560] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MergeRollupTaskMetadata
+[561] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.scalar.JsonFunctions
+[572] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.scalar.ArrayFunctions
+[572] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.FunctionUtils
+[581] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.request.context.RequestContextUtils
+[584] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.tier.TierFactory
+[585] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.http.MultiGetRequest
+[585] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstancePartitionsUtils
+[585] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstancePartitions
+[585] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstanceAssignmentConfigUtils
+[585] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.PinotQueryWorkerGrpc
+[585] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.PinotQueryServerGrpc
+[585] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Mailbox
+[586] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Server
+[586] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Plan
+[586] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.PinotMailboxGrpc
+[586] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Worker
+[586] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.segment.generation.SegmentGenerationUtils
+[587] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.ZKMetadataProvider
+[587] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.instance.InstanceZKMetadata
+[587] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.segment.SegmentZKMetadata
+[588] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.ValidationMetrics
+[588] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.serde.SerDe
+[588] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlParser
+[589] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlCompiler
+[589] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.OrdinalsUpdater
+[589] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.AliasApplier
+[590] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.CompileTimeFunctionsInvoker
+[590] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.SelectionsRewriter
+[590] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.PredicateComparisonRewriter
+[590] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.NonAggregationGroupByToDistinctQueryRewriter
+[591] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.dml.InsertIntoFile
+[600] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.parser.UnparseUtils
+[601] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.SqlNodeAndOptions
+[601] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.exception.QueryExceptionTest
+[602] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TableConfigSerDeTest
+[602] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TagNameUtilsTest
+[609] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.DateTimeGranularitySpecTest
+[610] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.SchemaTest
+[610] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.DateTimeFormatSpecTest
+[610] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.FieldSpecTest
+[610] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionTaskMetadataUtilsTest
+[612] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.http.MultiGetRequestTest
+[613] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.MetadataUtils
+[613] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.InstanceZKMetadataTest
+[613] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.SegmentZKMetadataTest
+[617] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlCompilerTest
+[637] INFO CoverageRunner - Tests found: 0
+[637] INFO CoverageRunner - Tests executed: 0
+02:46:51.647 [main] INFO  fr.inria.jtravis.JTravis - GitHub ratelimit: Limit: 5000 Remaining: 4861 Reset hour: 05:00:33
+02:46:53.010 [main] WARN  f.i.s.r.p.s.p.PushFaultLocalizationSuggestionsOnGitHubRepository - Flacoco has found 0 suspicious lines, but none were matched to the diff
+02:46:53.010 [main] INFO  f.i.s.r.p.s.f.FlacocoLocalization - 
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest.........................SUCCESS [   33 s ]
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject........................................SUCCESS [ 1507 s ]
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject.........................................SUCCESS [  340 s ]
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath....................................SUCCESS [   22 s ]
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir....................................SUCCESS [    0 s ]
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir......................................SUCCESS [    0 s ]
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation...............................SUCCESS [    1 s ]
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization.................................SUCCESS [    0 s ]
+02:47:00.167 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository..SKIPPED           
+02:47:00.168 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+02:47:00.168 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: TEST FAILURE
+02:47:00.168 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+02:47:00.168 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

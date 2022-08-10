@@ -1,0 +1,46 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/debezium/debezium --gitrepopullrequest 3661
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/debezium/debezium --gitrepopullrequest 3661
+
+20:50:41.421 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+20:50:41.422 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+20:50:41.422 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+20:50:41.435 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+20:50:41.435 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+20:50:41.435 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+20:50:41.435 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+20:50:41.436 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+20:50:41.436 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+20:50:41.436 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+20:50:41.436 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+20:50:41.436 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+20:50:41.436 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+20:50:41.436 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+20:50:41.436 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+20:50:41.436 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/debezium/debezium.git in the following directory: ./workspace/debezium-debezium-master-3661_repo
+20:57:41.722 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project debezium-api: Fatal error compiling: error: release version 17 not supported -> [Help 1]
+20:57:41.729 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+20:57:41.729 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+20:57:41.729 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+20:57:41.729 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+20:57:41.729 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+20:57:41.730 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+20:57:41.730 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+20:57:41.730 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :debezium-api
+20:57:42.117 [main] ERROR f.i.s.r.process.step.BuildProject - Repository debezium/debezium cannot be built.
+20:57:42.117 [main] INFO  f.i.s.r.process.step.BuildProject - 
+20:57:42.376 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+20:57:42.376 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+20:57:42.376 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  13 s ]
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................FAILURE [ 407 s ]
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................NOT RUN          
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................NOT RUN          
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................NOT RUN          
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................NOT RUN          
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................NOT RUN          
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository...NOT RUN          
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+20:57:42.377 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+20:57:42.377 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

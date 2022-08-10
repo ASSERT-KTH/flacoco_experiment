@@ -1,0 +1,46 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 10149
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 10149
+
+08:08:01.234 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+08:08:01.235 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+08:08:01.235 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+08:08:01.249 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+08:08:01.250 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+08:08:01.250 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/dubbo.git in the following directory: ./workspace/apache-dubbo-master-10149_repo
+08:08:16.388 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2:check (checkstyle-validation) on project dubbo-parent: Execution checkstyle-validation of goal org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2:check failed: Plugin org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2 or one of its dependencies could not be resolved: Failed to collect dependencies at org.apache.maven.plugins:maven-checkstyle-plugin:jar:3.1.2 -> org.codehaus.plexus:plexus-velocity:jar:1.2 -> org.apache.velocity:velocity:jar:1.7: Failed to read artifact descriptor for org.apache.velocity:velocity:jar:1.7: Could not transfer artifact org.apache.velocity:velocity:pom:1.7 from/to central (https://repo.maven.apache.org/maven2): /root/./workspace/apache-dubbo-master-10149_repo/.m2/org/apache/velocity/velocity/1.7/velocity-1.7.pom.part (No such file or directory) -> [Help 1]
+08:08:16.407 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+08:08:16.407 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+08:08:16.407 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+08:08:16.407 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+08:08:16.407 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginResolutionException
+08:08:16.407 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+08:08:16.407 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+08:08:16.407 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :dubbo-parent
+08:08:17.317 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/dubbo cannot be built.
+08:08:17.320 [main] INFO  f.i.s.r.process.step.BuildProject - 
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 10 s ]
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [  6 s ]
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions......................NOT RUN         
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+08:08:17.324 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+08:08:17.324 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

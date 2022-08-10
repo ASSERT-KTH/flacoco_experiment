@@ -1,0 +1,38 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8550
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8550
+
+21:24:00.824 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+21:24:00.828 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+21:24:00.831 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+21:24:00.892 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:24:00.892 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+21:24:00.892 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+21:24:00.893 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+21:24:00.893 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8550_repo
+21:25:09.699 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x0000000540e00000, 629145600, 0) failed; error='Not enough space' (errno=12)
+21:25:10.447 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/pinot cannot be built.
+21:25:10.448 [main] INFO  f.i.s.r.process.step.BuildProject - 
+21:25:11.099 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:25:11.100 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+21:25:11.101 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:25:11.101 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 46 s ]
+21:25:11.101 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 23 s ]
+21:25:11.101 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+21:25:11.101 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+21:25:11.101 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+21:25:11.101 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+21:25:11.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+21:25:11.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+21:25:11.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+21:25:11.103 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:25:11.104 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+21:25:11.104 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:25:11.104 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

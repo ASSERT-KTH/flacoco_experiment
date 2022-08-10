@@ -1,0 +1,150 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/jenkinsci/kubernetes-plugin --gitrepopullrequest 1202
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/jenkinsci/kubernetes-plugin --gitrepopullrequest 1202
+
+09:49:12.132 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+09:49:12.134 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+09:49:12.135 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+09:49:12.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+09:49:12.160 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+09:49:12.160 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/jenkinsci/kubernetes-plugin.git in the following directory: ./workspace/jenkinsci-kubernetes-plugin-master-1202_repo
+10:06:47.939 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.282 s <<< FAILURE! - in org.csanchez.jenkins.plugins.kubernetes.casc.EnvVarCasCTest
+10:06:47.941 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.csanchez.jenkins.plugins.kubernetes.casc.EnvVarCasCTest.roundTripTest[0: keyValue]  Time elapsed: 1.172 s  <<< ERROR!
+10:06:47.993 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.csanchez.jenkins.plugins.kubernetes.casc.EnvVarCasCTest.roundTripTest[1: secret]  Time elapsed: 0.004 s  <<< ERROR!
+10:06:48.413 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Errors: 
+10:06:48.414 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   EnvVarCasCTest.roundTripTest[0: keyValue] » ExceptionInInitializer
+10:06:48.414 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   EnvVarCasCTest>RoundTripAbstractTest.roundTripTest:96->RoundTripAbstractTest.getResourceContent:137 » NullPointer
+10:06:48.414 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 202, Failures: 0, Errors: 2, Skipped: 1
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M4:test (default-test) on project kubernetes: There are test failures.
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to /root/workspace/jenkinsci-kubernetes-plugin-master-1202_repo/target/surefire-reports for the individual test results.
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.426 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.maven.surefire.booter.SurefireBooterForkException: ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.427 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] ExecutionException Error creating properties files for forking
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.awaitResultsDone(ForkStarter.java:513)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.runSuitesForkPerTestSet(ForkStarter.java:460)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:301)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:249)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeProvider(AbstractSurefireMojo.java:1217)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeAfterPreconditionsChecked(AbstractSurefireMojo.java:1063)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.execute(AbstractSurefireMojo.java:889)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)
+10:06:48.428 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:956)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+10:06:48.429 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+10:06:48.432 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+10:06:48.432 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+10:06:48.432 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)
+10:06:48.432 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)
+10:06:48.432 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)
+10:06:48.432 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)
+10:06:48.432 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Caused by: org.apache.maven.surefire.booter.SurefireBooterForkException: Error creating properties files for forking
+10:06:48.432 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.fork(ForkStarter.java:577)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.access$600(ForkStarter.java:118)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter$2.call(ForkStarter.java:447)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter$2.call(ForkStarter.java:423)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/java.lang.Thread.run(Thread.java:834)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Caused by: java.io.IOException: No such file or directory
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/java.io.UnixFileSystem.createFileExclusively(Native Method)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at java.base/java.io.File.createTempFile(File.java:2090)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.surefire.booter.SystemPropertyManager.writePropertiesFile(SystemPropertyManager.java:77)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.BooterSerializer.serialize(BooterSerializer.java:186)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.fork(ForkStarter.java:556)
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 	... 7 more
+10:06:48.438 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+10:06:48.466 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:06:48.466 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+10:06:48.466 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:06:48.466 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+10:06:48.466 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+10:06:54.161 [Thread-10] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:2.8:build-classpath (default-cli): Goal requires a project to execute but there is no POM in this directory (/root/workspace/jenkinsci-kubernetes-plugin-master-1202_repo). Please verify you invoked Maven from the correct directory. -> [Help 1]
+10:06:54.406 [Thread-10] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:06:54.407 [Thread-10] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+10:06:54.407 [Thread-10] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:06:54.408 [Thread-10] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+10:06:54.409 [Thread-10] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException
+10:06:55.147 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - Error while computing classpath maven.
+10:06:55.148 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - The pom.xml file is not at the root of the repository. Start to search it in folders...
+10:06:55.148 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - RepairNator was unable to found a pom.xml in the repository. It will stop now.
+10:06:55.174 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM /root/./workspace/jenkinsci-kubernetes-plugin-master-1202_repo/pom.xml: /root/./workspace/jenkinsci-kubernetes-plugin-master-1202_repo/pom.xml (No such file or directory) @ 
+
+10:06:55.175 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - Error while building pom.xml model: no model has been retrieved.
+10:06:55.175 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - Fail to find source directories.
+10:06:55.176 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [   7 s ]
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................SUCCESS [ 494 s ]
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................SUCCESS [ 554 s ]
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................FAILURE [   6 s ]
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................FAILURE [   0 s ]
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................NOT RUN          
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................NOT RUN          
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions.....................NOT RUN          
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: SOURCEDIRNOTCOMPUTED
+10:06:55.184 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:06:55.185 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

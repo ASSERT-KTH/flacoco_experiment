@@ -1,0 +1,63 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8933
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8933
+
+14:14:08.233 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+14:14:08.234 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+14:14:08.234 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+14:14:08.248 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:14:08.248 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+14:14:08.248 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:14:08.248 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+14:14:08.248 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+14:14:08.248 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+14:14:08.249 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+14:14:08.249 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+14:14:08.249 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+14:14:08.249 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+14:14:08.249 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+14:14:08.249 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+14:14:08.249 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8933_repo
+14:14:54.926 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+14:17:30.065 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal com.diffplug.spotless:spotless-maven-plugin:2.9.0:check (default) on project pinot-s3: The following files had format violations:
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     src/main/java/org/apache/pinot/plugin/filesystem/ClientEncryptionS3PinotFS.java
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         @@ -60,12 +60,9 @@
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.net.URISyntaxException;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.nio.file.Path;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.nio.file.Paths;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·java.security.NoSuchAlgorithmException;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.util.Arrays;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.util.List;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.util.Map;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·javax.crypto.KeyGenerator;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·javax.crypto.SecretKey;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·javax.crypto.spec.SecretKeySpec;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.commons.io.FileUtils;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.pinot.spi.env.PinotConfiguration;
+14:17:30.066 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Run 'mvn spotless:apply' to fix these violations.
+14:17:30.067 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+14:17:30.069 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+14:17:30.069 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+14:17:30.069 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+14:17:30.069 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+14:17:30.069 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+14:17:30.070 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+14:17:30.070 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+14:17:30.070 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-s3
+14:17:31.116 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/pinot cannot be built.
+14:17:31.118 [main] INFO  f.i.s.r.process.step.BuildProject - 
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  19 s ]
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................FAILURE [ 183 s ]
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................NOT RUN          
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................NOT RUN          
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................NOT RUN          
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................NOT RUN          
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................NOT RUN          
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+14:17:33.102 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository...NOT RUN          
+14:17:33.103 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:17:33.103 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+14:17:33.103 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+14:17:33.103 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

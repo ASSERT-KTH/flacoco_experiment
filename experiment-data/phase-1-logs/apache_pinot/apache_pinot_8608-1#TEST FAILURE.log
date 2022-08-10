@@ -1,0 +1,454 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8608
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8608
+
+18:15:27.617 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+18:15:27.620 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+18:15:27.620 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+18:15:27.665 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:15:27.665 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+18:15:27.666 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+18:15:27.666 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8608_repo
+18:17:33.884 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+18:26:05.461 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+18:26:05.461 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8608_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+18:26:05.462 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+18:26:05.462 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+18:26:05.462 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+18:26:16.033 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+18:26:16.033 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.buffer.UnsafeUtil (file:/root/workspace/apache-pinot-master-8608_repo/.m2/org/xerial/larray/larray-buffer/0.4.1/larray-buffer-0.4.1.jar) to constructor java.nio.DirectByteBuffer(long,int,java.lang.Object)
+18:26:16.033 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.buffer.UnsafeUtil
+18:26:16.033 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+18:26:16.034 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+18:26:36.607 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 20, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.491 s <<< FAILURE! - in org.apache.pinot.common.utils.PinotDataTypeTest
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testBoolean  Time elapsed: 0.003 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testBytes  Time elapsed: 0.016 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testCharacter  Time elapsed: 0 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testConversionWithMixTypes  Time elapsed: 0.001 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testConversions[STRING_ARRAY, BOOLEAN_ARRAY, [Ljava.lang.String;@4470fbd6, [Z@15d49048](1)  Time elapsed: 0.001 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testConversions[BOOLEAN_ARRAY, BOOLEAN_ARRAY, [Z@3bcd05cb, [Z@3b6d844d](2)  Time elapsed: 0 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testConversions[LONG_ARRAY, TIMESTAMP_ARRAY, [J@24959ca4, [Ljava.sql.Timestamp;@10289886](3)  Time elapsed: 0.003 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testConversions[TIMESTAMP_ARRAY, TIMESTAMP_ARRAY, [Ljava.sql.Timestamp;@769a1df5, [Ljava.sql.Timestamp;@41f69e84](4)  Time elapsed: 0 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testConversions[BYTES_ARRAY, BYTES_ARRAY, [[B@24105dc5, [[B@5167f57d](5)  Time elapsed: 0 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testGetMultipleValueType  Time elapsed: 0.001 s
+18:26:36.608 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testGetSingleValueType  Time elapsed: 0 s
+18:26:36.609 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testInvalidConversion  Time elapsed: 0.023 s  <<< FAILURE!
+18:26:36.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testJSON  Time elapsed: 0.197 s
+18:26:36.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testNumberConversion  Time elapsed: 0.001 s
+18:26:36.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testNumberFormatConversionErrors[INTEGER_ARRAY, LONG_ARRAY, [Ljava.lang.Object;@13e547a9](1)  Time elapsed: 0 s
+18:26:36.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testNumberFormatConversionErrors[INTEGER_ARRAY, INTEGER_ARRAY, [Ljava.lang.Object;@37ddb69a](2)  Time elapsed: 0 s
+18:26:36.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testNumberFormatConversionErrors[INTEGER_ARRAY, BOOLEAN_ARRAY, [Ljava.lang.Object;@dfddc9a](3)  Time elapsed: 0.001 s
+18:26:36.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testObject  Time elapsed: 0.009 s
+18:26:36.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testTimestamp  Time elapsed: 0.001 s
+18:26:36.610 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.common.utils.PinotDataTypeTest.testToString  Time elapsed: 0 s
+18:26:46.086 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+18:26:46.086 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.generateReport(JUnitXMLReporter.java:152)
+18:26:46.086 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.onFinish(JUnitXMLReporter.java:112)
+18:26:46.086 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.fireEvent(TestRunner.java:1187)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.afterRun(TestRunner.java:976)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.run(TestRunner.java:606)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuites(TestNG.java:1144)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1115)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - [TestNG] Reporter org.testng.reporters.JUnitReportReporter@6a84bc2a failed
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitReportReporter.generateReport(JUnitReportReporter.java:146)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.generateReports(TestNG.java:1192)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1120)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+18:26:46.087 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+18:26:46.088 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+18:26:46.088 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+18:26:46.088 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+18:27:33.729 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failures: 
+18:27:33.729 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   PinotDataTypeTest.testInvalidConversion:312->assertInvalidConversion:329 null
+18:27:33.729 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 347, Failures: 1, Errors: 0, Skipped: 0
+18:27:33.740 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project pinot-common: There are test failures.
+18:27:33.741 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:27:33.741 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to /root/workspace/apache-pinot-master-8608_repo/pinot-common/target/surefire-reports for the individual test results.
+18:27:33.741 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+18:27:33.741 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+18:27:33.745 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:27:33.745 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+18:27:33.745 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:27:33.745 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+18:27:33.745 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+18:27:33.745 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:27:33.745 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+18:27:33.745 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-common
+18:27:40.784 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath file is empty.
+18:27:40.785 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath seems not to contain JUnit, maybe this project does not use JUnit for testing.
+18:27:40.785 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8608_repo/target/classes.
+18:27:40.785 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8608_repo/target/test-classes.
+18:27:40.915 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:40.920 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 49 source dirs were found:
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/contrib/pinot-fmpp-maven-plugin/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-broker/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-clients/pinot-java-client/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-clients/pinot-jdbc-client/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-common/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-compatibility-verifier/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-connectors/pinot-flink-connector/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-connectors/pinot-spark-connector/src/main/scala
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-controller/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-core/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-integration-tests/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-minion/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-perf/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/main/java
+18:27:40.931 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-ingestion-common/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-environment/pinot-azure/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-file-system/pinot-adls/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-file-system/pinot-s3/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-avro/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-confluent-avro/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-csv/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-json/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-orc/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-metrics/pinot-dropwizard/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-metrics/pinot-yammer/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-segment-uploader/pinot-segment-uploader-default/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-segment-local/src/main/java
+18:27:40.932 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-segment-spi/src/main/java
+18:27:40.933 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-server/src/main/java
+18:27:40.933 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-spi/src/main/java
+18:27:40.933 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8608_repo/pinot-tools/src/main/java
+18:27:41.004 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.015 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.070 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-s3:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+18:27:41.095 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.113 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.151 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-kinesis:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+18:27:41.184 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.190 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.190 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.211 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.211 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.232 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.244 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.264 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.268 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 40 test dirs were found:
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-broker/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-clients/pinot-java-client/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-clients/pinot-jdbc-client/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-common/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-connectors/pinot-flink-connector/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-connectors/pinot-spark-connector/src/test/scala
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-controller/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-core/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-integration-test-base/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-integration-tests/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-minion/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-environment/pinot-azure/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-file-system/pinot-adls/src/test/java
+18:27:41.268 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-file-system/pinot-s3/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-csv/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-json/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-orc/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-segment-local/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-segment-spi/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-server/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-spi/src/test/java
+18:27:41.269 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8608_repo/pinot-tools/src/test/java
+18:27:41.785 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8608_repo/pinot-common
+18:27:41.791 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+18:27:41.791 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 508
+18:27:41.791 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 508
+18:27:41.791 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 507
+18:27:41.791 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 1
+18:27:41.791 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+18:27:41.791 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 0
+[0] INFO Flacoco - Running Flacoco...
+[24] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.config.NettyConfig
+[25] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.exception.QueryException
+[27] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.lineage.SegmentLineageAccessHelper
+[27] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.lineage.SegmentLineage
+[29] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TagNameUtils
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TierConfigUtils
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TableConfigUtils
+[31] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.InstanceUtils
+[31] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.HttpsSegmentFetcher
+[32] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.PinotFSSegmentFetcher
+[32] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.HttpSegmentFetcher
+[32] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.SegmentFetcherFactory
+[32] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SchemaUtils
+[33] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SegmentUtils
+[34] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.webhdfs.WebHdfsV1Client
+[34] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SqlResultComparator
+[37] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.request.RequestUtils
+[37] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.request.FilterQueryTree
+[38] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.FileUploadDownloadClient
+[46] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.PinotDataType
+[47] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.ServiceStartableUtils
+[48] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.PinotHelixPropertyStoreZnRecordProvider
+[49] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.HelixHelper
+[49] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.LeadControllerUtils
+[50] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.grpc.GrpcQueryClient
+[51] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.grpc.GrpcRequestBuilder
+[52] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.TlsUtils
+[53] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.RealtimeToOfflineSegmentsTaskMetadata
+[54] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionTaskMetadataUtils
+[54] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionClient
+[54] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MergeRollupTaskMetadata
+[57] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.scalar.JsonFunctions
+[65] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.scalar.ArrayFunctions
+[65] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.FunctionUtils
+[73] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.request.context.RequestContextUtils
+[79] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.tier.TierFactory
+[79] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.http.MultiGetRequest
+[80] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstancePartitionsUtils
+[80] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstancePartitions
+[80] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstanceAssignmentConfigUtils
+[81] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.PinotQueryServerGrpc
+[81] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Server
+[81] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.segment.generation.SegmentGenerationUtils
+[84] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.ZKMetadataProvider
+[84] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.instance.InstanceZKMetadata
+[84] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.segment.SegmentZKMetadata
+[87] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.BrokerMetrics
+[88] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.ControllerMetrics
+[89] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.ServerMetrics
+[89] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.JmxReporterMetricsRegistryRegistrationListener
+[90] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.PinotMetricUtils
+[90] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.MinionMetrics
+[91] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.parsers.utils.ParserUtils
+[92] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.parsers.utils.BrokerRequestComparisonUtils
+[92] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.serde.SerDe
+[94] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.Pql2CompilationException
+[94] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.GroupByAstNode
+[95] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.StarColumnListAstNode
+[95] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.FloatingPointLiteralAstNode
+[96] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.StarExpressionAstNode
+[96] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OptionAstNode
+[97] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.BooleanOperatorAstNode
+[97] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.StringLiteralAstNode
+[97] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.IntegerLiteralAstNode
+[98] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OrderByAstNode
+[98] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.PredicateListAstNode
+[99] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.IsNullPredicateAstNode
+[99] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.BetweenPredicateAstNode
+[99] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.TopAstNode
+[100] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.TextMatchPredicateAstNode
+[100] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OptionsAstNode
+[100] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.TableNameAstNode
+[101] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OutputColumnAstNode
+[101] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OrderByExpressionAstNode
+[101] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.RegexpLikePredicateAstNode
+[102] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.WhereAstNode
+[102] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.IdentifierAstNode
+[103] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.ComparisonPredicateAstNode
+[103] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OutputColumnListAstNode
+[103] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.FunctionCallAstNode
+[104] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.InPredicateAstNode
+[104] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.BinaryMathOpAstNode
+[105] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.LimitAstNode
+[105] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.SelectAstNode
+[105] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.ExpressionParenthesisGroupAstNode
+[106] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.PredicateParenthesisGroupAstNode
+[107] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.PinotQuery2BrokerRequestConverter
+[107] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.Pql2Compiler
+[108] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlParser
+[108] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlCompiler
+[109] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.OrdinalsUpdater
+[109] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.AliasApplier
+[110] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.CompileTimeFunctionsInvoker
+[110] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.SelectionsRewriter
+[110] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.PredicateComparisonRewriter
+[111] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.NonAggregationGroupByToDistinctQueryRewriter
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.exception.QueryExceptionTest
+[134] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TagNameUtilsTest
+[140] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.DateTimeGranularitySpecTest
+[140] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.SchemaTest
+[140] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.DateTimeFormatSpecTest
+[141] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.FieldSpecTest
+[141] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionTaskMetadataUtilsTest
+[145] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.http.MultiGetRequestTest
+[146] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.MetadataUtils
+[147] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.SegmentZKMetadataTest
+[147] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.request.BrokerRequestSerializationTest
+[160] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.config.NettyConfig
+[160] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.exception.QueryException
+[161] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.lineage.SegmentLineageAccessHelper
+[161] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.lineage.SegmentLineage
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TagNameUtils
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TierConfigUtils
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TableConfigUtils
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.InstanceUtils
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.HttpsSegmentFetcher
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.HttpSegmentFetcher
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.fetcher.SegmentFetcherFactory
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SchemaUtils
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SegmentUtils
+[162] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.webhdfs.WebHdfsV1Client
+[163] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.SqlResultComparator
+[163] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.request.RequestUtils
+[163] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.request.FilterQueryTree
+[164] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.FileUploadDownloadClient
+[164] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.PinotDataType
+[164] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.ServiceStartableUtils
+[164] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.PinotHelixPropertyStoreZnRecordProvider
+[164] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.HelixHelper
+[165] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.helix.LeadControllerUtils
+[165] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.grpc.GrpcQueryClient
+[165] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.grpc.GrpcRequestBuilder
+[165] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.TlsUtils
+[165] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.RealtimeToOfflineSegmentsTaskMetadata
+[165] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionTaskMetadataUtils
+[165] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionClient
+[165] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MergeRollupTaskMetadata
+[166] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.scalar.JsonFunctions
+[170] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.scalar.ArrayFunctions
+[170] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.function.FunctionUtils
+[172] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.request.context.RequestContextUtils
+[175] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.tier.TierFactory
+[175] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.http.MultiGetRequest
+[175] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstancePartitionsUtils
+[175] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstancePartitions
+[175] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.assignment.InstanceAssignmentConfigUtils
+[176] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.PinotQueryServerGrpc
+[176] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.proto.Server
+[176] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.segment.generation.SegmentGenerationUtils
+[176] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.ZKMetadataProvider
+[176] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.instance.InstanceZKMetadata
+[176] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.segment.SegmentZKMetadata
+[177] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.ValidationMetrics
+[177] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.JmxReporterMetricsRegistryRegistrationListener
+[177] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metrics.PinotMetricUtils
+[177] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.parsers.utils.ParserUtils
+[177] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.parsers.utils.BrokerRequestComparisonUtils
+[177] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.serde.SerDe
+[178] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.Pql2CompilationException
+[179] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.GroupByAstNode
+[179] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.StarColumnListAstNode
+[179] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OptionAstNode
+[180] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.BooleanOperatorAstNode
+[180] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OrderByAstNode
+[180] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.PredicateListAstNode
+[180] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.IsNullPredicateAstNode
+[180] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.BetweenPredicateAstNode
+[181] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.TopAstNode
+[181] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.TextMatchPredicateAstNode
+[181] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OptionsAstNode
+[181] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OutputColumnAstNode
+[182] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.RegexpLikePredicateAstNode
+[182] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.WhereAstNode
+[182] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.ComparisonPredicateAstNode
+[182] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.OutputColumnListAstNode
+[182] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.FunctionCallAstNode
+[183] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.InPredicateAstNode
+[183] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.SelectAstNode
+[183] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.pql2.ast.PredicateParenthesisGroupAstNode
+[184] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.PinotQuery2BrokerRequestConverter
+[184] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.pql.parsers.Pql2Compiler
+[184] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlParser
+[185] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlCompiler
+[185] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.OrdinalsUpdater
+[185] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.AliasApplier
+[185] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.CompileTimeFunctionsInvoker
+[185] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.SelectionsRewriter
+[186] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.PredicateComparisonRewriter
+[186] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.rewriter.NonAggregationGroupByToDistinctQueryRewriter
+[192] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.parser.UnparseUtils
+[192] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.exception.QueryExceptionTest
+[193] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TableConfigSerDeTest
+[193] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.utils.config.TagNameUtilsTest
+[196] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.DateTimeGranularitySpecTest
+[196] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.SchemaTest
+[196] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.DateTimeFormatSpecTest
+[196] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.data.FieldSpecTest
+[196] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.minion.MinionTaskMetadataUtilsTest
+[198] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.http.MultiGetRequestTest
+[198] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.MetadataUtils
+[198] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.InstanceZKMetadataTest
+[198] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.common.metadata.SegmentZKMetadataTest
+[198] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.request.BrokerRequestSerializationTest
+[199] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.sql.parsers.CalciteSqlCompilerTest
+[201] INFO CoverageRunner - Tests found: 0
+[201] INFO CoverageRunner - Tests executed: 0
+18:27:43.099 [main] INFO  fr.inria.jtravis.JTravis - GitHub ratelimit: Limit: 5000 Remaining: 3043 Reset hour: 03:39:25
+18:27:44.223 [main] WARN  f.i.s.r.p.s.p.PushFaultLocalizationSuggestionsOnGitHubRepository - Flacoco has found 0 suspicious lines, but none were matched to the diff
+18:27:44.223 [main] INFO  f.i.s.r.p.s.f.FlacocoLocalization - 
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  40 s ]
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................SUCCESS [ 587 s ]
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................SUCCESS [  99 s ]
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................SUCCESS [   6 s ]
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................SUCCESS [   0 s ]
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................SUCCESS [   0 s ]
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................SUCCESS [   0 s ]
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................SUCCESS [   0 s ]
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository...SKIPPED          
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: TEST FAILURE
+18:27:48.698 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:27:48.698 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

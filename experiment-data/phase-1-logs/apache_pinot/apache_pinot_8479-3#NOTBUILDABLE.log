@@ -1,0 +1,51 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8479
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8479
+
+23:16:01.527 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+23:16:01.529 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+23:16:01.529 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+23:16:01.543 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+23:16:01.544 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+23:16:01.544 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+23:16:01.544 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+23:16:01.544 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8479_repo
+23:16:23.919 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [ERROR] Some problems were encountered while processing the POMs:
+23:16:23.920 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] The build could not read 2 projects -> [Help 1]
+23:16:23.921 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   
+23:16:23.922 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   The project org.apache.pinot:pinot-query-planner:0.10.0-SNAPSHOT (/root/workspace/apache-pinot-master-8479_repo/pinot-query-planner/pom.xml) has 1 error
+23:16:23.922 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     Non-resolvable parent POM for org.apache.pinot:pinot-query-planner:0.10.0-SNAPSHOT: Could not find artifact org.apache.pinot:pinot:pom:0.10.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 26, column 11 -> [Help 2]
+23:16:23.929 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   
+23:16:23.929 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   The project org.apache.pinot:pinot-query-runtime:0.10.0-SNAPSHOT (/root/workspace/apache-pinot-master-8479_repo/pinot-query-runtime/pom.xml) has 1 error
+23:16:23.929 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     Non-resolvable parent POM for org.apache.pinot:pinot-query-runtime:0.10.0-SNAPSHOT: Could not find artifact org.apache.pinot:pinot:pom:0.10.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 26, column 11 -> [Help 2]
+23:16:23.935 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+23:16:23.936 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+23:16:23.936 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+23:16:23.936 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+23:16:23.936 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+23:16:23.936 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException
+23:16:24.154 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/pinot cannot be built.
+23:16:24.154 [main] INFO  f.i.s.r.process.step.BuildProject - 
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 20 s ]
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [  2 s ]
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+23:16:24.344 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+23:16:24.345 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+23:16:24.345 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+23:16:24.345 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+23:16:24.345 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

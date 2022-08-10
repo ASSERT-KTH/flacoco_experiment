@@ -1,0 +1,101 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8991
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8991
+
+00:12:13.793 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+00:12:13.795 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+00:12:13.795 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+00:12:13.812 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+00:12:13.812 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8991_repo
+00:13:03.593 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+00:13:25.847 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal com.diffplug.spotless:spotless-maven-plugin:2.9.0:check (default) on project pinot-common: The following files had format violations:
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     src/main/java/org/apache/pinot/common/config/provider/AccessControlUserCache.java
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         @@ -24,12 +24,12 @@
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.util.concurrent.ConcurrentHashMap;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.util.stream.Collectors;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·javax.annotation.Nullable;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·org.apache.helix.zookeeper.zkclient.IZkChildListener;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·org.apache.helix.zookeeper.zkclient.IZkDataListener;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.commons.collections.CollectionUtils;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.helix.AccessOption;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         +import·org.apache.helix.store.zk.ZkHelixPropertyStore;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.helix.zookeeper.datamodel.ZNRecord;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·org.apache.helix.store.zk.ZkHelixPropertyStore;
+00:13:25.848 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         +import·org.apache.helix.zookeeper.zkclient.IZkChildListener;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         +import·org.apache.helix.zookeeper.zkclient.IZkDataListener;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.pinot.common.utils.config.AccessControlUserConfigUtils;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.pinot.spi.config.user.ComponentType;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.pinot.spi.config.user.UserConfig;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     src/main/java/org/apache/pinot/common/config/provider/TableCache.java
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         @@ -29,13 +29,13 @@
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.util.TreeMap;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.util.concurrent.ConcurrentHashMap;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·javax.annotation.Nullable;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·org.apache.helix.zookeeper.zkclient.IZkChildListener;
+00:13:25.849 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·org.apache.helix.zookeeper.zkclient.IZkDataListener;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.commons.collections.CollectionUtils;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.commons.collections.MapUtils;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.helix.AccessOption;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         +import·org.apache.helix.store.zk.ZkHelixPropertyStore;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.helix.zookeeper.datamodel.ZNRecord;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·org.apache.helix.store.zk.ZkHelixPropertyStore;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         +import·org.apache.helix.zookeeper.zkclient.IZkChildListener;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         +import·org.apache.helix.zookeeper.zkclient.IZkDataListener;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.pinot.common.request.Expression;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.pinot.common.utils.SchemaUtils;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.pinot.common.utils.config.TableConfigUtils;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     src/main/java/org/apache/pinot/common/lineage/SegmentLineageAccessHelper.java
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         @@ -20,8 +20,8 @@
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.I0Itec.zkclient.exception.ZkBadVersionException;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.helix.AccessOption;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         +import·org.apache.helix.store.zk.ZkHelixPropertyStore;
+00:13:25.850 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.helix.zookeeper.datamodel.ZNRecord;
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         -import·org.apache.helix.store.zk.ZkHelixPropertyStore;
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.pinot.common.metadata.ZKMetadataProvider;
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·org.apache.zookeeper.data.Stat;
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     src/main/java/org/apache/pinot/common/messages/SegmentReloadMessage.java
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]         @@ -22,8 +22,8 @@
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·java.util.UUID;
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]          import·javax.annotation.Nonnull;
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     ... (7 more lines that didn't fit)
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Violations also present in 15 other files.
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Run 'mvn spotless:apply' to fix these violations.
+00:13:25.851 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+00:13:25.858 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:13:25.858 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+00:13:25.858 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:13:25.858 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+00:13:25.858 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+00:13:25.858 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:13:25.858 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+00:13:25.858 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-common
+00:13:26.375 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/pinot cannot be built.
+00:13:26.377 [main] INFO  f.i.s.r.process.step.BuildProject - 
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 19 s ]
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 53 s ]
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+00:13:26.977 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+00:13:26.978 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:13:26.978 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+00:13:26.978 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:13:26.978 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

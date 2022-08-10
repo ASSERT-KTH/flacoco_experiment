@@ -1,0 +1,54 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/jenkinsci/kubernetes-plugin --gitrepopullrequest 1169
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/jenkinsci/kubernetes-plugin --gitrepopullrequest 1169
+
+21:44:23.929 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+21:44:23.930 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+21:44:23.931 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+21:44:23.944 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+21:44:23.945 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+21:44:23.945 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/jenkinsci/kubernetes-plugin.git in the following directory: ./workspace/jenkinsci-kubernetes-plugin-master-1169_repo
+21:58:59.544 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 1 source dir was found:
+21:58:59.544 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/jenkinsci-kubernetes-plugin-master-1169_repo/src/main/java
+21:58:59.606 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.csanchez.jenkins.plugins:kubernetes:999999-SNAPSHOT
+[ERROR] Failed to determine Java version for profile jdk-above-9 @ org.jenkins-ci.plugins:plugin:4.39
+
+21:58:59.627 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.csanchez.jenkins.plugins:kubernetes:999999-SNAPSHOT
+[ERROR] Failed to determine Java version for profile jdk-above-9 @ org.jenkins-ci.plugins:plugin:4.39
+
+21:58:59.628 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+21:58:59.628 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 1 test dir was found:
+21:58:59.628 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/jenkinsci-kubernetes-plugin-master-1169_repo/src/test/java
+21:58:59.776 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+21:58:59.776 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 241
+21:58:59.776 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 228
+21:58:59.776 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 228
+21:58:59.776 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 0
+21:58:59.776 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+21:58:59.776 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 13
+21:58:59.776 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - 
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [   5 s ]
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................SUCCESS [ 470 s ]
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................SUCCESS [ 388 s ]
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................SUCCESS [  12 s ]
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................SUCCESS [   0 s ]
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................SUCCESS [   0 s ]
+21:59:00.149 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................FAILURE [   0 s ]
+21:59:00.150 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+21:59:00.150 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions.....................NOT RUN          
+21:59:00.150 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:59:00.150 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTFAILING
+21:59:00.150 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+21:59:00.150 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

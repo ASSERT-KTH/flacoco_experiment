@@ -1,0 +1,364 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8542
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8542
+
+10:42:39.439 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+10:42:39.440 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+10:42:39.440 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+10:42:39.454 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+10:42:39.455 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+10:42:39.455 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+10:42:39.455 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8542_repo
+10:50:07.250 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:50:07.251 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.pinot.spi.config.ConfigUtilsTest (file:/root/workspace/apache-pinot-master-8542_repo/pinot-spi/target/test-classes/) to field java.util.Collections$UnmodifiableMap.m
+10:50:07.251 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.pinot.spi.config.ConfigUtilsTest
+10:50:07.251 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:50:07.251 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:50:16.194 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:50:16.194 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.buffer.UnsafeUtil (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/xerial/larray/larray-buffer/0.4.1/larray-buffer-0.4.1.jar) to constructor java.nio.DirectByteBuffer(long,int,java.lang.Object)
+10:50:16.194 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.buffer.UnsafeUtil
+10:50:16.194 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:50:16.194 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.generateReport(JUnitXMLReporter.java:152)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.onFinish(JUnitXMLReporter.java:112)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.fireEvent(TestRunner.java:1187)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.afterRun(TestRunner.java:976)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.run(TestRunner.java:606)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuites(TestNG.java:1144)
+10:50:35.236 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1115)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - [TestNG] Reporter org.testng.reporters.JUnitReportReporter@6a84bc2a failed
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitReportReporter.generateReport(JUnitReportReporter.java:146)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.generateReports(TestNG.java:1192)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1120)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+10:50:35.237 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+10:51:46.803 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:51:46.803 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+10:51:46.803 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+10:51:46.803 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:51:46.803 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:52:00.689 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:52:00.690 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+10:52:00.690 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+10:52:00.690 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:52:00.690 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:52:03.991 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:52:03.991 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+10:52:03.991 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+10:52:03.991 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:52:03.992 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:52:06.067 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:52:06.067 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+10:52:06.067 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+10:52:06.067 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:52:06.067 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:52:59.291 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:52:59.291 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+10:52:59.291 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+10:52:59.291 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:52:59.291 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:53:40.156 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:53:40.156 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.mmap.MMapBuffer (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/xerial/larray/larray-mmap/0.4.1/larray-mmap-0.4.1.jar) to field java.io.FileDescriptor.fd
+10:53:40.157 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.mmap.MMapBuffer
+10:53:40.157 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:53:40.157 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:57:51.030 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Exception in thread "Thread-2" org.apache.lucene.store.AlreadyClosedException: this IndexWriter is closed
+10:57:51.030 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.ensureOpen(IndexWriter.java:681)
+10:57:51.030 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.ensureOpen(IndexWriter.java:695)
+10:57:51.030 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.getMaxCompletedSequenceNumber(IndexWriter.java:5176)
+10:57:51.030 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.search.ControlledRealTimeReopenThread.run(ControlledRealTimeReopenThread.java:234)
+11:00:38.778 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+11:00:38.779 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+11:00:38.779 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+11:00:38.779 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+11:00:38.779 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+11:01:46.601 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+11:01:46.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+11:01:46.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+11:01:46.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+11:01:46.602 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+11:01:47.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+11:01:47.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+11:01:47.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+11:01:47.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+11:01:47.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+11:01:52.052 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+11:01:52.052 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+11:01:52.052 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+11:01:52.052 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+11:01:52.052 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+11:02:40.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+11:02:40.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+11:02:40.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+11:02:40.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+11:02:40.521 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+11:03:41.202 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+11:03:41.203 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8542_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+11:03:41.203 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+11:03:41.203 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+11:03:41.203 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+11:04:23.849 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 14, 2022 11:04:23 AM org.glassfish.grizzly.http.server.NetworkListener start
+11:04:23.849 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:43205]
+11:04:23.849 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 14, 2022 11:04:23 AM org.glassfish.grizzly.http.server.HttpServer start
+11:04:23.849 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+11:04:23.898 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 4, Time elapsed: 1.421 s <<< FAILURE! - in org.apache.pinot.server.api.AccessControlTest
+11:04:23.898 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.AccessControlTest.setUp  Time elapsed: 1.375 s  <<< FAILURE!
+11:04:23.900 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.AccessControlTest skipped
+11:04:23.900 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.AccessControlTest skipped
+11:04:23.900 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.AccessControlTest skipped
+11:04:23.900 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.AccessControlTest skipped
+11:04:28.445 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 14, 2022 11:04:28 AM org.glassfish.grizzly.http.server.NetworkListener start
+11:04:28.446 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+11:04:28.446 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 14, 2022 11:04:28 AM org.glassfish.grizzly.http.server.HttpServer start
+11:04:28.446 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+11:04:28.505 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 5, Time elapsed: 3.903 s <<< FAILURE! - in org.apache.pinot.server.api.TableSizeResourceTest
+11:04:28.505 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TableSizeResourceTest.setUp  Time elapsed: 3.845 s  <<< FAILURE!
+11:04:28.508 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TableSizeResourceTest skipped
+11:04:28.508 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TableSizeResourceTest skipped
+11:04:28.508 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TableSizeResourceTest skipped
+11:04:28.508 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TableSizeResourceTest skipped
+11:04:28.508 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TableSizeResourceTest skipped
+11:04:33.148 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 14, 2022 11:04:33 AM org.glassfish.grizzly.http.server.NetworkListener start
+11:04:33.149 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+11:04:33.149 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 14, 2022 11:04:33 AM org.glassfish.grizzly.http.server.HttpServer start
+11:04:33.149 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+11:04:33.205 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 9, Failures: 1, Errors: 0, Skipped: 8, Time elapsed: 4.01 s <<< FAILURE! - in org.apache.pinot.server.api.TablesResourceTest
+11:04:33.205 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest.setUp  Time elapsed: 3.955 s  <<< FAILURE!
+11:04:33.207 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest skipped
+11:04:33.207 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest skipped
+11:04:33.207 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest skipped
+11:04:33.207 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest skipped
+11:04:33.207 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest skipped
+11:04:33.207 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest skipped
+11:04:33.207 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest skipped
+11:04:33.207 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.TablesResourceTest skipped
+11:04:37.848 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 14, 2022 11:04:37 AM org.glassfish.grizzly.http.server.NetworkListener start
+11:04:37.848 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+11:04:37.848 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 14, 2022 11:04:37 AM org.glassfish.grizzly.http.server.HttpServer start
+11:04:37.848 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+11:04:37.894 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 3.991 s <<< FAILURE! - in org.apache.pinot.server.api.PinotServerAppConfigsTest
+11:04:37.894 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.PinotServerAppConfigsTest.setUp  Time elapsed: 3.947 s  <<< FAILURE!
+11:04:37.897 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.PinotServerAppConfigsTest skipped
+11:04:37.897 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.server.api.PinotServerAppConfigsTest skipped
+11:04:38.734 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failures: 
+11:04:38.735 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   AccessControlTest.setUp:86 » NoSuchMethod 'com.fasterxml.jackson.databind.Java...
+11:04:38.735 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   PinotServerAppConfigsTest>BaseResourceTest.setUp:138 » NoSuchMethod 'com.faste...
+11:04:38.735 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   TableSizeResourceTest>BaseResourceTest.setUp:138 » NoSuchMethod 'com.fasterxml...
+11:04:38.735 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   TablesResourceTest>BaseResourceTest.setUp:138 » NoSuchMethod 'com.fasterxml.ja...
+11:04:38.735 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 28, Failures: 4, Errors: 0, Skipped: 19
+11:04:38.749 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project pinot-server: There are test failures.
+11:04:38.749 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+11:04:38.749 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to /root/workspace/apache-pinot-master-8542_repo/pinot-server/target/surefire-reports for the individual test results.
+11:04:38.749 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+11:04:38.749 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+11:04:38.759 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+11:04:38.759 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+11:04:38.759 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+11:04:38.759 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+11:04:38.759 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+11:04:38.759 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+11:04:38.759 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+11:04:38.759 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-server
+11:04:44.470 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath file is empty.
+11:04:44.470 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath seems not to contain JUnit, maybe this project does not use JUnit for testing.
+11:04:44.471 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8542_repo/target/classes.
+11:04:44.471 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8542_repo/target/test-classes.
+11:04:44.596 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.601 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 48 source dirs were found:
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-broker/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-clients/pinot-java-client/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-clients/pinot-jdbc-client/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-common/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-compatibility-verifier/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-connectors/pinot-flink-connector/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-connectors/pinot-spark-connector/src/main/scala
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-controller/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-core/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-integration-tests/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-minion/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-perf/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-ingestion-common/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-environment/pinot-azure/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-file-system/pinot-adls/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-file-system/pinot-s3/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-avro/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-confluent-avro/src/main/java
+11:04:44.610 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-csv/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-json/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-orc/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-metrics/pinot-dropwizard/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-metrics/pinot-yammer/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-segment-uploader/pinot-segment-uploader-default/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-segment-local/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-segment-spi/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-server/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-spi/src/main/java
+11:04:44.611 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8542_repo/pinot-tools/src/main/java
+11:04:44.673 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.681 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.735 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-s3:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+11:04:44.776 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.808 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-kinesis:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+11:04:44.828 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.832 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.832 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.845 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.845 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.859 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.869 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.885 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 41 test dirs were found:
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-broker/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-clients/pinot-java-client/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-clients/pinot-jdbc-client/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-common/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-connectors/pinot-flink-connector/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-connectors/pinot-spark-connector/src/test/scala
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-controller/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-core/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-integration-test-base/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-integration-tests/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-minion/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/test/java
+11:04:44.885 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-environment/pinot-azure/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-file-system/pinot-adls/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-file-system/pinot-s3/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-csv/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-json/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-orc/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-segment-local/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-segment-spi/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-server/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-spi/src/test/java
+11:04:44.886 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8542_repo/pinot-tools/src/test/java
+11:04:45.430 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8542_repo/pinot-server
+11:04:45.431 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8542_repo/pinot-server
+11:04:45.431 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8542_repo/pinot-server
+11:04:45.431 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8542_repo/pinot-server
+11:04:45.637 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+11:04:45.637 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 4195
+11:04:45.637 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 4176
+11:04:45.637 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 4172
+11:04:45.637 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 4
+11:04:45.637 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+11:04:45.637 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 19
+[0] INFO Flacoco - Running Flacoco...
+[10] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.conf.ServerConf
+[11] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.starter.ServerInstance
+[12] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.starter.helix.DefaultHelixStarterServerConfig
+[17] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.resources.ServerResourceUtils
+[19] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.resources.TablesResource
+[21] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.resources.SegmentMetadataFetcher
+[22] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.starter.helix.HelixInstanceDataManagerTest
+[22] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.AccessControlTest
+[23] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.TableSizeResourceTest
+[23] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.TablesResourceTest
+[23] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.PinotServerAppConfigsTest
+[25] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.conf.ServerConf
+[25] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.starter.ServerInstance
+[26] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.starter.helix.OffsetBasedConsumptionStatusChecker
+[26] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.starter.helix.DefaultHelixStarterServerConfig
+[28] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.resources.ServerResourceUtils
+[29] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.resources.TablesResource
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.resources.DebugResource
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.resources.SegmentMetadataFetcher
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.starter.helix.HelixInstanceDataManagerTest
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.AccessControlTest
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.TableSizeResourceTest
+[31] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.TablesResourceTest
+[31] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.server.api.PinotServerAppConfigsTest
+[33] INFO CoverageRunner - Tests found: 0
+[33] INFO CoverageRunner - Tests executed: 0
+11:04:47.402 [main] INFO  fr.inria.jtravis.JTravis - GitHub ratelimit: Limit: 5000 Remaining: 4876 Reset hour: 03:18:50
+11:04:49.051 [main] WARN  f.i.s.r.p.s.p.PushFaultLocalizationSuggestionsOnGitHubRepository - Flacoco has found 0 suspicious lines, but none were matched to the diff
+11:04:49.051 [main] INFO  f.i.s.r.p.s.f.FlacocoLocalization - 
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  27 s ]
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................SUCCESS [ 414 s ]
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................SUCCESS [ 878 s ]
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................SUCCESS [   5 s ]
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................SUCCESS [   0 s ]
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................SUCCESS [   0 s ]
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................SUCCESS [   0 s ]
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................SUCCESS [   0 s ]
+11:04:52.505 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository...SKIPPED          
+11:04:52.506 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:04:52.506 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: TEST FAILURE
+11:04:52.506 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:04:52.506 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

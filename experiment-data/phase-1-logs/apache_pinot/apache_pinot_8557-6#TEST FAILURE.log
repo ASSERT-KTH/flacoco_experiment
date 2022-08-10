@@ -1,0 +1,717 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8557
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8557
+
+23:47:28.721 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+23:47:28.722 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+23:47:28.722 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+23:47:28.736 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+23:47:28.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+23:47:28.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+23:47:28.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+23:47:28.737 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8557_repo
+23:48:22.230 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+23:55:08.579 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+23:55:08.580 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+23:55:08.580 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+23:55:08.580 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+23:55:08.580 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+23:55:17.063 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+23:55:17.063 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.buffer.UnsafeUtil (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/xerial/larray/larray-buffer/0.4.1/larray-buffer-0.4.1.jar) to constructor java.nio.DirectByteBuffer(long,int,java.lang.Object)
+23:55:17.063 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.buffer.UnsafeUtil
+23:55:17.063 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+23:55:17.063 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+23:55:38.817 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.generateReport(JUnitXMLReporter.java:152)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.onFinish(JUnitXMLReporter.java:112)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.fireEvent(TestRunner.java:1187)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.afterRun(TestRunner.java:976)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.run(TestRunner.java:606)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuites(TestNG.java:1144)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1115)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+23:55:38.818 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - [TestNG] Reporter org.testng.reporters.JUnitReportReporter@6a84bc2a failed
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitReportReporter.generateReport(JUnitReportReporter.java:146)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.generateReports(TestNG.java:1192)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1120)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+23:55:38.819 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+23:56:50.708 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+23:56:50.708 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+23:56:50.708 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+23:56:50.708 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+23:56:50.708 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+23:57:04.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+23:57:04.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+23:57:04.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+23:57:04.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+23:57:04.520 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+23:57:08.255 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+23:57:08.255 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+23:57:08.255 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+23:57:08.255 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+23:57:08.255 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+23:57:10.307 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+23:57:10.307 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+23:57:10.307 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+23:57:10.307 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+23:57:10.307 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+23:58:05.164 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+23:58:05.164 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+23:58:05.164 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+23:58:05.164 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+23:58:05.164 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+23:58:44.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+23:58:44.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.mmap.MMapBuffer (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/xerial/larray/larray-mmap/0.4.1/larray-mmap-0.4.1.jar) to field java.io.FileDescriptor.fd
+23:58:44.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.mmap.MMapBuffer
+23:58:44.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+23:58:44.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+00:03:02.457 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Exception in thread "Thread-2" org.apache.lucene.store.AlreadyClosedException: this IndexWriter is closed
+00:03:02.457 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.ensureOpen(IndexWriter.java:681)
+00:03:02.457 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.ensureOpen(IndexWriter.java:695)
+00:03:02.457 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.getMaxCompletedSequenceNumber(IndexWriter.java:5176)
+00:03:02.457 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.search.ControlledRealTimeReopenThread.run(ControlledRealTimeReopenThread.java:234)
+00:06:03.401 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+00:06:03.402 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+00:06:03.402 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+00:06:03.402 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+00:06:03.402 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+00:07:17.742 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+00:07:17.742 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+00:07:17.742 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+00:07:17.742 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+00:07:17.742 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+00:07:18.548 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+00:07:18.548 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+00:07:18.548 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+00:07:18.548 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+00:07:18.548 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+00:07:23.782 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+00:07:23.782 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+00:07:23.782 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+00:07:23.782 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+00:07:23.782 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+00:08:19.057 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+00:08:19.057 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+00:08:19.057 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+00:08:19.057 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+00:08:19.057 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+00:09:25.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+00:09:25.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8557_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+00:09:25.482 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+00:09:25.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+00:09:25.483 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+00:10:11.346 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:11 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:10:11.346 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:45281]
+00:10:11.346 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:11 AM org.glassfish.grizzly.http.server.HttpServer start
+00:10:11.346 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+00:10:11.552 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:11 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:10:11.552 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:45281]
+00:10:15.918 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:15 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:10:15.918 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+00:10:15.918 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:15 AM org.glassfish.grizzly.http.server.HttpServer start
+00:10:15.918 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+00:10:16.145 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:16 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:10:16.146 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:8097]
+00:10:20.511 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:20 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:10:20.511 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+00:10:20.511 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:20 AM org.glassfish.grizzly.http.server.HttpServer start
+00:10:20.511 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+00:10:25.313 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:25 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:10:25.313 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:8097]
+00:10:29.663 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:29 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:10:29.663 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+00:10:29.663 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:29 AM org.glassfish.grizzly.http.server.HttpServer start
+00:10:29.663 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+00:10:29.898 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:29 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:10:29.898 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:8097]
+00:10:44.808 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:43 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:10:44.808 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:10:44.808 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:10:43 AM org.glassfish.grizzly.http.server.HttpServer start
+00:10:44.808 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+00:14:23.854 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:14:22 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:14:23.854 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:14:29.027 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:14:28 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:14:29.027 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:1234]
+00:14:29.027 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:14:28 AM org.glassfish.grizzly.http.server.HttpServer start
+00:14:29.027 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+00:14:29.027 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:14:28 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:14:29.027 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:1234]
+00:14:54.640 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:14:54 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:14:54.640 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:14:54.640 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:14:54 AM org.glassfish.grizzly.http.server.HttpServer start
+00:14:54.640 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-1] Started.
+00:15:05.073 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:02 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:05.073 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:05.073 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:04 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:05.073 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:05.073 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:04 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:05.073 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-2] Started.
+00:15:09.239 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:05 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:09.239 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:09.240 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:08 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:09.240 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:09.240 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:08 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:09.240 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-3] Started.
+00:15:14.485 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:13 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:14.485 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:18.566 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:15 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:18.567 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:18.567 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:15 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:18.567 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-4] Started.
+00:15:18.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:15 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:18.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18999]
+00:15:18.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:15 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:18.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-5] Started.
+00:15:18.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:15 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:18.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18999]
+00:15:18.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:16 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:18.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:18.578 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:18 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:18.578 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:18.578 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:18 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:18.578 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-6] Started.
+00:15:18.578 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:18 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:18.578 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:21.975 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:21 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:21.975 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:21.975 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:21 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:21.975 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-7] Started.
+00:15:21.980 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:21 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:21.980 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18999]
+00:15:21.980 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:21 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:21.980 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-8] Started.
+00:15:21.980 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:21 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:21.980 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18999]
+00:15:21.980 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:21 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:21.980 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:24.138 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:23 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:24.138 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:24.138 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:23 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:24.138 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-9] Started.
+00:15:24.138 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:23 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:24.138 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:26.184 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:25 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:26.185 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:26.185 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:25 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:26.185 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-10] Started.
+00:15:30.812 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:27 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:30.812 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:30.815 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:30 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:30.815 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:30.815 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:30 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:30.815 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-11] Started.
+00:15:35.610 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:34 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:35.611 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:36.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:36 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:36.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:36.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:36 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:36.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-12] Started.
+00:15:36.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:36 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:36.572 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:39.503 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:37 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:39.503 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:39.503 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:37 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:39.503 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-13] Started.
+00:15:39.510 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:37 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:39.510 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:39.528 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:39 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:39.528 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:39.528 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:39 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:39.528 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-14] Started.
+00:15:41.221 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:39 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:41.221 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:42.304 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:41 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:42.304 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:42.304 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:41 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:42.304 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-15] Started.
+00:15:42.695 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:42 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:42.695 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:44.504 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:44 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:44.504 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:44.504 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:44 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:44.504 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-16] Started.
+00:15:56.669 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:53 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:56.669 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:56.672 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:56 AM org.glassfish.grizzly.http.server.NetworkListener start
+00:15:56.672 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+00:15:56.672 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:56 AM org.glassfish.grizzly.http.server.HttpServer start
+00:15:56.672 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-17] Started.
+00:15:57.390 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 23, 2022 12:15:57 AM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+00:15:57.390 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+00:15:57.402 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 28, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 93.009 s <<< FAILURE! - in TestSuite
+00:15:57.402 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.ControllerStarterStatelessTest.testDefaultInstanceId  Time elapsed: 4.101 s
+00:15:57.402 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.ControllerStarterStatelessTest.testHostnamePortOverride  Time elapsed: 1.578 s  <<< FAILURE!
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.ControllerStarterStatelessTest.testInvalidInstanceId  Time elapsed: 1.129 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.api.ConsumingSegmentInfoReaderStatelessTest.testEmptyTable  Time elapsed: 0.016 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.api.ConsumingSegmentInfoReaderStatelessTest.testErrorFromServer  Time elapsed: 20.126 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.api.ConsumingSegmentInfoReaderStatelessTest.testHappyPath  Time elapsed: 0.046 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.api.ConsumingSegmentInfoReaderStatelessTest.testNoConsumerButConsumingInIdealState  Time elapsed: 0.05 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.api.ConsumingSegmentInfoReaderStatelessTest.testNoConsumerOfflineInIdealState  Time elapsed: 0.105 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.api.ConsumingSegmentInfoReaderStatelessTest.testNotConsumingState  Time elapsed: 0.068 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.api.PinotBrokerRestletResourceStatelessTest.testGetBrokers  Time elapsed: 8.033 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.api.PinotIngestionRestletResourceStatelessTest.testIngestEndpoint  Time elapsed: 0.301 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.ControllerTenantStatelessTest.testBrokerTenant  Time elapsed: 0.91 s
+00:15:57.404 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.ControllerTenantStatelessTest.testEmptyServerTenant  Time elapsed: 0.012 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.ControllerTenantStatelessTest.testServerTenant  Time elapsed: 0.686 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.PinotControllerModeStatelessTest.testDualModeController  Time elapsed: 4.093 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.PinotControllerModeStatelessTest.testHelixOnlyController  Time elapsed: 1.368 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.PinotControllerModeStatelessTest.testPinotOnlyController  Time elapsed: 1.832 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.ControllerPeriodicTaskStarterStatelessTest.testHelixResourceManagerDuringControllerStart  Time elapsed: 0.923 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.PinotHelixResourceManagerStatelessTest.testUpdateBrokerResource  Time elapsed: 0.119 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.PinotHelixResourceManagerStatelessTest.testValidateDimTableTenantConfig  Time elapsed: 0.033 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.PinotHelixResourceManagerStatelessTest.testValidateTenantConfig  Time elapsed: 0.111 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.minion.MinionInstancesCleanupTaskStatelessTest.testMinionInstancesCleanupTask  Time elapsed: 3.455 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.minion.PinotTaskManagerStatelessTest.testDefaultPinotTaskManagerNoScheduler  Time elapsed: 0.957 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.minion.PinotTaskManagerStatelessTest.testPinotTaskManagerSchedulerWithRestart  Time elapsed: 4.662 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.minion.PinotTaskManagerStatelessTest.testPinotTaskManagerSchedulerWithUpdate  Time elapsed: 1.463 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.rebalance.TableRebalancerClusterStatelessTest.testRebalance  Time elapsed: 4.592 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.helix.core.rebalance.TableRebalancerClusterStatelessTest.testRebalanceWithTiers  Time elapsed: 2.742 s
+00:15:57.405 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.controller.validation.ValidationManagerStatelessTest.testRebuildBrokerResourceWhenBrokerAdded  Time elapsed: 0.043 s
+00:15:57.903 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failures: 
+00:15:57.903 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   ControllerStarterStatelessTest.testHostnamePortOverride:56->ControllerTest.startController:170->ControllerTest.startController:195 » Helix
+00:15:57.903 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 299, Failures: 1, Errors: 0, Skipped: 0
+00:15:57.907 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project pinot-controller: There are test failures.
+00:15:57.907 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:15:57.907 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to /root/workspace/apache-pinot-master-8557_repo/pinot-controller/target/surefire-reports for the individual test results.
+00:15:57.907 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+00:15:57.907 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+00:15:57.911 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:15:57.911 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+00:15:57.911 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:15:57.911 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+00:15:57.911 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+00:15:57.911 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+00:15:57.911 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+00:15:57.911 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-controller
+00:16:08.263 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath file is empty.
+00:16:08.263 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath seems not to contain JUnit, maybe this project does not use JUnit for testing.
+00:16:08.264 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8557_repo/target/classes.
+00:16:08.264 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8557_repo/target/test-classes.
+00:16:08.391 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.396 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 49 source dirs were found:
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/contrib/pinot-fmpp-maven-plugin/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-broker/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-clients/pinot-java-client/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-clients/pinot-jdbc-client/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-common/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-compatibility-verifier/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-connectors/pinot-flink-connector/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-connectors/pinot-spark-connector/src/main/scala
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-controller/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-core/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-integration-tests/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-minion/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-perf/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-ingestion-common/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-environment/pinot-azure/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-file-system/pinot-adls/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/main/java
+00:16:08.405 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-file-system/pinot-s3/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-avro/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-confluent-avro/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-csv/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-json/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-orc/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-metrics/pinot-dropwizard/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-metrics/pinot-yammer/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-segment-uploader/pinot-segment-uploader-default/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-segment-local/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-segment-spi/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-server/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-spi/src/main/java
+00:16:08.406 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8557_repo/pinot-tools/src/main/java
+00:16:08.468 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.477 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.527 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-s3:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+00:16:08.547 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.563 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.592 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-kinesis:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+00:16:08.611 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.614 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.614 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.626 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.626 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.639 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.648 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.663 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.666 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 40 test dirs were found:
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-broker/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-clients/pinot-java-client/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-clients/pinot-jdbc-client/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-common/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-connectors/pinot-flink-connector/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-connectors/pinot-spark-connector/src/test/scala
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-controller/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-core/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-integration-test-base/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-integration-tests/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-minion/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-environment/pinot-azure/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-file-system/pinot-adls/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-file-system/pinot-s3/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-csv/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-json/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-orc/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-segment-local/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-segment-spi/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-server/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-spi/src/test/java
+00:16:08.666 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8557_repo/pinot-tools/src/test/java
+00:16:09.160 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8557_repo/pinot-controller
+00:16:09.383 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+00:16:09.383 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 4262
+00:16:09.383 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 4262
+00:16:09.383 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 4261
+00:16:09.383 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 1
+00:16:09.383 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+00:16:09.383 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 0
+[0] INFO Flacoco - Running Flacoco...
+[16] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.LeadControllerManager
+[17] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.validation.StorageQuotaChecker
+[19] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.tuner.RealTimeAutoIndexTuner
+[19] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.tuner.NoOpTableTableConfigTuner
+[20] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.tuner.TableConfigTunerUtils
+[21] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.ControllerRequestClient
+[21] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixBrokerResourceOnlineOfflineStateModelGenerator
+[21] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixSegmentOnlineOfflineStateModelGenerator
+[22] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.SegmentCompletionManager
+[23] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.PinotLLCRealtimeSegmentManager
+[23] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.SegmentSizeBasedFlushThresholdUpdater
+[23] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.FlushThresholdUpdateManager
+[23] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.CommittingSegmentDescriptor
+[24] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.SegmentFlushThresholdComputer
+[24] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.DefaultFlushThresholdUpdater
+[24] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.PinotHelixTaskResourceManager
+[26] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.generator.TaskGeneratorUtils
+[27] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.ClusterInfoAccessor
+[28] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.SegmentDeletionManager
+[28] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotTableIdealStateBuilder
+[29] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.instance.InstanceAssignmentDriver
+[29] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.instance.InstanceReplicaGroupPartitionSelector
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.SegmentAssignmentFactory
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineDimTableSegmentAssignment
+[30] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineSegmentAssignment
+[31] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.RealtimeSegmentAssignment
+[31] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.SegmentAssignmentUtils
+[32] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixResourceManager
+[32] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.util.HelixSetupUtils
+[32] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.util.ZKMetadataUtils
+[33] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.retention.strategy.TimeRetentionStrategy
+[35] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.rebalance.TableRebalancer
+[36] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.DataGeneratorSpec
+[37] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.DataGenerator
+[38] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.PatternSpikeGenerator
+[39] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.GeneratorFactory
+[39] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.AvroWriter
+[40] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.PatternSeasonalGenerator
+[41] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.realtime.provisioning.MemoryEstimator
+[41] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.BloomFilterRule
+[42] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.NoDictionaryOnHeapDictionaryJointRule
+[43] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.RangeIndexRule
+[44] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.PinotTablePartitionRule
+[47] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.utils.QueryInvertedSortedIndexRecommender
+[51] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.io.InputManager
+[52] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.io.metadata.SchemaWithMetaData
+[53] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.TableMetadataReader
+[54] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.AutoAddInvertedIndex
+[54] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.TableIngestionStatusHelper
+[55] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.FileIngestionHelper
+[55] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.TableRetentionValidator
+[56] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.ServerSegmentMetadataReader
+[56] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.SegmentIntervalUtils
+[56] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.TableSizeReader
+[57] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.ConsumingSegmentInfoReader
+[58] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.access.AllowAllAccessFactory
+[58] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.access.BasicAuthAccessControlFactory
+[59] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.events.DefaultMetadataEventNotifierFactory
+[59] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.events.DefaultMetadataEventNotifier
+[64] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.LLCSegmentCompletionHandlers
+[64] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotInstanceAssignmentRestletResource
+[64] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.TableViews
+[65] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotIngestionRestletResource
+[65] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.TableAndSchemaConfig
+[66] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTaskRestletResource
+[66] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotControllerPeriodicTaskRestletResource
+[67] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotQueryResource
+[67] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotInstanceRestletResource
+[68] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.TableConfigsRestletResource
+[71] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotBrokerRestletResource
+[71] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTableTenantConfigs
+[72] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTableInstances
+[72] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.TableDebugResource
+[73] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.Constants
+[73] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.ResourceUtils
+[73] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotSchemaRestletResource
+[74] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotSegmentUploadDownloadRestletResource
+[75] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.ControllerFilePathProvider
+[75] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTenantRestletResource
+[77] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTableRestletResource
+[77] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotSegmentRestletResource
+[78] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotControllerHealthCheck
+[79] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.upload.SegmentValidator
+[79] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.upload.ZKOperator
+[80] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.debug.TableDebugInfo
+[81] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.validation.StorageQuotaCheckerTest
+[82] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.validation.ValidationManagerStatelessTest
+[83] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.utils.SegmentMetadataMockUtils
+[84] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.ControllerTenantStatelessTest
+[85] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.PinotLLCRealtimeSegmentManagerTest
+[86] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.SegmentCompletionTest
+[87] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.MinionInstancesCleanupTaskStatelessTest
+[87] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.PinotTaskManagerStatelessTest
+[87] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.periodictask.ControllerPeriodicTaskTest
+[88] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixResourceManagerTest
+[89] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineReplicaGroupSegmentAssignmentTest
+[89] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineNonReplicaGroupTieredSegmentAssignmentTest
+[89] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.RealtimeReplicaGroupSegmentAssignmentTest
+[90] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineNonReplicaGroupSegmentAssignmentTest
+[90] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.RealtimeNonReplicaGroupTieredSegmentAssignmentTest
+[91] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.RealtimeNonReplicaGroupSegmentAssignmentTest
+[91] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixResourceManagerStatelessTest
+[92] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.util.SegmentDeletionManagerTest
+[92] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.retention.RetentionManagerTest
+[94] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.rebalance.TableRebalancerClusterStatelessTest
+[94] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.SegmentStatusCheckerTest
+[94] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.PinotControllerModeStatelessTest
+[94] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.ControllerPeriodicTaskStarterStatelessTest
+[95] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.TableCacheTest
+[95] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.HelixHelperTest
+[96] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.ControllerStarterStatelessTest
+[98] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.AggregateMetricsRuleTest
+[98] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.ListenerConfigUtilTest
+[100] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.ZookeeperResourceTest
+[101] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotControllerAppConfigsTest
+[101] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.TableConfigsRestletResourceTest
+[102] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.ConsumingSegmentInfoReaderStatelessTest
+[102] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotBrokerRestletResourceStatelessTest
+[103] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotSchemaRestletResourceTest
+[104] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotSegmentsMetadataTest
+[104] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.TableSizeReaderTest
+[105] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotIngestionRestletResourceStatelessTest
+[106] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.SegmentCompletionProtocolDeserTest
+[106] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.ServerTableSizeReaderTest
+[111] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.LeadControllerManager
+[111] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.validation.StorageQuotaChecker
+[112] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.tuner.RealTimeAutoIndexTuner
+[112] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.tuner.NoOpTableTableConfigTuner
+[112] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.tuner.TableConfigTunerUtils
+[112] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.ControllerRequestClient
+[112] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixBrokerResourceOnlineOfflineStateModelGenerator
+[112] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixSegmentOnlineOfflineStateModelGenerator
+[112] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.SegmentCompletionManager
+[113] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.PinotLLCRealtimeSegmentManager
+[113] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.SegmentSizeBasedFlushThresholdUpdater
+[113] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.FlushThresholdUpdateManager
+[113] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.CommittingSegmentDescriptor
+[113] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.SegmentFlushThresholdComputer
+[113] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.DefaultFlushThresholdUpdater
+[113] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.PinotHelixTaskResourceManager
+[114] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.generator.TaskGeneratorUtils
+[114] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.ClusterInfoAccessor
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.SegmentDeletionManager
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotTableIdealStateBuilder
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.instance.InstanceAssignmentDriver
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.instance.InstanceReplicaGroupPartitionSelector
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.SegmentAssignmentFactory
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineDimTableSegmentAssignment
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineSegmentAssignment
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.RealtimeSegmentAssignment
+[115] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.SegmentAssignmentUtils
+[116] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixResourceManager
+[116] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.util.HelixSetupUtils
+[116] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.util.ZKMetadataUtils
+[116] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.retention.strategy.TimeRetentionStrategy
+[117] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.rebalance.TableRebalancer
+[117] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.DataGeneratorSpec
+[117] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.TimeGenerator
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.DataGenerator
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.PatternSpikeGenerator
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.GeneratorFactory
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.AvroWriter
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.data.generator.PatternSeasonalGenerator
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.realtime.provisioning.MemoryEstimator
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.BloomFilterRule
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.NoDictionaryOnHeapDictionaryJointRule
+[118] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.RangeIndexRule
+[119] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.SegmentSizeRule
+[119] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.AggregateMetricsRule
+[119] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.PinotTablePartitionRule
+[119] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.RealtimeProvisioningRule
+[119] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.utils.QueryInvertedSortedIndexRecommender
+[120] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.io.InputManager
+[121] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.io.metadata.SchemaWithMetaData
+[121] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.TableMetadataReader
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.AutoAddInvertedIndex
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.TableIngestionStatusHelper
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.FileIngestionHelper
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.TableRetentionValidator
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.ServerSegmentMetadataReader
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.SegmentIntervalUtils
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.TableSizeReader
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.ConsumingSegmentInfoReader
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.access.BasicAuthAccessControlFactory
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.events.DefaultMetadataEventNotifierFactory
+[122] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.events.DefaultMetadataEventNotifier
+[123] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.LLCSegmentCompletionHandlers
+[123] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotInstanceAssignmentRestletResource
+[123] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.TableViews
+[123] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotIngestionRestletResource
+[123] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.TableAndSchemaConfig
+[123] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTaskRestletResource
+[123] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotControllerPeriodicTaskRestletResource
+[123] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotQueryResource
+[124] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotInstanceRestletResource
+[124] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.TableConfigsRestletResource
+[125] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotBrokerRestletResource
+[125] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTableTenantConfigs
+[125] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTableInstances
+[125] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.TableDebugResource
+[125] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.Constants
+[125] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.ResourceUtils
+[125] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotSchemaRestletResource
+[125] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotSegmentUploadDownloadRestletResource
+[126] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.ControllerFilePathProvider
+[126] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTenantRestletResource
+[126] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotTableRestletResource
+[126] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotLeadControllerRestletResource
+[127] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotSegmentRestletResource
+[127] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.PinotControllerHealthCheck
+[127] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.upload.SegmentValidator
+[127] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.upload.ZKOperator
+[127] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.debug.TableDebugInfo
+[128] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.validation.StorageQuotaCheckerTest
+[129] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.validation.ValidationManagerStatelessTest
+[129] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.utils.SegmentMetadataMockUtils
+[129] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.ControllerConfTest
+[130] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.ControllerTenantStatelessTest
+[130] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.PinotLLCRealtimeSegmentManagerTest
+[130] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.segment.FlushThresholdUpdaterTest
+[130] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.realtime.SegmentCompletionTest
+[130] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.MinionInstancesCleanupTaskStatelessTest
+[130] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.generator.TaskGeneratorUtilsTest
+[130] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.minion.PinotTaskManagerStatelessTest
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.periodictask.ControllerPeriodicTaskTest
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixResourceManagerTest
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineReplicaGroupSegmentAssignmentTest
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineNonReplicaGroupTieredSegmentAssignmentTest
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.RealtimeReplicaGroupSegmentAssignmentTest
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.OfflineNonReplicaGroupSegmentAssignmentTest
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.RealtimeNonReplicaGroupTieredSegmentAssignmentTest
+[131] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.assignment.segment.RealtimeNonReplicaGroupSegmentAssignmentTest
+[132] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.PinotHelixResourceManagerStatelessTest
+[132] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.util.SegmentDeletionManagerTest
+[132] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.retention.RetentionManagerTest
+[132] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.core.rebalance.TableRebalancerClusterStatelessTest
+[132] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.SegmentStatusCheckerTest
+[132] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.PinotControllerModeStatelessTest
+[133] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.ControllerPeriodicTaskStarterStatelessTest
+[133] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.TableCacheTest
+[133] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.helix.HelixHelperTest
+[133] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.ControllerStarterStatelessTest
+[134] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.recommender.rules.impl.AggregateMetricsRuleTest
+[134] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.util.ListenerConfigUtilTest
+[135] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.resources.ZookeeperResourceTest
+[135] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotControllerAppConfigsTest
+[136] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.TableConfigsRestletResourceTest
+[136] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.ConsumingSegmentInfoReaderStatelessTest
+[136] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotBrokerRestletResourceStatelessTest
+[136] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotTableRestletResourceTest
+[136] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotSchemaRestletResourceTest
+[136] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotSegmentsMetadataTest
+[136] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.TableSizeReaderTest
+[137] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.PinotIngestionRestletResourceStatelessTest
+[137] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.SegmentCompletionProtocolDeserTest
+[137] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.controller.api.ServerTableSizeReaderTest
+[139] INFO CoverageRunner - Tests found: 0
+[139] INFO CoverageRunner - Tests executed: 0
+00:16:09.990 [main] INFO  fr.inria.jtravis.JTravis - GitHub ratelimit: Limit: 5000 Remaining: 3151 Reset hour: 03:31:05
+00:16:11.211 [main] WARN  f.i.s.r.p.s.p.PushFaultLocalizationSuggestionsOnGitHubRepository - Flacoco has found 0 suspicious lines, but none were matched to the diff
+00:16:11.211 [main] INFO  f.i.s.r.p.s.f.FlacocoLocalization - 
+00:16:15.158 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:16:15.158 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+00:16:15.158 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:16:15.158 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest.........................SUCCESS [   26 s ]
+00:16:15.158 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject........................................SUCCESS [  427 s ]
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject.........................................SUCCESS [ 1256 s ]
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath....................................SUCCESS [   10 s ]
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir....................................SUCCESS [    0 s ]
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir......................................SUCCESS [    0 s ]
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation...............................SUCCESS [    0 s ]
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization.................................SUCCESS [    0 s ]
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository..SKIPPED           
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: TEST FAILURE
+00:16:15.159 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+00:16:15.159 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

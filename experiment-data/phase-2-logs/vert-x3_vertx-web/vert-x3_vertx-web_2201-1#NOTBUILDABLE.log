@@ -1,0 +1,50 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/vert-x3/vertx-web --gitrepopullrequest 2201
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/vert-x3/vertx-web --gitrepopullrequest 2201
+
+11:55:09.722 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+11:55:09.723 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+11:55:09.723 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+11:55:09.737 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+11:55:09.737 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/vert-x3/vertx-web.git in the following directory: ./workspace/vert-x3-vertx-web-master-2201_repo
+11:56:02.405 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] COMPILATION ERROR : 
+11:56:02.406 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/vert-x3-vertx-web-master-2201_repo/vertx-template-engines/vertx-web-templ-pebble/src/main/java/io/vertx/ext/web/templ/pebble/impl/PebbleVertxLoader.java:[32,8] io.vertx.ext.web.templ.pebble.impl.PebbleVertxLoader is not abstract and does not override abstract method resourceExists(java.lang.String) in com.mitchellbosecke.pebble.loader.Loader
+11:56:02.410 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:compile (default-compile) on project vertx-web-templ-pebble: Compilation failure
+11:56:02.410 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/vert-x3-vertx-web-master-2201_repo/vertx-template-engines/vertx-web-templ-pebble/src/main/java/io/vertx/ext/web/templ/pebble/impl/PebbleVertxLoader.java:[32,8] io.vertx.ext.web.templ.pebble.impl.PebbleVertxLoader is not abstract and does not override abstract method resourceExists(java.lang.String) in com.mitchellbosecke.pebble.loader.Loader
+11:56:02.410 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+11:56:02.416 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+11:56:02.416 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+11:56:02.416 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+11:56:02.416 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+11:56:02.416 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+11:56:02.416 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+11:56:02.416 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+11:56:02.416 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :vertx-web-templ-pebble
+11:56:03.078 [main] ERROR f.i.s.r.process.step.BuildProject - Repository vert-x3/vertx-web cannot be built.
+11:56:03.079 [main] INFO  f.i.s.r.process.step.BuildProject - 
+11:56:03.238 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:56:03.238 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+11:56:03.238 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:56:03.238 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [  7 s ]
+11:56:03.238 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 46 s ]
+11:56:03.238 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+11:56:03.238 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+11:56:03.239 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+11:56:03.239 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+11:56:03.239 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+11:56:03.239 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+11:56:03.239 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+11:56:03.239 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:56:03.239 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+11:56:03.239 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+11:56:03.239 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

@@ -1,0 +1,179 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8484
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8484
+
+18:38:25.553 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+18:38:25.554 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+18:38:25.554 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+18:38:25.569 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+18:38:25.569 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8484_repo
+18:39:16.157 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+18:45:57.572 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+18:45:57.572 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.pinot.spi.config.ConfigUtilsTest (file:/root/workspace/apache-pinot-master-8484_repo/pinot-spi/target/test-classes/) to field java.util.Collections$UnmodifiableMap.m
+18:45:57.572 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.pinot.spi.config.ConfigUtilsTest
+18:45:57.573 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+18:45:57.573 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+18:46:07.107 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+18:46:07.107 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.buffer.UnsafeUtil (file:/root/workspace/apache-pinot-master-8484_repo/.m2/org/xerial/larray/larray-buffer/0.4.1/larray-buffer-0.4.1.jar) to constructor java.nio.DirectByteBuffer(long,int,java.lang.Object)
+18:46:07.107 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.buffer.UnsafeUtil
+18:46:07.107 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+18:46:07.107 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+18:46:14.236 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2:check (checkstyle) on project pinot-common: You have 1 Checkstyle violation. -> [Help 1]
+18:46:14.239 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:46:14.240 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+18:46:14.240 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:46:14.240 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+18:46:14.240 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+18:46:14.240 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+18:46:14.240 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+18:46:14.240 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-common
+18:46:20.171 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath file is empty.
+18:46:20.171 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath seems not to contain JUnit, maybe this project does not use JUnit for testing.
+18:46:20.172 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8484_repo/target/classes.
+18:46:20.172 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8484_repo/target/test-classes.
+18:46:20.289 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.293 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.301 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 49 source dirs were found:
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-broker/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-clients/pinot-java-client/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-clients/pinot-jdbc-client/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-common/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-compatibility-verifier/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-connectors/pinot-flink-connector/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-connectors/pinot-spark-connector/src/main/scala
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-controller/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-core/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-integration-tests/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-minion/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-perf/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-ingestion-common/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-environment/pinot-azure/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-file-system/pinot-adls/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-file-system/pinot-s3/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-fmpp-maven-plugin/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-avro/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-confluent-avro/src/main/java
+18:46:20.302 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-csv/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-json/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-orc/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-metrics/pinot-dropwizard/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-metrics/pinot-yammer/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-segment-uploader/pinot-segment-uploader-default/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-segment-local/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-segment-spi/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-server/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-spi/src/main/java
+18:46:20.303 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8484_repo/pinot-tools/src/main/java
+18:46:20.354 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.362 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.406 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-s3:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+18:46:20.426 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.441 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.470 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-kinesis:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+18:46:20.490 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.493 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.494 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.506 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.506 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.516 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.523 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.532 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.546 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 40 test dirs were found:
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-broker/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-clients/pinot-java-client/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-clients/pinot-jdbc-client/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-common/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-connectors/pinot-flink-connector/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-connectors/pinot-spark-connector/src/test/scala
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-controller/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-core/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-integration-test-base/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-integration-tests/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-minion/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-environment/pinot-azure/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-file-system/pinot-adls/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-file-system/pinot-s3/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-csv/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-json/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-orc/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/test/java
+18:46:20.547 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/test/java
+18:46:20.548 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/test/java
+18:46:20.548 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/test/java
+18:46:20.548 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/test/java
+18:46:20.548 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-segment-local/src/test/java
+18:46:20.548 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-segment-spi/src/test/java
+18:46:20.548 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-server/src/test/java
+18:46:20.548 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-spi/src/test/java
+18:46:20.548 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8484_repo/pinot-tools/src/test/java
+18:46:21.060 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+18:46:21.061 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 151
+18:46:21.061 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 151
+18:46:21.061 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 151
+18:46:21.061 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 0
+18:46:21.061 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+18:46:21.061 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 0
+18:46:21.061 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - 
+18:46:24.560 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:46:24.560 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+18:46:24.560 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:46:24.560 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest..........................SUCCESS [  21 s ]
+18:46:24.560 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject.........................................SUCCESS [ 424 s ]
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject..........................................SUCCESS [  24 s ]
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.....................................SUCCESS [   5 s ]
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.....................................SUCCESS [   0 s ]
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.......................................SUCCESS [   0 s ]
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation................................FAILURE [   0 s ]
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization..................................NOT RUN          
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository...NOT RUN          
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTFAILING
+18:46:24.561 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+18:46:24.561 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

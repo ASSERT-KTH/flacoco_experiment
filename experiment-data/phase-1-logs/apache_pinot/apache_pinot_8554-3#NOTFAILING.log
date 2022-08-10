@@ -1,0 +1,551 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8554
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8554
+
+16:41:57.038 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+16:41:57.040 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+16:41:57.040 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+16:41:57.056 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+16:41:57.056 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8554_repo
+16:42:44.311 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+16:49:32.050 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+16:49:32.050 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+16:49:32.050 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+16:49:32.050 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+16:49:32.050 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+16:49:40.558 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+16:49:40.558 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.buffer.UnsafeUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/xerial/larray/larray-buffer/0.4.1/larray-buffer-0.4.1.jar) to constructor java.nio.DirectByteBuffer(long,int,java.lang.Object)
+16:49:40.558 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.buffer.UnsafeUtil
+16:49:40.559 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+16:49:40.559 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+16:50:02.357 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.generateReport(JUnitXMLReporter.java:152)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitXMLReporter.onFinish(JUnitXMLReporter.java:112)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.fireEvent(TestRunner.java:1187)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.afterRun(TestRunner.java:976)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestRunner.run(TestRunner.java:606)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.runSuites(TestNG.java:1144)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1115)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+16:50:02.358 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - [TestNG] Reporter org.testng.reporters.JUnitReportReporter@6a84bc2a failed
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - java.lang.NullPointerException
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.reporters.JUnitReportReporter.generateReport(JUnitReportReporter.java:146)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.generateReports(TestNG.java:1192)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.testng.TestNG.run(TestNG.java:1120)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:136)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:145)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+16:50:02.359 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+16:51:14.056 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+16:51:14.056 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+16:51:14.056 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+16:51:14.056 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+16:51:14.057 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+16:51:27.665 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+16:51:27.665 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+16:51:27.665 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+16:51:27.665 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+16:51:27.666 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+16:51:31.399 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+16:51:31.399 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+16:51:31.399 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+16:51:31.399 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+16:51:31.399 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+16:51:33.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+16:51:33.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+16:51:33.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+16:51:33.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+16:51:33.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+16:52:28.966 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+16:52:28.966 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+16:52:28.966 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+16:52:28.966 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+16:52:28.966 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+16:53:10.549 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+16:53:10.549 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by xerial.larray.mmap.MMapBuffer (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/xerial/larray/larray-mmap/0.4.1/larray-mmap-0.4.1.jar) to field java.io.FileDescriptor.fd
+16:53:10.549 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of xerial.larray.mmap.MMapBuffer
+16:53:10.549 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+16:53:10.549 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+16:57:22.734 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Exception in thread "Thread-2" org.apache.lucene.store.AlreadyClosedException: this IndexWriter is closed
+16:57:22.735 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.ensureOpen(IndexWriter.java:681)
+16:57:22.735 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.ensureOpen(IndexWriter.java:695)
+16:57:22.735 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.index.IndexWriter.getMaxCompletedSequenceNumber(IndexWriter.java:5176)
+16:57:22.735 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - 	at org.apache.lucene.search.ControlledRealTimeReopenThread.run(ControlledRealTimeReopenThread.java:234)
+17:00:19.696 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:00:19.696 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+17:00:19.697 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+17:00:19.697 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:00:19.697 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:01:31.228 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:01:31.228 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+17:01:31.228 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+17:01:31.228 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:01:31.228 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:01:32.101 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:01:32.101 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+17:01:32.101 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+17:01:32.101 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:01:32.101 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:01:37.316 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:01:37.316 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+17:01:37.316 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+17:01:37.316 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:01:37.316 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:02:29.425 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:02:29.425 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+17:02:29.425 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+17:02:29.425 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:02:29.425 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:03:33.694 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:03:33.694 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+17:03:33.694 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+17:03:33.694 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:03:33.694 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:04:18.354 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:18 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:04:18.355 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:33439]
+17:04:18.355 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:18 PM org.glassfish.grizzly.http.server.HttpServer start
+17:04:18.355 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+17:04:18.551 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:18 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:04:18.551 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:33439]
+17:04:23.045 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:22 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:04:23.045 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+17:04:23.045 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:22 PM org.glassfish.grizzly.http.server.HttpServer start
+17:04:23.045 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+17:04:23.282 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:23 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:04:23.282 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:8097]
+17:04:27.926 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:27 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:04:27.926 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+17:04:27.926 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:27 PM org.glassfish.grizzly.http.server.HttpServer start
+17:04:27.926 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+17:04:32.649 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:32 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:04:32.650 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:8097]
+17:04:37.063 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:36 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:04:37.063 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:8097]
+17:04:37.063 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:36 PM org.glassfish.grizzly.http.server.HttpServer start
+17:04:37.063 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+17:04:37.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:37 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:04:37.280 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:8097]
+17:04:52.044 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:51 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:04:52.044 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:04:52.045 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:04:51 PM org.glassfish.grizzly.http.server.HttpServer start
+17:04:52.045 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+17:08:31.367 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:08:30 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:08:31.367 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:08:36.547 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:08:35 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:08:36.547 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:1234]
+17:08:36.547 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:08:35 PM org.glassfish.grizzly.http.server.HttpServer start
+17:08:36.547 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+17:08:36.547 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:08:36 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:08:36.547 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:1234]
+17:08:38.974 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:08:38 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:08:38.974 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:1234]
+17:08:38.974 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:08:38 PM org.glassfish.grizzly.http.server.HttpServer start
+17:08:38.974 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-1] Started.
+17:08:38.978 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:08:38 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:08:38.978 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:1234]
+17:09:03.063 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:02 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:03.063 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:03.063 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:02 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:03.063 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-2] Started.
+17:09:14.348 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:11 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:14.348 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:14.348 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:14 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:14.348 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:14.348 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:14 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:14.348 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-3] Started.
+17:09:17.438 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:14 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:17.439 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:17.439 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:16 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:17.439 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:17.439 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:16 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:17.439 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-4] Started.
+17:09:22.658 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:21 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:22.658 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:25.755 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:23 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:25.755 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:25.755 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:23 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:25.755 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-5] Started.
+17:09:25.760 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:24 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:25.760 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18999]
+17:09:25.760 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:24 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:25.760 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-6] Started.
+17:09:25.760 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:24 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:25.760 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18999]
+17:09:25.761 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:24 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:25.761 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:25.766 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:25 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:25.766 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:25.766 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:25 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:25.766 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-7] Started.
+17:09:25.766 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:25 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:25.766 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:29.234 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:28 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:29.235 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:29.235 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:28 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:29.235 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-8] Started.
+17:09:29.239 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:28 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:29.240 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18999]
+17:09:29.241 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:28 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:29.241 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-9] Started.
+17:09:29.241 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:28 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:29.241 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18999]
+17:09:29.241 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:29 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:29.241 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:32.462 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:31 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:32.462 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:32.462 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:31 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:32.462 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-10] Started.
+17:09:32.463 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:31 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:32.463 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:34.522 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:34 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:34.522 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:34.522 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:34 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:34.522 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-11] Started.
+17:09:38.273 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:36 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:38.273 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:38.274 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:38 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:38.274 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:38.274 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:38 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:38.274 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-12] Started.
+17:09:44.057 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:41 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:44.058 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:44.959 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:44 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:44.959 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:44.959 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:44 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:44.959 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-13] Started.
+17:09:44.959 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:44 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:44.959 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:47.128 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:45 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:47.128 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:47.128 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:45 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:47.128 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-14] Started.
+17:09:47.135 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:45 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:47.135 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:47.135 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:46 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:47.135 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:47.135 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:46 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:47.135 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-15] Started.
+17:09:47.573 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:47 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:47.573 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:48.500 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:48 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:48.500 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:48.500 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:48 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:48.500 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-16] Started.
+17:09:49.175 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:48 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:09:49.175 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:09:50.967 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:50 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:09:50.967 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:09:50.967 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:50 PM org.glassfish.grizzly.http.server.HttpServer start
+17:09:50.967 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-17] Started.
+17:10:03.029 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:09:59 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:10:03.029 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:10:03.034 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:02 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:10:03.034 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:10:03.034 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:02 PM org.glassfish.grizzly.http.server.HttpServer start
+17:10:03.034 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-18] Started.
+17:10:04.846 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:03 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:10:04.846 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:10:13.843 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:12 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:10:13.843 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:10:13.843 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:12 PM org.glassfish.grizzly.http.server.HttpServer start
+17:10:13.843 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+17:10:13.843 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:12 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:10:13.843 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18099]
+17:10:13.844 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:12 PM org.glassfish.grizzly.http.server.HttpServer start
+17:10:13.844 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-1] Started.
+17:10:15.178 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:14 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:10:15.178 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18099]
+17:10:15.178 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:14 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:10:15.178 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:10:20.858 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:20 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:10:20.858 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:18998]
+17:10:20.858 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:20 PM org.glassfish.grizzly.http.server.HttpServer start
+17:10:20.859 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer] Started.
+17:10:21.523 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:21 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:10:21.523 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:1234]
+17:10:21.523 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:21 PM org.glassfish.grizzly.http.server.HttpServer start
+17:10:21.523 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-1] Started.
+17:10:21.523 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:21 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:10:21.523 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:1234]
+17:10:21.973 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:21 PM org.glassfish.grizzly.http.server.NetworkListener start
+17:10:21.973 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Started listener bound to [0.0.0.0:1234]
+17:10:21.973 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:21 PM org.glassfish.grizzly.http.server.HttpServer start
+17:10:21.973 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: [HttpServer-2] Started.
+17:10:21.975 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:21 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:10:21.975 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:1234]
+17:10:22.364 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Apr 17, 2022 5:10:22 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+17:10:22.364 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - INFO: Stopped listener bound to [0.0.0.0:18998]
+17:11:09.495 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:11:09.495 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:11:09.495 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:11:09.495 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:11:09.495 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:11:10.842 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:11:10.842 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:11:10.842 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:11:10.843 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:11:10.843 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:11:14.010 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:11:14.011 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:11:14.011 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:11:14.011 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:11:14.011 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:11:17.209 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Class path contains multiple SLF4J bindings.
+17:11:17.209 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:11:17.209 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:11:17.209 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+17:11:17.209 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+17:11:17.209 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - log4j:WARN No appenders could be found for logger (org.apache.hadoop.util.Shell).
+17:11:17.209 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - log4j:WARN Please initialize the log4j system properly.
+17:11:17.209 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+17:11:19.021 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:11:19.022 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:11:19.022 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:11:19.022 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:11:19.022 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:11:22.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Class path contains multiple SLF4J bindings.
+17:11:22.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:11:22.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:11:22.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+17:11:22.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+17:11:22.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - log4j:WARN No appenders could be found for logger (org.apache.hadoop.util.Shell).
+17:11:22.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - log4j:WARN Please initialize the log4j system properly.
+17:11:22.279 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+17:11:50.320 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:11:50.320 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:11:50.320 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:11:50.320 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:11:50.320 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:11:53.826 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:11:53.826 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+17:11:53.826 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+17:11:53.826 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:11:53.826 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:11:55.566 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Class path contains multiple SLF4J bindings.
+17:11:55.566 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:11:55.566 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:11:55.566 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+17:11:55.566 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+17:12:01.846 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:12:01.847 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:12:01.847 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:12:01.847 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:12:01.847 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:12:14.784 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Class path contains multiple SLF4J bindings.
+17:12:14.784 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:14.784 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:14.784 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+17:12:14.784 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+17:12:15.705 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:12:15.705 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:12:15.705 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:12:15.705 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:12:15.705 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:12:16.758 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Class path contains multiple SLF4J bindings.
+17:12:16.759 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:16.759 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:16.759 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+17:12:16.759 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+17:12:17.659 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Class path contains multiple SLF4J bindings.
+17:12:17.660 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:17.660 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:17.660 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+17:12:17.660 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+17:12:18.737 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:12:18.737 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:12:18.737 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:12:18.737 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:12:18.737 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:12:19.085 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Class path contains multiple SLF4J bindings.
+17:12:19.085 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:19.085 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:19.085 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+17:12:19.085 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+17:12:26.614 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+17:12:26.614 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/hadoop/hadoop-auth/2.10.1/hadoop-auth-2.10.1.jar) to method sun.security.krb5.Config.getInstance()
+17:12:26.614 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+17:12:26.614 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+17:12:26.614 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+17:12:30.206 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Class path contains multiple SLF4J bindings.
+17:12:30.206 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:30.206 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Found binding in [jar:file:/root/workspace/apache-pinot-master-8554_repo/.m2/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+17:12:30.206 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+17:12:30.206 [Thread-8] ERROR f.i.s.r.p.m.output.MavenErrorHandler - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+17:14:02.999 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2:check (checkstyle) on project pinot-pulsar: You have 4 Checkstyle violations. -> [Help 1]
+17:14:03.002 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:14:03.002 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+17:14:03.002 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:14:03.002 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+17:14:03.002 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+17:14:03.002 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:14:03.002 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+17:14:03.002 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-pulsar
+17:14:08.513 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath file is empty.
+17:14:08.514 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath seems not to contain JUnit, maybe this project does not use JUnit for testing.
+17:14:08.514 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8554_repo/target/classes.
+17:14:08.515 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8554_repo/target/test-classes.
+17:14:08.674 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.679 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 49 source dirs were found:
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/contrib/pinot-fmpp-maven-plugin/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-broker/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-clients/pinot-java-client/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-clients/pinot-jdbc-client/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-common/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-compatibility-verifier/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-connectors/pinot-flink-connector/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-connectors/pinot-spark-connector/src/main/scala
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-controller/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-core/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-integration-tests/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-minion/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-perf/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-ingestion-common/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-environment/pinot-azure/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-file-system/pinot-adls/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-file-system/pinot-s3/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-avro/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-confluent-avro/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-csv/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-json/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-orc/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-metrics/pinot-dropwizard/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-metrics/pinot-yammer/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-segment-uploader/pinot-segment-uploader-default/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-segment-local/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-segment-spi/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-server/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-spi/src/main/java
+17:14:08.689 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8554_repo/pinot-tools/src/main/java
+17:14:08.753 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.762 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.811 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-s3:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+17:14:08.834 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.850 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.878 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-kinesis:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+17:14:08.896 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.899 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.899 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.911 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.911 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.925 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.934 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.949 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.952 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 40 test dirs were found:
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-broker/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-clients/pinot-java-client/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-clients/pinot-jdbc-client/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-common/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-connectors/pinot-flink-connector/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-connectors/pinot-spark-connector/src/test/scala
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-controller/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-core/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-integration-test-base/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-integration-tests/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-minion/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-environment/pinot-azure/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-file-system/pinot-adls/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-file-system/pinot-s3/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-csv/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-json/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-orc/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-segment-local/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-segment-spi/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-server/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-spi/src/test/java
+17:14:08.952 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8554_repo/pinot-tools/src/test/java
+17:14:10.178 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+17:14:10.178 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 4508
+17:14:10.178 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 4507
+17:14:10.178 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 4507
+17:14:10.178 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 0
+17:14:10.178 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+17:14:10.178 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 1
+17:14:10.179 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - 
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest.........................SUCCESS [   20 s ]
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject........................................SUCCESS [  428 s ]
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject.........................................SUCCESS [ 1478 s ]
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath....................................SUCCESS [    5 s ]
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir....................................SUCCESS [    0 s ]
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir......................................SUCCESS [    0 s ]
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation...............................FAILURE [    1 s ]
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization.................................NOT RUN           
+17:14:13.545 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository..NOT RUN           
+17:14:13.546 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:14:13.546 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTFAILING
+17:14:13.546 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:14:13.546 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

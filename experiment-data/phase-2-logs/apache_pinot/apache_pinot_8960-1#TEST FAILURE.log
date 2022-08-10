@@ -1,0 +1,296 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8960
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8960
+
+09:42:58.670 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+09:42:58.672 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+09:42:58.672 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+09:42:58.762 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+09:42:58.762 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+09:42:58.762 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+09:42:58.762 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+09:42:58.763 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+09:42:58.763 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+09:42:58.763 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+09:42:58.763 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+09:42:58.763 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+09:42:58.763 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+09:42:58.763 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+09:42:58.763 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+09:42:58.763 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8960_repo
+09:45:09.262 [Thread-5] ERROR f.i.s.r.p.m.output.MavenErrorHandler - Warning: Lookahead adequacy checking not being performed since option LOOKAHEAD is more than 1.  Set option FORCE_LA_CHECK to true to force checking.
+10:05:40.537 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: An illegal reflective access operation has occurred
+10:05:40.538 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/workspace/apache-pinot-master-8960_repo/.m2/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+10:05:40.538 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+10:05:40.538 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+10:05:40.540 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] WARNING: All illegal access operations will be denied in a future release
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 98, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.731 s <<< FAILURE! - in TestSuite
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.env.PinotConfigurationTest.assertBaseOperations  Time elapsed: 1.281 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.env.PinotConfigurationTest.assertGetKeys  Time elapsed: 0.004 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.env.PinotConfigurationTest.assertInvalidConfigPathBehavior  Time elapsed: 0.063 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.env.PinotConfigurationTest.assertPropertiesFromBaseConfiguration  Time elapsed: 0.012 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.env.PinotConfigurationTest.assertPropertiesFromFSSpec  Time elapsed: 0.004 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.env.PinotConfigurationTest.assertPropertyOverride  Time elapsed: 0.004 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.env.PinotConfigurationTest.assertPropertyPriorities  Time elapsed: 0.004 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.env.PinotConfigurationTest.assertUnsupportedTypeBehavior  Time elapsed: 0.003 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.PrimaryKeyTest.testPrimaryKeyComparison  Time elapsed: 0.023 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.PrimaryKeyTest.testSerialization  Time elapsed: 0.025 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.RecordReaderFactoryTest.testGetRecordReaderClassName  Time elapsed: 0.012 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.RecordReaderFactoryTest.testGetRecordReaderConfigClassName  Time elapsed: 0 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.stream.StreamDataProducerTest.testRowWithKeyEquals  Time elapsed: 0 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.tenant.TenantTest.testDeserializeFromJson  Time elapsed: 0.292 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.task.AdhocTaskConfigTest.testDeserializeFromJson  Time elapsed: 0.036 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.environmentprovider.PinotEnvironmentProviderFactoryTest.testCustomPinotEnvironmentProviderFactory  Time elapsed: 0.008 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.ConfigUtilsTest.testDefaultObfuscation  Time elapsed: 0.022 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.ConfigUtilsTest.testIndexing  Time elapsed: 0.044 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.plugin.PluginManagerTest.testBackwardCompatible  Time elapsed: 0 s
+10:05:43.342 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.plugin.PluginManagerTest.testGetPluginsToLoad  Time elapsed: 0.024 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.plugin.PluginManagerTest.testSimple  Time elapsed: 1.412 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.ingestion.batch.IngestionJobLauncherTest.testIngestionJobLauncherWithJsonTemplate  Time elapsed: 0.516 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.ingestion.batch.IngestionJobLauncherTest.testIngestionJobLauncherWithTemplate  Time elapsed: 0.308 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.ingestion.batch.IngestionJobLauncherTest.testIngestionJobLauncherWithTemplateAndPropertyFile  Time elapsed: 0.024 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.ingestion.batch.IngestionJobLauncherTest.testIngestionJobLauncherWithTemplateAndPropertyFileAndValueOverride  Time elapsed: 0.044 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.ingestion.batch.IngestionJobLauncherTest.testIngestionJobLauncherWithUnicodeCharForMultivalueFieldDelimiter  Time elapsed: 0.016 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.UpsertConfigTest.testUpsertConfig  Time elapsed: 0.012 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.ingestion.batch.BatchConfigTest.testBatchConfig  Time elapsed: 0.004 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.TimestampIndexGranularityTest.testExtractTimestampIndexGranularityColumnNames  Time elapsed: 0.076 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.TimestampIndexGranularityTest.testGetFieldSpecForTimestampColumnWithGranularity  Time elapsed: 0.04 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.TimestampIndexGranularityTest.testGetTransformExpression  Time elapsed: 0.004 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.TimestampIndexGranularityTest.testTimestampIndexGranularity  Time elapsed: 0.001 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.IndexingConfigTest.testSegmentPartitionConfig  Time elapsed: 0.004 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.IndexingConfigTest.testSerDe  Time elapsed: 0.002 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.filesystem.PinotFSTest.testMoveFileUriGeneration  Time elapsed: 0.001 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.filesystem.PinotFSTest.testMoveFileUriGenerationWithPort  Time elapsed: 0.001 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.filesystem.LocalPinotFSTest.testFS  Time elapsed: 1.037 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.QuotaConfigTest.testInvalidQPSQuota  Time elapsed: 0.008 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.QuotaConfigTest.testInvalidStorageQuota  Time elapsed: 0.003 s
+10:05:43.343 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.QuotaConfigTest.testQPSQuota  Time elapsed: 0 s
+10:05:43.344 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.QuotaConfigTest.testSerDe  Time elapsed: 0.003 s
+10:05:43.344 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.config.table.QuotaConfigTest.testStorageQuota  Time elapsed: 0.002 s
+10:05:43.355 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ObfuscatorTest.testComplexObject  Time elapsed: 0.002 s
+10:05:43.356 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ObfuscatorTest.testCustomPattern  Time elapsed: 0.001 s
+10:05:43.357 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ObfuscatorTest.testJsonNode  Time elapsed: 0.001 s
+10:05:43.357 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ObfuscatorTest.testJsonString  Time elapsed: 0 s
+10:05:43.362 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ObfuscatorTest.testNested  Time elapsed: 0.002 s
+10:05:43.363 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ObfuscatorTest.testNoop  Time elapsed: 0 s
+10:05:43.364 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ObfuscatorTest.testNull  Time elapsed: 0.002 s
+10:05:43.365 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ObfuscatorTest.testSimple  Time elapsed: 0 s
+10:05:43.366 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.filesystem.PinotFSFactoryTest.testCustomizedSegmentFetcherFactory  Time elapsed: 0.006 s
+10:05:43.367 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.filesystem.PinotFSFactoryTest.testDefaultPinotFSFactory  Time elapsed: 0 s
+10:05:43.368 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.BigDecimalUtilsTest.testBigDecimal  Time elapsed: 0 s
+10:05:43.369 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.builder.TableNameBuilderTest.testGetTableNameVariations  Time elapsed: 0 s
+10:05:43.370 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.TimeConverterTest.testDoubleTimeColumn  Time elapsed: 0.004 s
+10:05:43.371 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.TimeConverterTest.testFloatTimeColumn  Time elapsed: 0 s
+10:05:43.372 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.TimeConverterTest.testIntTimeColumn  Time elapsed: 0 s
+10:05:43.372 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.TimeConverterTest.testLongTimeColumn  Time elapsed: 0 s
+10:05:43.373 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.TimeConverterTest.testStringTimeColumn  Time elapsed: 0 s
+10:05:43.374 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.GroovyTemplateUtilsTest.testDefaultRenderTemplate  Time elapsed: 0.032 s
+10:05:43.375 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.GroovyTemplateUtilsTest.testIngestionJobTemplate  Time elapsed: 0.014 s
+10:05:43.377 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.GroovyTemplateUtilsTest.testRenderTemplateWithGivenContextMap  Time elapsed: 0.092 s
+10:05:43.377 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.JsonUtilsTest.testFlatten  Time elapsed: 0.002 s
+10:05:43.382 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.JsonUtilsTest.testInferSchema  Time elapsed: 0.026 s  <<< FAILURE!
+10:05:43.392 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.JsonUtilsTest.testUnrecognizedJsonProperties  Time elapsed: 0.044 s
+10:05:43.392 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.IngestionConfigUtilsTest.testGetConfigMapWithPrefix  Time elapsed: 0 s
+10:05:43.392 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.IngestionConfigUtilsTest.testGetPushFrequency  Time elapsed: 0.006 s
+10:05:43.392 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.IngestionConfigUtilsTest.testGetPushType  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.IngestionConfigUtilsTest.testGetStreamConfigMap  Time elapsed: 0.006 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.retry.RetryPolicyTest.testBaseRetryPolicy  Time elapsed: 0.022 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.retry.RetryPolicyTest.testExponentialBackoffRetryPolicy  Time elapsed: 0.01 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.retry.RetryPolicyTest.testFixedDelayRetryPolicy  Time elapsed: 0.024 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.retry.RetryPolicyTest.testNoDelayRetryPolicy  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.retry.RetryPolicyTest.testRandomDelayRetryPolicy  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ByteArrayTest.testCompare  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ByteArrayTest.testCompareAtOffset  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ByteArrayTest.testCompareOutOfBounds  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ByteArrayTest.testHashCode  Time elapsed: 0.072 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ArrayCopyUtilsTest.testCopyFromDoubleArray  Time elapsed: 0.004 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ArrayCopyUtilsTest.testCopyFromFloatArray  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ArrayCopyUtilsTest.testCopyFromIntArray  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ArrayCopyUtilsTest.testCopyFromLongArray  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.utils.ArrayCopyUtilsTest.testCopyFromStringArray  Time elapsed: 0.011 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.DateTimeFormatPatternSpecTest.testValidateFormat  Time elapsed: 0.03 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.DateTimeFieldSpecUtilsTest.testConversionFromTimeToDateTimeSpec  Time elapsed: 0.007 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.DateTimeFormatSpecTest.testDateTimeFormatSpec  Time elapsed: 0.005 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testDifferentNumberOfKeysWithNoSameValueNotEqual  Time elapsed: 0.024 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testDifferentNumberOfKeysWithSomeSameValueNotEqual  Time elapsed: 0.004 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testEmptyRowNotEqualToNonEmptyRow  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testEmptyRowsEqual  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testIntValuesEqual  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testMapValuesDifferentSizeNotEqual  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testMapValuesEqual  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testMapValuesSameSizeNotEqual  Time elapsed: 0 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testNullAndNonNullValuesNotEqual  Time elapsed: 0.004 s
+10:05:43.393 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testNullValueFieldsEqual  Time elapsed: 0 s
+10:05:43.394 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testNullValueFieldsNotEqual  Time elapsed: 0 s
+10:05:43.394 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] org.apache.pinot.spi.data.readers.GenericRowTest.testRowDifferentValueNotEqual  Time elapsed: 0 s
+10:05:43.528 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failures: 
+10:05:43.529 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   JsonUtilsTest.testInferSchema:310 expected [{
+10:05:43.530 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Tests run: 98, Failures: 1, Errors: 0, Skipped: 0
+10:05:43.540 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project pinot-spi: There are test failures.
+10:05:43.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:05:43.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to /root/workspace/apache-pinot-master-8960_repo/pinot-spi/target/surefire-reports for the individual test results.
+10:05:43.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+10:05:43.541 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+10:05:43.551 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:05:43.551 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+10:05:43.551 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:05:43.551 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+10:05:43.551 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+10:05:43.551 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+10:05:43.551 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+10:05:43.551 [Thread-7] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-spi
+10:06:00.601 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath file is empty.
+10:06:00.601 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The classpath seems not to contain JUnit, maybe this project does not use JUnit for testing.
+10:06:00.601 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8960_repo/target/classes.
+10:06:00.601 [main] ERROR f.i.s.r.p.s.paths.ComputeClasspath - The file does not exist: /root/./workspace/apache-pinot-master-8960_repo/target/test-classes.
+10:06:01.014 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.042 [main] ERROR f.i.s.r.p.s.paths.ComputeSourceDir - The source directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.072 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - 52 source dirs were found:
+10:06:01.072 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/contrib/pinot-fmpp-maven-plugin/src/main/java
+10:06:01.072 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-broker/src/main/java
+10:06:01.073 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-clients/pinot-java-client/src/main/java
+10:06:01.073 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-clients/pinot-jdbc-client/src/main/java
+10:06:01.073 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-common/src/main/java
+10:06:01.073 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-compatibility-verifier/src/main/java
+10:06:01.073 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-connectors/pinot-flink-connector/src/main/java
+10:06:01.073 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-connectors/pinot-spark-connector/src/main/scala
+10:06:01.073 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-controller/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-core/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-integration-tests/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-minion/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-perf/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark-2.4/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark-3.2/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/main/java
+10:06:01.078 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-ingestion-common/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-environment/pinot-azure/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-adls/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-s3/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-avro/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-confluent-avro/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-csv/src/main/java
+10:06:01.079 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-json/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-orc/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-metrics/pinot-dropwizard/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-metrics/pinot-yammer/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-segment-uploader/pinot-segment-uploader-default/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/main/java
+10:06:01.080 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-query-planner/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-query-runtime/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-segment-local/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-segment-spi/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-server/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-spi/src/main/java
+10:06:01.081 [main] INFO  f.i.s.r.p.s.paths.ComputeSourceDir - /root/workspace/apache-pinot-master-8960_repo/pinot-tools/src/main/java
+10:06:01.272 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.326 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.537 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-s3:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+10:06:01.701 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.771 [main] ERROR f.i.s.r.process.maven.MavenHelper - Error while building complete model. The raw model will be used. Error message: 1 problem was encountered while building the effective model for org.apache.pinot:pinot-kinesis:0.11.0-SNAPSHOT
+[ERROR] Failed to determine Java version for profile disable-java8-doclint @ software.amazon.awssdk:aws-sdk-java-pom:2.14.28
+
+10:06:01.811 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.817 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.822 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.849 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.849 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.873 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.897 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.945 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.949 [main] ERROR f.i.s.r.p.step.paths.ComputeTestDir - The test directory is not at default location or specified in build section from pom.xml, and no parent can be found.
+10:06:01.963 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - 44 test dirs were found:
+10:06:01.963 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-broker/src/test/java
+10:06:01.963 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-clients/pinot-java-client/src/test/java
+10:06:01.963 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-clients/pinot-jdbc-client/src/test/java
+10:06:01.963 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-common/src/test/java
+10:06:01.963 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-connectors/pinot-flink-connector/src/test/java
+10:06:01.963 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-connectors/pinot-spark-connector/src/test/scala
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-controller/src/test/java
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-core/src/test/java
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-integration-test-base/src/test/java
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-integration-tests/src/test/java
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-minion/src/test/java
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-common/src/test/java
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-hadoop/src/test/java
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark-2.4/src/test/java
+10:06:01.964 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-spark-3.2/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/pinot-batch-ingestion-standalone/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-hadoop/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-batch-ingestion/v0_deprecated/pinot-spark/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-environment/pinot-azure/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-adls/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-gcs/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-hdfs/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-file-system/pinot-s3/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-avro-base/src/test/java
+10:06:01.965 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-csv/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-json/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-orc/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-parquet/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-protobuf/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-input-format/pinot-thrift/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-minion-tasks/pinot-minion-builtin-tasks/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-segment-writer/pinot-segment-writer-file-based/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-0.9/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-2.0/src/test/java
+10:06:01.966 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kafka-base/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-kinesis/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-plugins/pinot-stream-ingestion/pinot-pulsar/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-query-planner/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-query-runtime/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-segment-local/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-segment-spi/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-server/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-spi/src/test/java
+10:06:01.967 [main] INFO  f.i.s.r.p.step.paths.ComputeTestDir - /root/workspace/apache-pinot-master-8960_repo/pinot-tools/src/test/java
+10:06:02.935 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - Get the following failing module path: /root/workspace/apache-pinot-master-8960_repo/pinot-spi
+10:06:02.946 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation - ---Test results---
+10:06:02.946 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Total tests: 114
+10:06:02.946 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests run: 114
+10:06:02.946 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Tests passing: 113
+10:06:02.946 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Failures: 1
+10:06:02.946 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Errors: 0
+10:06:02.946 [main] INFO  f.i.s.r.p.s.g.GatherTestInformation -    Skipped: 0
+[0] INFO Flacoco - Running Flacoco...
+[66] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.spi.env.PinotConfiguration
+[229] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.spi.env.PinotConfigurationTest
+[264] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.spi.env.PinotConfiguration
+[278] WARN TestMethodFilter - NoClassDefFoundError: class org.apache.pinot.spi.env.PinotConfigurationTest
+[307] INFO CoverageRunner - Tests found: 0
+[307] INFO CoverageRunner - Tests executed: 0
+10:06:04.103 [main] INFO  fr.inria.jtravis.JTravis - GitHub ratelimit: Limit: 5000 Remaining: 3360 Reset hour: 04:59:31
+10:06:05.646 [main] WARN  f.i.s.r.p.s.p.PushFaultLocalizationSuggestionsOnGitHubRepository - Flacoco has found 0 suspicious lines, but none were matched to the diff
+10:06:05.646 [main] INFO  f.i.s.r.p.s.f.FlacocoLocalization - 
+10:06:13.089 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:06:13.089 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+10:06:13.089 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest.........................SUCCESS [   35 s ]
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject........................................SUCCESS [ 1298 s ]
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject.........................................SUCCESS [   32 s ]
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath....................................SUCCESS [   16 s ]
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir....................................SUCCESS [    0 s ]
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir......................................SUCCESS [    0 s ]
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation...............................SUCCESS [    0 s ]
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization.................................SUCCESS [    0 s ]
+10:06:13.090 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository..SKIPPED           
+10:06:13.091 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:06:13.091 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: TEST FAILURE
+10:06:13.091 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+10:06:13.091 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

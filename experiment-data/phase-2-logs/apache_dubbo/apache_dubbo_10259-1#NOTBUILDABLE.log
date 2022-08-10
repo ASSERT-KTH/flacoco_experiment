@@ -1,0 +1,55 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 10259
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository null --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/dubbo --gitrepopullrequest 10259
+
+06:34:44.706 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+06:34:44.708 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+06:34:44.708 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+06:34:44.725 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions
+06:34:44.725 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/dubbo.git in the following directory: ./workspace/apache-dubbo-master-10259_repo
+06:34:56.962 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [ERROR] Some problems were encountered while processing the POMs:
+06:34:56.963 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 'dependencies.dependency.version' for com.salesforce.servicelibs:jprotoc:jar is missing. @ line 47, column 21
+06:34:56.963 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 'dependencies.dependency.version' for io.grpc:grpc-context:jar is missing. @ line 63, column 21
+06:34:56.963 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 'dependencies.dependency.version' for com.salesforce.servicelibs:grpc-contrib:jar is missing. @ line 67, column 21
+06:34:56.963 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] The build could not read 1 project -> [Help 1]
+06:34:56.963 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 'dependencies.dependency.version' for com.salesforce.servicelibs:jprotoc:jar is missing. @ line 47, column 21
+06:34:56.963 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 'dependencies.dependency.version' for io.grpc:grpc-context:jar is missing. @ line 63, column 21
+06:34:56.963 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 'dependencies.dependency.version' for com.salesforce.servicelibs:grpc-contrib:jar is missing. @ line 67, column 21
+06:34:56.964 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   
+06:34:56.964 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   The project org.apache.dubbo:dubbo-compiler:3.1.0-SNAPSHOT (/root/workspace/apache-dubbo-master-10259_repo/dubbo-compiler/pom.xml) has 3 errors
+06:34:56.965 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     'dependencies.dependency.version' for com.salesforce.servicelibs:jprotoc:jar is missing. @ line 47, column 21
+06:34:56.965 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     'dependencies.dependency.version' for io.grpc:grpc-context:jar is missing. @ line 63, column 21
+06:34:56.965 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]     'dependencies.dependency.version' for com.salesforce.servicelibs:grpc-contrib:jar is missing. @ line 67, column 21
+06:34:56.965 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+06:34:56.965 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+06:34:56.965 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+06:34:56.965 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+06:34:56.965 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+06:34:57.795 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/dubbo cannot be built.
+06:34:57.796 [main] INFO  f.i.s.r.process.step.BuildProject - 
+06:34:57.988 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+06:34:57.988 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+06:34:57.988 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+06:34:57.988 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 10 s ]
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [  3 s ]
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestions......................NOT RUN         
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+06:34:57.989 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+06:34:57.989 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

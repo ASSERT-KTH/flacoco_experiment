@@ -1,0 +1,53 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/rocketmq --gitrepopullrequest 4454
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/rocketmq --gitrepopullrequest 4454
+
+05:47:42.267 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+05:47:42.269 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+05:47:42.269 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+05:47:42.285 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+05:47:42.286 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+05:47:42.286 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/rocketmq.git in the following directory: ./workspace/apache-rocketmq-master-4454_repo
+05:47:56.000 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] COMPILATION ERROR : 
+05:47:56.000 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-rocketmq-master-4454_repo/remoting/src/main/java/org/apache/rocketmq/remoting/netty/HandlerContextAdaptor.java:[43,36] getResponseFuture() in org.apache.rocketmq.remoting.netty.HandlerContextAdaptor cannot implement getResponseFuture() in org.apache.rocketmq.remoting.HandlerContext
+05:47:56.000 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-rocketmq-master-4454_repo/remoting/src/main/java/org/apache/rocketmq/remoting/netty/HandlerContextAdaptor.java:[42,5] method does not override or implement a method from a supertype
+05:47:56.002 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:compile (default-compile) on project rocketmq-remoting: Compilation failure: Compilation failure: 
+05:47:56.003 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-rocketmq-master-4454_repo/remoting/src/main/java/org/apache/rocketmq/remoting/netty/HandlerContextAdaptor.java:[43,36] getResponseFuture() in org.apache.rocketmq.remoting.netty.HandlerContextAdaptor cannot implement getResponseFuture() in org.apache.rocketmq.remoting.HandlerContext
+05:47:56.003 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   return type java.util.concurrent.Future<org.apache.rocketmq.remoting.protocol.RemotingCommand> is not compatible with java.util.concurrent.CompletableFuture<org.apache.rocketmq.remoting.protocol.RemotingCommand>
+05:47:56.003 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-rocketmq-master-4454_repo/remoting/src/main/java/org/apache/rocketmq/remoting/netty/HandlerContextAdaptor.java:[42,5] method does not override or implement a method from a supertype
+05:47:56.003 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+05:47:56.006 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+05:47:56.006 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+05:47:56.006 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+05:47:56.006 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+05:47:56.006 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+05:47:56.006 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+05:47:56.006 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+05:47:56.006 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :rocketmq-remoting
+05:47:56.184 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/rocketmq cannot be built.
+05:47:56.186 [main] INFO  f.i.s.r.process.step.BuildProject - 
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest............................SUCCESS [ 6 s ]
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject...........................................FAILURE [ 7 s ]
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject............................................NOT RUN        
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath.......................................NOT RUN        
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir.......................................NOT RUN        
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir.........................................NOT RUN        
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation..................................NOT RUN        
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization....................................NOT RUN        
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository.....NOT RUN        
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+05:47:56.383 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+05:47:56.384 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.

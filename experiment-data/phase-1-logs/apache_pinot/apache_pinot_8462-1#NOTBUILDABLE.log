@@ -1,0 +1,63 @@
+Execute pipeline with following supplementary args: --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8462
+java -cp /usr/local/openjdk-11/lib/tools.jar:repairnator-pipeline.jar -Dlogback.configurationFile=/root/logback.xml fr.inria.spirals.repairnator.pipeline.Launcher -d --runId null -o /var/log --ghOauth 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 --faultLocalization --flacocoThreshold 0.0 --flacocoTopK null --flacocoResultsRepository flacocobot/2022-flacocobot-experiment --ghOauth  --smtpPort 25 --listenerMode NOOP --launcherMode FAULT_LOCALIZATION  --gitrepourl https://github.com/apache/pinot --gitrepopullrequest 8462
+
+17:49:53.856 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - Initialize file serializer engines.
+17:49:53.858 [main] INFO  f.i.s.r.p.g.GithubInitSerializerEngines - MongoDB won't be used for serialization.
+17:49:53.858 [main] INFO  f.i.s.r.p.github.GithubInitNotifiers - The email notifier engine won't be used.
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE STEPS
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization
+17:49:53.874 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository
+17:49:53.875 [main] INFO  f.i.s.r.p.s.CloneCheckoutGitPullRequest - Cloning repository https://github.com/apache/pinot.git in the following directory: ./workspace/apache-pinot-master-8462_repo
+17:51:16.808 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] COMPILATION ERROR : 
+17:51:16.809 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8462_repo/pinot-segment-local/src/test/java/org/apache/pinot/segment/local/recordtransformer/ExpressionTransformerTest.java:[275,38] error: constructor IngestionConfig in class IngestionConfig cannot be applied to given types;
+17:51:16.809 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8462_repo/pinot-segment-local/src/test/java/org/apache/pinot/segment/local/recordtransformer/ExpressionTransformerTest.java:[298,38] error: constructor IngestionConfig in class IngestionConfig cannot be applied to given types;
+17:51:16.809 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8462_repo/pinot-segment-local/src/test/java/org/apache/pinot/segment/local/recordtransformer/ExpressionTransformerTest.java:[326,38] error: constructor IngestionConfig in class IngestionConfig cannot be applied to given types;
+17:51:16.813 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project pinot-segment-local: Compilation failure: Compilation failure: 
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8462_repo/pinot-segment-local/src/test/java/org/apache/pinot/segment/local/recordtransformer/ExpressionTransformerTest.java:[275,38] error: constructor IngestionConfig in class IngestionConfig cannot be applied to given types;
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   required: BatchIngestionConfig,StreamIngestionConfig,FilterConfig,List<AggregationConfig>,List<TransformConfig>,ComplexTypeConfig
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   found: <null>,<null>,<null>,List<TransformConfig>,<null>
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   reason: actual and formal argument lists differ in length
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8462_repo/pinot-segment-local/src/test/java/org/apache/pinot/segment/local/recordtransformer/ExpressionTransformerTest.java:[298,38] error: constructor IngestionConfig in class IngestionConfig cannot be applied to given types;
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   required: BatchIngestionConfig,StreamIngestionConfig,FilterConfig,List<AggregationConfig>,List<TransformConfig>,ComplexTypeConfig
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   found: <null>,<null>,<null>,List<TransformConfig>,<null>
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   reason: actual and formal argument lists differ in length
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] /root/workspace/apache-pinot-master-8462_repo/pinot-segment-local/src/test/java/org/apache/pinot/segment/local/recordtransformer/ExpressionTransformerTest.java:[326,38] error: constructor IngestionConfig in class IngestionConfig cannot be applied to given types;
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   required: BatchIngestionConfig,StreamIngestionConfig,FilterConfig,List<AggregationConfig>,List<TransformConfig>,ComplexTypeConfig
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   found: <null>,<null>,<null>,List<TransformConfig>,<null>
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   reason: actual and formal argument lists differ in length
+17:51:16.814 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] -> [Help 1]
+17:51:16.817 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:51:16.817 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+17:51:16.817 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:51:16.817 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] For more information about the errors and possible solutions, please read the following articles:
+17:51:16.817 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+17:51:16.817 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] 
+17:51:16.818 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR] After correcting the problems, you can resume the build with the command
+17:51:16.818 [Thread-4] ERROR f.i.s.r.p.m.o.MavenFilterOutputHandler - [ERROR]   mvn <goals> -rf :pinot-segment-local
+17:51:17.289 [main] ERROR f.i.s.r.process.step.BuildProject - Repository apache/pinot cannot be built.
+17:51:17.289 [main] INFO  f.i.s.r.process.step.BuildProject - 
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE EXECUTION SUMMARY
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - CloneCheckoutGitPullRequest...........................SUCCESS [ 27 s ]
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - BuildProject..........................................FAILURE [ 56 s ]
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - TestProject...........................................NOT RUN         
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeClasspath......................................NOT RUN         
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeSourceDir......................................NOT RUN         
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - ComputeTestDir........................................NOT RUN         
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - GatherTestInformation.................................NOT RUN         
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - FlacocoLocalization...................................NOT RUN         
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - PushFaultLocalizationSuggestionsOnGitHubRepository....NOT RUN         
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:51:17.853 [main] INFO  f.i.s.r.p.i.ProjectInspector - PIPELINE FINDING: NOTBUILDABLE
+17:51:17.854 [main] INFO  f.i.s.r.p.i.ProjectInspector - ----------------------------------------------------------------------
+17:51:17.854 [main] INFO  f.i.s.r.p.github.GithubMainProcess - Inspector is finished. The process will exit now.
